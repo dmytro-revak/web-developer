@@ -1,0 +1,9 @@
+body {
+  background: black;
+}
+
+.third-paragraph {
+  background: white; 
+  text-align: right;
+  font-size: 10px;
+}
