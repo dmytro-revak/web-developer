@@ -1,0 +1,92 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background: black;
+  padding: 5px;
+}
+
+#ramka {
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px double grey;
+  text-align: center;
+  background: repeating-radial-gradient(circle, gold, white, black, gold 25%);
+  padding: 50px;
+}
+
+.word { 
+  display: flex;
+  justify-content: center;
+}
+
+.letter {
+  width: 15%;
+  height: 100%;
+  border: 1px solid black;
+  float: left;
+  font-size: 80px;
+  margin-top: 10px;
+}
+
+#h {
+  background-image: linear-gradient(to bottom, #FF6347, #800080);
+}
+
+#e {
+  background-image: linear-gradient(to top, #ff0000, #ffff00);
+}
+
+#l {
+  background-image: linear-gradient(to left, #B22222, #00008B);
+}
+
+#l2 {
+  background-image: linear-gradient(to right, #FA8072, #191970);
+}
+
+#o {
+  background-image: linear-gradient(45deg, #7FFF00, #6B8E99);
+}
+
+#w {
+  background-image: linear-gradient(90deg, #FF0000, #4B0082);
+}
+
+#o2 {
+  background-image: linear-gradient(120deg, #FF4612, #9B9199);
+}
+
+#r {
+  background-image: repeating-linear-gradient(99deg, #FF9995, #4B8782, #FF9995 25%);
+}
+
+#l3 {
+  background-image: repeating-linear-gradient(-234deg, #FF9428, #4B0082, #FF9428 10%);
+}
+
+#d {
+  background-image: repeating-linear-gradient(45deg, #FF9000, #1B0082, #9B9199, #7FFF00, #FF9000 15%);
+}
+
+#exclamation-mark {
+  background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1));
+}
+
+a {
+  color: red;
+  text-decoration: none;
+  font-size: 50px;
+  font-family: Arial;
+}
+
+a.one {
+  transition-duration: 1s;
+}
+
+a.one:hover {
+  font-size: 70px;
+  color: green;
+}
