@@ -1,0 +1,103 @@
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.wrapper {
+  width: 80%;
+  height: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 5px dashed black;
+}
+
+/* Block with "Practice" */
+
+.practice {
+  box-sizing: border-box;
+  padding: 50px;
+  background-color: yellow;
+  text-align: center;
+}
+
+/* First section */
+
+
+/* Left aqua block of first section */
+
+.left-horyzontal-container {
+  width: 20%;
+  padding: 100px 0;
+  float: left;
+  background-color: aqua;
+}
+
+.center-height-container {
+  width: 80%;
+  float: left;
+}
+
+/* center-height-container content start */
+
+.red-content {
+  width: 30%;
+  padding: 50px 0;
+  float: left;
+  background-color: rgb(255,140,0);
+}
+.blue-content {
+  padding: 50px 0;
+  background-color: blue;
+}
+
+/* center-height-container content end */
+
+
+
+.center-down-container {
+  width: 80%;
+  background-color: green;
+  float: left;
+}
+
+/* center-down-container content start */
+
+.violet-red-conntent {
+  float: left;
+  width: 15%;
+}
+
+.violet-content {
+  padding: 25px 0;
+  background-color: violet;
+}
+
+.blod-content {
+  padding: 25px 0;
+  background-color: red;
+}
+
+.pink-content {
+  width: 42%;
+  padding: 50px 0;
+  background-color: pink;
+  float: left;
+}
+
+.green-content {
+  width: 43%;
+  padding: 50px 0;
+  background-color: rgb(124,252,0);
+  float: left;
+}
+
+
+/* center-down-container content end */
+
+
+
+.second-section {
+  height: 20%;
+  background-color: grey;
+}
