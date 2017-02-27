@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zazor</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <div class="main-content-wrapper">
+      <!-- header start -->
+      <header class="header">
+        <!-- authorization-panel start -->
+        <div class="authorization-panel header__authorization-panel">
+          <div class="telephone-number">
+            <span class="glyphicon glyphicon-earphone telephone-number__phone-picture" aria-hidden="true"></span>
+            <span class="telephone-number__phone-number">
+              (044)123-45-67 (044)567-89-10
+            </span>
+          </div>
+          <div class="login-password">
+            <form class="login-password-form login-password-form_style_header-form">
+              <figure class="login-password-form__user-icon-wrapper">
+                <img src="img/user-icon.png" alt="user icon" class="login-password-form__user-icon page-picture">
+              </figure>
+              <input class="login-password-form__entered-fiedl" type="text" name="login" placeholder="логин">
+              <input class="login-password-form__entered-fiedl login-password-form__password-field" type="password" name="password" placeholder="пароль">
+              <input class="login-password-form__button login-password-form__button_style_white login-password-form__submit-button" type="submit" value="вход"></input>
+              <span class="login-password-form__button-deliver login-password-form__button-deliver_style-white">|</span>
+              <input class="login-password-form__button login-password-form__button_style_white login-password-form__register-button" type="button" value="регистрация"></input>
+              <input class="login-password-form__button login-password-form__forget_password-button" type="button" value="забыли пароль?"></input>
+            </form>
+          </div>
+          <div class="messages-panel authorization-panel__messages-panel">
+            <figure class="messages-panel__picture-wrapper">
+              <img src="img/home-icon.png" alt="home icon" class="messages-panel__picture page-picture">
+            </figure>
+            <figure class="messages-panel__picture-wrapper">
+              <img src="img/site-map-icon.png" alt="site map icon" class="messages-panel__picture page-picture">
+            </figure>
+            <figure class="messages-panel__picture-wrapper">
+              <img src="img/message-icon.png" alt="message icon" class="messages-panel__picture page-picture">
+            </figure>
+          </div> 
+        </div>
+        <!-- authorization-panel end -->
+        <!-- main tires picture start -->
+        <div class="main-page-picture">
+          <figure class="main-page-picture__picture-wrapper">
+            <img src="img/zazor-pict.jpg" alt="big tire picture" class="main-page-picture__tire-picture">
+          </figure>
+        </div>
+        <!-- main tires picture end -->
+        <!-- navigation start -->
+        <nav class="navigation navigation__style_default">
+          <ul class="navigation__menu-list ">
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link navigation__menu-link_style_default navigation__menu-link_active navigation__menu-link_type_about-company">О КОМПАНИ</a>
+            </li>
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link navigation__menu-link_style_default navigation__menu-link_type_payment">ОПЛАТА</a>
+            </li>
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link navigation__menu-link_style_default navigation__menu-link_type_delivery">ДОСТАВКА</a>
+            </li>
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link navigation__menu-link_style_default navigation__menu-link_type_articles">СТАТЬИ</a>
+            </li>
+            <li class="navigation__menu-item">
+              <a href="#" class="navigation__menu-link navigation__menu-link_style_default navigation__menu-link_type_contacts">КОНТАКТЫ</a>
+            </li>
+          </ul>
+          <div class="products-info navigation__products-info">
+            <figure class="products-info__basket-pict-wrapper">
+              <img src="img/basket-picture.png" alt="basket picture" class="products-info__basket-pict page-picture">
+            </figure>
+            <span class="products-info__nav-text products-info__nav-text_color_white products-info__products-text">товаров:</span>
+            <span class="products-info__nav-text products-info__nav-text_color_blue products-info__zero-text">0</span>
+            <span class="products-info__nav-text products-info__nav-text_color_white products-info__on-text">на</span>
+            <span class="products-info__nav-text products-info__nav-text_color_white products-info__amount-text">сумму:</span>
+            <span class="products-info__nav-text products-info__nav-text_color_blue products-info__value-text">0,00 грн</span>
+          </div>
+        </nav>
+        <!-- navigation end -->
+      </header>
+      <!-- header end -->
+      <!-- main-content start -->
+      <main class="main-content">
+        <!-- forms start -->
+        <section class="form-panel main-content__form-panel clearfix">
+          <form class="searching-form search-car form-panel__item form-panel__search-car form-panel__item_style_default">
+            <div class="searching-form__headers-wrapper">
+              <h4 class="searching-form__form-header searching-form__form-header_second">Диски:</h4>
+              <h3 class="searching-form__form-header searching-form__form-header_main search-car__main-header">Поиск по автомобилю</h3>
+              <h4 class="searching-form__form-header searching-form__form-header_second">Шины:</h4>
+            </div>
+            <div class="searching-form__inputes-wrapper clearfix">
+              <div class="searching-form__inputes-section">
+                <label for="brand" class="searching-form__input-label searching-form__input-label_style_search-car searching-form__car-brand-label">
+                  Марка <span class="searching-form__input-label searching-form__input-label_style_grey">авто:</span>
+                </label>
+                <select name="brand" class="searching-form__select-menu searching-form__select-menu_width_long"></select>
+                <label for="model" class="searching-form__input-label searching-form__input-label_style_search-car">
+                  Модель 
+                  <span class="searching-form__input-label searching-form__input-label_style_grey">автомобиля:</span>
+                </label>
+                <select name="model" class="searching-form__select-menu searching-form__select-menu_width_long"></select>
+                <label for="year" class="searching-form__input-label searching-form__input-label_style_search-car searching-form__grduation-year">
+                  Год выпуска
+                  <span class="searching-form__input-label searching-form__input-label_style_grey">автомобиля:</span>
+                </label>
+                <select name="year" class="searching-form__select-menu searching-form__select-menu_width_short"></select>
+                <label for="complectation" class="searching-form__input-label searching-form__input-label_style_search-car">
+                  Комплектация:
+                </label>
+                <select name="complectation" class="searching-form__select-menu searching-form__select-menu_width_long"></select>
+              </div>
+              <div class="searching-form__inputes-section">
+                <label for="brand" class="searching-form__input-label searching-form__input-label_style_search-car">
+                  Марка <span class="searching-form__input-label searching-form__input-label_style_grey searching-form__input-label_style_search-car">авто:</span>
+                </label>
+                <select name="brand" class="searching-form__select-menu searching-form__select-menu_width_long"></select>
+                <label for="model" class="searching-form__input-label searching-form__input-label_style_search-car">
+                  Модель 
+                  <span class="searching-form__input-label searching-form__input-label_style_grey searching-form__input-label_style_search-car">автомобиля:</span>
+                </label>
+                <select name="model" class="searching-form__select-menu searching-form__select-menu_width_long"></select>
+                <label for="year" class="searching-form__input-label searching-form__input-label_style_search-car">
+                  Год выпуска
+                  <span class="searching-form__input-label searching-form__input-label_style_grey searching-form__input-label_style_search-car">автомобиля:</span>
+                </label>
+                <select name="year" class="searching-form__select-menu searching-form__select-menu_width_short"></select>
+                <label for="complectation" class="searching-form__input-label searching-form__input-label_style_search-car">
+                  Комплектация:
+                </label>
+                <select name="complectation" class="searching-form__select-menu searching-form__select-menu_width_long"></select>
+              </div>
+            </div>
+            <div class="searching-form__search-button-wrapper">
+              <a href="#" class="searching-form__search-button">поиск...</a>
+            </div>
+          </form>
+          <form class="searching-form search-tire form-panel__item form-panel__item_style_default">
+            <div class="searching-form__headers-wrapper">
+              <h3 class="searching-form__form-header searching-form__form-header_main search-tire__main-header">поиск шин</h3>
+            </div>
+            <div class="searching-form__inputes-wrapper clearfix">
+              <div class="search-tire__tire-inputes-wrapper">
+                <label for="size" class="searching-form__input-label searching-form__input-label_style_search-tire">
+                  Размер: 
+                </label>
+                <select name="size" class="searching-form__select-menu searching-form__select-menu_width_extra-short">
+                  <option value="145" class="searching-form__select-menu-item">145</option>
+                </select>
+                <span>/</span>
+                <select name="size" class="searching-form__select-menu searching-form__select-menu_width_extra-short"></select>
+                <label for="radius" class="searching-form__input-label searching-form__input-label_style_search-tire">
+                  R 
+                </label>
+                <select name="radius" class="searching-form__select-menu searching-form__select-menu_width_extra-short">
+                  <option value="12" class="searching-form__select-menu-item">12</option>
+                </select>
+              </div>
+              <div class="search-tire__checkbox-wrapper clearfix">
+                <span class="searching-form__input-label searching-form__input-label_style_search-tire searching-form__season-input">
+                  Сезон:
+                </span>
+                <div class="search-tire__checkbox-wrapper">
+                  <label class="searching-form__input-label searching-form__input-label_style_default">
+                    <input type="checkbox" value="summer" class="search-tire__checkbox">лето
+                  </label>
+                  <label class="searching-form__input-label searching-form__input-label_style_default">
+                    <input type="checkbox" value="winter" class="search-tire__checkbox">зима
+                  </label>
+                  <label class="searching-form__input-label searching-form__input-label_style_default">
+                    <input type="checkbox" value="all-seasons" class="search-tire__checkbox">всесез
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="searching-form__search-button-wrapper">
+              <a href="#" class="searching-form__search-button">поиск...</a>
+            </div>
+          </form>
+          <form class="searching-form search-disk form-panel__item form-panel__item_style_default">
+            <div class="searching-form__headers-wrapper searching-form__headers-wrapper_style_search-disk">
+              <h3 class="searching-form__form-header searching-form__form-header_main search-disk__main-header">поиск дисков</h3>
+            </div>
+            <div class="searching-form__inputes-wrapper search-disk__inputes-wrapper clearfix">
+              <div class="search-disk__left-input-section">
+                <label for="brand" class="searching-form__input-label searching-form__input-label_style_search-disk">
+                  Диаметр <span class="searching-form__input-label searching-form__input-label_style_grey searching-form__input-label_style_search-car">диска:</span>
+                </label>
+                <select name="brand" class="searching-form__select-menu searching-form__select-menu_width_short"></select>
+                <label for="model" class="searching-form__input-label searching-form__input-label_style_search-disk">
+                  Количество 
+                  <span class="searching-form__input-label searching-form__input-label_style_grey searching-form__input-label_style_search-car">крепёжных отверстий:</span>
+                </label>
+                <select name="model" class="searching-form__select-menu searching-form__select-menu_width_short"></select>
+                <label for="year" class="searching-form__input-label searching-form__input-label_style_search-disk">
+                  Диаметр
+                  <span class="searching-form__input-label searching-form__input-label_style_grey searching-form__input-label_style_search-car">расположения крепёжных отверстий:</span>
+                </label>
+                <select name="model" class="searching-form__select-menu searching-form__select-menu_width_short search-disk__last-checkbox"></select>
+              </div>
+              <div class="search-disk__right-input-section">
+                <label for="brand" class="searching-form__input-label searching-form__input-label_style_search-disk searching-form__input-label_style_search-disk-right">
+                  ДЦО
+                  <br>
+                  <span class="searching-form__input-label searching-form__input-label_style_grey searching-form__input-span">(диаметр центрального отверстия):</span>
+                </label>
+                <select name="brand" class="searching-form__select-menu searching-form__select-menu_width_short search-disk__right-input"></select>
+                <label for="brand" class="searching-form__input-label searching-form__input-label_style_search-disk searching-form__input-label_style_search-disk-right">
+                  ЕТ
+                  <br>
+                  <span class="searching-form__input-label searching-form__input-label_style_grey searching-form__input-span">(вылет диска):</span>
+                </label>
+                <select name="brand" class="searching-form__select-menu searching-form__select-menu_width_short search-disk__right-input"></select>
+              </div>
+            </div>
+            <div class="searching-form__search-button-wrapper search-disk__search-button-wrapper">
+              <a href="#" class="searching-form__search-button">поиск...</a>
+            </div>
+          </form>
+        </section>
+        <!-- forms end -->
+        <!-- product-content start -->
+        <section class="content-panel">
+          <div class="products-catalog content-panel__section-item">
+            <div class="products-section-header products-section-header_style_default clearfix">
+              <div class="products-section-header__list-picture-wrapper">
+                <img src="img/list-pict.png" alt="list picture" class="products-section-header__list-picture page-picture">
+              </div>
+              <h2 class="products-section-header__header-title">
+                КАТАЛОГ ПРОДУКЦИИ:
+              </h2>
+            </div>
+            <div class="products-choose-panel products-choose-panel_style_tires">
+              <div class="products-choose-panel__header clearfix">  
+                <div class="products-choose-panel__circle-list-pict-wrapper">
+                  <img src="img/circle-list-picture.png" alt="circle list picture" class="products-choose-panel__circle-list-picture page-picture">
+                </div>
+                <h3 class="products-choose-panel__list-header">
+                  ШИНЫ
+                </h3>
+              </div>
+              <ul class="products-choose-panel__products-list">
+                <li class="products-choose-panel__products-item">Наименование 1</li>
+                <li class="products-choose-panel__products-item products-choose-panel__products-item_active">Наименование 2</li>
+                <li class="products-choose-panel__products-item">Наименование 3</li>
+                <li class="products-choose-panel__products-item">Наименование 4</li>
+              </ul>
+            </div>
+            <div class="products-choose-panel products-choose-panel_style_disks">
+              <div class="products-choose-panel__header clearfix">  
+                <div class="products-choose-panel__circle-list-pict-wrapper">
+                  <img src="img/circle-list-picture.png" alt="circle list picture" class="products-choose-panel__circle-list-picture page-picture">
+                </div>
+                <h3 class="products-choose-panel__list-header">
+                  ДИСКИ
+                </h3>
+              </div>
+              <ul class="products-choose-panel__products-list">
+                <li class="products-choose-panel__products-item">Наименование 1</li>
+                <li class="products-choose-panel__products-item">Наименование 2</li>
+                <li class="products-choose-panel__products-item">Наименование 3</li>
+                <li class="products-choose-panel__products-item">Наименование 4</li>
+              </ul>
+            </div>
+            <div class="products-choose-panel products-choose-panel_style_bolts">
+              <div class="products-choose-panel__header clearfix">  
+                <div class="products-choose-panel__circle-list-pict-wrapper">
+                  <img src="img/circle-list-picture.png" alt="circle list picture" class="products-choose-panel__circle-list-picture page-picture">
+                </div>
+                <h3 class="products-choose-panel__list-header">
+                  БОЛТЫ
+                </h3>
+              </div>
+              <ul class="products-choose-panel__products-list">
+                <li class="products-choose-panel__products-item">Наименование 1</li>
+                <li class="products-choose-panel__products-item">Наименование 2</li>
+                <li class="products-choose-panel__products-item">Наименование 3</li>
+                <li class="products-choose-panel__products-item">Наименование 4</li>
+              </ul>
+            </div>
+          </div>
+          <div class="products-board content-panel__products-board">
+            <div class="products-board__row">
+              <div class="products-board__produt-icon products-board__produt-icon_style_goodyear">
+                <h3 class="products-board__produt-header">Goodyear</h3>
+                <span class="products-board__produt-description">Ulrtra Grip Extreme</span>
+                <figure class="products-board__produt-foto-wrapper">
+                  <img src="img/goodyear-tire.jpg" alt="tire's foto" class="products-board__produt-foto page-picture">
+                </figure>
+                <span class="products-board__produt-price">
+                  90.00 
+                  <span class="products-board__produt-price products-board__produt-price_style_small-text">грн.</span>
+                </span>
+              </div>
+              <div class="products-board__produt-icon products-board__produt-icon_style_nokian">
+                <h3 class="products-board__produt-header">Nokian</h3>
+                <span class="products-board__produt-description">Hakkapeliitta R</span>
+                <figure class="products-board__produt-foto-wrapper">
+                  <img src="img/nokian-tire.jpg" alt="tire's foto" class="products-board__produt-foto page-picture">
+                </figure>
+                <span class="products-board__produt-price">
+                  115.00 
+                  <span class="products-board__produt-price products-board__produt-price_style_small-text">грн.</span>
+                </span>
+              </div>
+              <div class="products-board__produt-icon products-board__produt-icon_style_hankook">
+                <h3 class="products-board__produt-header">Hankook</h3>
+                <span class="products-board__produt-description products-board__produt-description_letter-spacing_big">K 708 155/65 R14</span>
+                <figure class="products-board__produt-foto-wrapper">
+                  <img src="img/hankook-tire.jpg" alt="tire's foto" class="products-board__produt-foto page-picture">
+                </figure>
+                <span class="products-board__produt-price">
+                  393.00 
+                  <span class="products-board__produt-price products-board__produt-price_style_small-text">грн.</span>
+                </span>
+              </div>
+            </div>
+            <div class="products-board__row">
+              <div class="products-board__produt-icon products-board__produt-icon_style_goodyear">
+                <h3 class="products-board__produt-header">Goodyear</h3>
+                <span class="products-board__produt-description">Ulrtra Grip Extreme</span>
+                <figure class="products-board__produt-foto-wrapper">
+                  <img src="img/goodyear-tire.jpg" alt="tire's foto" class="products-board__produt-foto page-picture">
+                </figure>
+                <span class="products-board__produt-price">
+                  90.00 
+                  <span class="products-board__produt-price products-board__produt-price_style_small-text">грн.</span>
+                </span>
+              </div>
+              <div class="products-board__produt-icon products-board__produt-icon_style_nokian">
+                <h3 class="products-board__produt-header">Nokian</h3>
+                <span class="products-board__produt-description">Hakkapeliitta R</span>
+                <figure class="products-board__produt-foto-wrapper">
+                  <img src="img/nokian-tire.jpg" alt="tire's foto" class="products-board__produt-foto page-picture">
+                </figure>
+                <span class="products-board__produt-price">
+                  115.00 
+                  <span class="products-board__produt-price products-board__produt-price_style_small-text">грн.</span>
+                </span>
+              </div>
+              <div class="products-board__produt-icon products-board__produt-icon_style_hankook">
+                <h3 class="products-board__produt-header">Hankook</h3>
+                <span class="products-board__produt-description products-board__produt-description_letter-spacing_big">K 708 155/65 R14</span>
+                <figure class="products-board__produt-foto-wrapper">
+                  <img src="img/hankook-tire.jpg" alt="tire's foto" class="products-board__produt-foto page-picture">
+                </figure>
+                <span class="products-board__produt-price">
+                  393.00 
+                  <span class="products-board__produt-price products-board__produt-price_style_small-text">грн.</span>
+                </span>
+              </div>
+            </div>
+            <div class="products-board__row">
+              <div class="products-board__produt-icon products-board__produt-icon_style_goodyear">
+                <h3 class="products-board__produt-header">Goodyear</h3>
+                <span class="products-board__produt-description">Ulrtra Grip Extreme</span>
+                <figure class="products-board__produt-foto-wrapper">
+                  <img src="img/goodyear-tire.jpg" alt="tire's foto" class="products-board__produt-foto page-picture">
+                </figure>
+                <span class="products-board__produt-price">
+                  90.00 
+                  <span class="products-board__produt-price products-board__produt-price_style_small-text">грн.</span>
+                </span>
+              </div>
+              <div class="products-board__produt-icon products-board__produt-icon_style_nokian">
+                <h3 class="products-board__produt-header">Nokian</h3>
+                <span class="products-board__produt-description">Hakkapeliitta R</span>
+                <figure class="products-board__produt-foto-wrapper">
+                  <img src="img/nokian-tire.jpg" alt="tire's foto" class="products-board__produt-foto page-picture">
+                </figure>
+                <span class="products-board__produt-price">
+                  115.00 
+                  <span class="products-board__produt-price products-board__produt-price_style_small-text">грн.</span>
+                </span>
+              </div>
+              <div class="products-board__produt-icon products-board__produt-icon_style_hankook">
+                <h3 class="products-board__produt-header">Hankook</h3>
+                <span class="products-board__produt-description products-board__produt-description_letter-spacing_big">K 708 155/65 R14</span>
+                <figure class="products-board__produt-foto-wrapper">
+                  <img src="img/hankook-tire.jpg" alt="tire's foto" class="products-board__produt-foto page-picture">
+                </figure>
+                <span class="products-board__produt-price">
+                  393.00 
+                  <span class="products-board__produt-price products-board__produt-price_style_small-text">грн.</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="products-brends content-panel__section-item content-panel__products-brends">
+            <div class="products-section-header products-section-header_style_default clearfix">
+              <div class="products-section-header__list-picture-wrapper">
+                <img src="img/list-pict.png" alt="list picture" class="products-section-header__list-picture page-picture">
+              </div>
+              <h2 class="products-section-header__header-title">
+                БРЕНДЫ:
+              </h2>
+            </div>
+            <form class="tires-discks-choise-from products-brends__tires-discks-choise-from">
+              <div class="products-choose-panel__header clearfix">  
+                <div class="products-choose-panel__circle-list-pict-wrapper">
+                  <img src="img/circle-list-picture.png" alt="circle list picture" class="products-choose-panel__circle-list-picture page-picture">
+                </div>
+                <h3 class="products-choose-panel__list-header">
+                  ШИНЫ
+                </h3>
+              </div>
+              <fieldset class="tires-discks-choise-from__checkboxes-set">
+                <label class="tires-discks-choise-from__label-checkbox-input">
+                  <input type="checkbox" name="brand" value="brand-1" class="tires-discks-choise-from__checkbox-input"> Бренд 1
+                </label>
+                <br>
+                <label class="tires-discks-choise-from__label-checkbox-input">
+                  <input type="checkbox" name="brand" value="brand-2" class="tires-discks-choise-from__checkbox-input"> Бренд 2
+                </label>
+                <br>
+                <label class="tires-discks-choise-from__label-checkbox-input">
+                  <input type="checkbox" name="brand" value="brand-3" class="tires-discks-choise-from__checkbox-input"> Бренд 3
+                </label>
+              </fieldset>
+              <div class="products-choose-panel__header clearfix">  
+                <div class="products-choose-panel__circle-list-pict-wrapper">
+                  <img src="img/circle-list-picture.png" alt="circle list picture" class="products-choose-panel__circle-list-picture page-picture">
+                </div>
+                <h3 class="products-choose-panel__list-header">
+                  ДИСКИ
+                </h3>
+              </div>
+              <fieldset class="tires-discks-choise-from__checkboxes-set">
+                <label class="tires-discks-choise-from__label-checkbox-input">
+                  <input type="checkbox" name="brand" value="brand-1" class="tires-discks-choise-from__checkbox-input"> Бренд 1
+                </label>
+                <br>
+                <label class="tires-discks-choise-from__label-checkbox-input">
+                  <input type="checkbox" name="brand" value="brand-2" class="tires-discks-choise-from__checkbox-input"> Бренд 2
+                </label>
+                <br>
+                <label class="tires-discks-choise-from__label-checkbox-input">
+                  <input type="checkbox" name="brand" value="brand-3" class="tires-discks-choise-from__checkbox-input"> Бренд 3
+                </label>
+              </fieldset>
+              <button class="tires-discks-choise-from__submit-button" type="submit">ВЫБРАТЬ</button>
+            </form>
+          </div>
+        </section>
+        <!-- product-content end -->
+        <!-- brand-logos panel start -->
+        <section class="brand-logos-panel">
+          <ul class="brand-logos-panel__list">
+            <li class="brand-logos-panel__logo-item">
+              <figure class="brand-logos-panel__logo-wrapper">
+                <img src="img/toyo-logo.png" alt="" class="brand-logos-panel__logo-picture page-picture">
+              </figure>
+            </li>
+            <li class="brand-logos-panel__logo-item">
+              <figure class="brand-logos-panel__logo-wrapper">
+                <img src="img/bridgestone-logo.png" alt="" class="brand-logos-panel__logo-picture page-picture">
+              </figure>
+            </li>
+            <li class="brand-logos-panel__logo-item">
+              <figure class="brand-logos-panel__logo-wrapper">
+                <img src="img/continental-logo.png" alt="" class="brand-logos-panel__logo-picture page-picture">
+              </figure>
+            </li>
+            <li class="brand-logos-panel__logo-item">
+              <figure class="brand-logos-panel__logo-wrapper">
+                <img src="img/dooper-logo.png" alt="" class="brand-logos-panel__logo-picture page-picture">
+              </figure>
+            </li>
+            <li class="brand-logos-panel__logo-item">
+              <figure class="brand-logos-panel__logo-wrapper">
+                <img src="img/avon-logo.png" alt="" class="brand-logos-panel__logo-picture page-picture">
+              </figure>
+            </li>
+            <li class="brand-logos-panel__logo-item">
+              <figure class="brand-logos-panel__logo-wrapper">
+                <img src="img/tire-factory-logo.png" alt="" class="brand-logos-panel__logo-picture page-picture">
+              </figure>
+            </li>
+            <li class="brand-logos-panel__logo-item">
+              <figure class="brand-logos-panel__logo-wrapper">
+                <img src="img/pirelli-logo.png" alt="" class="brand-logos-panel__logo-picture page-picture">
+              </figure>
+            </li>
+            <li class="brand-logos-panel__logo-item">
+              <figure class="brand-logos-panel__logo-wrapper">
+                <img src="img/dunlop-logo.png" alt="" class="brand-logos-panel__logo-picture page-picture">
+              </figure>
+            </li>
+          </ul>
+        </section>
+        <!-- brand-logos panel end -->
+      </main>  
+      <!-- main-content end -->
+      <!-- footer start -->
+      <footer class="footer footer_style-blue">
+        <nav class="footer__navigation">
+          <ul class="footer__navigation-list">
+            <li class="footer__navigation-item">
+              <a href="#" class="footer__navigation-link footer__navigation-link_active">О компании</a>
+            </li>
+            <li class="footer__navigation-item">
+              <a href="#" class="footer__navigation-link">Доставка</a>
+            </li>
+            <li class="footer__navigation-item">
+              <a href="#" class="footer__navigation-link">Статьи</a>
+            </li>
+            <li class="footer__navigation-item">
+              <a href="#" class="footer__navigation-link">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+        <p class="footer__company-info">Создание сайта &#169; Global Vision</p>
+      </footer>
+      <!-- footer end -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  </body>
+</html>

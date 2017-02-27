@@ -1,0 +1,103 @@
+body {
+    background-size: cover;
+}
+
+button {
+    border: none;
+    background: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+button:focus {
+    outline:0;
+}
+
+#backgrounds-wrapper {
+    display: none;
+    width: 450px;
+    margin: 0 auto;
+}
+
+#backgrounds-wrapper.picture-wrapper, #backgrounds-wrapper.color-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.background-wrapper__item {
+    padding: 45px 0;
+    width: 33.33%;
+    background-size: cover;
+}
+
+.color-wrapper .background-wrapper__first-item {
+    background: skyblue;
+}
+
+.color-wrapper .background-wrapper__second-item {
+    background: brown;
+}
+
+.color-wrapper .background-wrapper__third-item {
+    background: green;
+}
+
+.color-wrapper .background-wrapper__fourth-item {
+    background: lime;
+}
+
+.color-wrapper .background-wrapper__fifth-item {
+    background: pink;
+}
+
+.color-wrapper .background-wrapper__sixth-item {
+    background: red;
+}
+
+.color-wrapper .background-wrapper__seventh-item {
+    background: blue;
+}
+
+.color-wrapper .background-wrapper__eighth-item {
+    background: violet;
+}
+
+.color-wrapper .background-wrapper__nineth-item {
+    background: yellow;
+}
+
+.picture-wrapper .background-wrapper__first-item {
+    background-image: url(http://www.1366x768.ru/nature/279/nature-wallpaper-1366x768.jpg);
+}
+
+.picture-wrapper .background-wrapper__second-item {
+    background-image: url(http://www.1366x768.ru/nature/1/lake-wallpaper-1366x768.jpg);
+}
+
+.picture-wrapper .background-wrapper__third-item {
+    background-image: url(http://fanoboi.com/nature/144/nature-of-the-tropics-wallpaper-1366x768.jpg);
+}
+
+.picture-wrapper .background-wrapper__fourth-item {
+    background-image: url(http://www.fonstola.ru/pic/201112/2560x1600/fonstola.ru-64326.jpg);
+}
+
+.picture-wrapper .background-wrapper__fifth-item {
+    background-image: url(http://luxfon.com/images/201203/luxfon.com_10874.jpg);
+}
+
+.picture-wrapper .background-wrapper__sixth-item {
+    background-image: url(http://daler.ru/pictures/1/2560x1600/Ryabina-12264.jpg);
+}
+
+.picture-wrapper .background-wrapper__seventh-item {
+    background-image: url(http://wp.widewallpapers.ru/2k/nature/1366x768/nature-wallpaper-1366x768-004.jpg);
+}
+
+.picture-wrapper .background-wrapper__eighth-item {
+    background-image: url(http://widefon.com/_ld/82/70876715.jpg);
+}
+
+.picture-wrapper .background-wrapper__nineth-item {
+    background-image: url(http://wallpapers1.ru/priroda/data/Wallpaper1ru_Nature_047.jpg);
+}

@@ -1,0 +1,823 @@
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.main-content-wrapper {
+  width: 908px;
+  margin: 0 auto;
+
+  background-color: yellow;
+}
+
+/*header styles start---------------------------------------------------------------------------------------------------*/
+
+/*authorization-panel syles start*/
+
+.authorization-panel {
+  display: flex;
+  align-items: flex-start;
+}
+
+.header__authorization-panel {
+  padding-top: 17px;
+}
+
+.telephone-number {   
+  width: 314px;  
+}
+
+.telephone-number__phone-picture {
+  display: inline-block;
+  margin-left: 8px;
+  color: #fff;
+  background-image: linear-gradient(90deg, rgb(32,105,136) 0%, rgb(17,65,101) 59%, rgb(15,58,94) 85%, rgb(12,50,86) 100%);
+  width: 20px;
+  height: 21px;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 20px;
+}
+
+.telephone-number__phone-number {
+  display: inline-block;
+  padding-top: 3px;
+  font-size: 18.9px;
+  font-family: "Arial";
+  color: rgb(94, 105, 109);
+  line-height: 1.415;
+  text-align: center;
+}
+
+.login-password {
+  width: 495px;
+}
+
+.login-password-form_style_header-form {
+  background-image: linear-gradient(-90deg, rgb(32,105,136) 0%, rgb(17,65,101) 59%, rgb(15,58,94) 85%, rgb(12,50,86) 100%);
+  border-radius: 5px;
+  box-shadow: 1px 3px 3px 1px rgba(150, 150, 150, 0.75);
+}
+
+.login-password-form__user-icon-wrapper {
+  display: inline-block;
+  padding-left: 7px;
+}
+
+.page-picture {
+  max-width: 100%;
+}
+
+.login-password-form__entered-fiedl {
+  height: 17px;
+  padding-left: 2px;
+  font-size: 11.7px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(155, 161, 163);
+  width: 113px;
+  border-radius: 2px;
+}
+
+.login-password-form__password-field {
+  width: 115px;
+  margin-left: 2px;
+  padding-left: 5px;
+}
+
+.login-password-form__button {
+  border: none;
+  background-color: transparent;
+  font-size: 10.5px;
+  font-family: "Lucida Sans Unicode";
+  line-height: 2.333;
+  text-align: center;
+}
+
+.login-password-form__button_style_white {
+  padding: 0;
+  color: #fff;
+}
+
+.login-password-form__submit-button {
+  padding-left: 5px;
+}
+
+.login-password-form__register-button {
+  padding-right: 17px;
+}
+
+.login-password-form__forget_password-button {
+  font-size: 12px;
+  padding: 0;
+  text-decoration: underline;
+  color: rgb(191, 191, 191);
+}
+
+.login-password-form__button-deliver_style-white {
+  color: #fff;
+  font-size: 10px;
+}
+
+.messages-panel {
+  width: 75px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(189, 196, 199);
+  box-shadow: 0 1px 5px 0;
+}
+
+.authorization-panel__messages-panel {
+  margin-left: 18px;
+  margin-top: 2px;
+  padding-bottom: 4px;
+  font-size: 0px;
+  line-height: 0px;
+}
+
+.messages-panel__picture-wrapper {
+  padding: 3px 1px 0px 7px;
+}
+
+.messages-panel__picture-wrapper {
+  display: inline-block;
+}
+/*authorization-panel styles end*/
+
+/*main-picture styles start*/
+
+.main-page-picture__picture-wrapper {
+  margin-top: 8px;
+}
+
+/*main-picture styles end*/
+
+/*navigatin styles start*/
+
+.navigation, .products-info {
+  display: flex;
+  align-items: flex-start;
+}
+
+.navigation__style_default {
+  width: 910px;
+  margin-top: 6px;
+  background-image: linear-gradient( 0deg, rgb(0,0,0) 0%, rgb(44,48,52) 87%, rgb(87,96,104) 100%);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: rgb(13, 22, 66);
+}
+
+.navigation__menu-list {
+  list-style: none;
+  padding: 3px 0 3px 125px;
+  margin: 0;
+}
+
+.navigation__menu-item {
+  display: inline-block;
+}
+
+.navigation__menu-link_style_default {
+  font-size: 13.7px;
+  font-family: "Lucida Sans Unicode";
+  line-height: 1.867;
+  border-radius: 13px;
+  color: rgb(146, 155, 159);
+}
+
+.navigation__menu-link_active {
+  background-image: linear-gradient(180deg, rgb(32,105,136) 0%, rgb(17,65,101) 59%, rgb(15,58,94) 85%, rgb(12,50,86) 100%);
+  color: #fff;
+}
+
+.navigation__menu-link_type_about-company {
+  padding: 2px 17px 2px 21px;
+}
+
+.navigation__menu-link_type_payment {
+  padding-left: 13px;
+}
+
+.navigation__menu-link_type_delivery, .navigation__menu-link_type_articles {
+  padding-left: 26px;
+}
+
+.navigation__menu-link_type_contacts {
+  padding-left: 21px;
+}
+
+.navigation__products-info {
+  padding-top: 4px;
+}
+
+.products-info__basket-pict-wrapper {
+  margin-left: 71px;
+}
+
+.products-info__text-wrapper {
+  margin-right: 13px;
+}
+
+.products-info__nav-text {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 11.4px;
+  font-family: "Arial";
+  line-height: 1.2;
+  text-align: left;
+}
+
+.products-info__nav-text_color_white {
+  color: rgb(146, 155, 159);
+}
+
+.products-info__nav-text_color_blue {
+  color: rgb(13, 90, 143);
+  font-size: 12px;
+}
+
+.products-info__products-text {
+  margin-left: 8px;
+}
+
+.products-info__zero-text {
+  margin-left: 4px;
+}
+
+.products-info__on-text {
+  margin-left: 15px;
+}
+
+.products-info__amount-text {
+  margin-left: 4px;
+}
+
+.products-info__value-text {
+  margin-left: 11px;  
+}
+
+/*navigation styles end*/
+
+/*header styles end------------------------------------------------------------------------------------------------------*/
+
+
+/*main content styles start----------------------------------------------------------------------------------------------*/
+
+/*forms styles start*/
+
+.main-content__form-panel {
+  padding-top: 13px;
+}
+
+.search-car {
+  width: 415px;
+  float: left;
+}
+
+.form-panel__search-car {
+  margin-left: 3px;
+}
+
+.form-panel__item_style_default {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(156, 156, 157);
+  border-radius: 17px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 5px 5px 0px rgba(104, 104, 104, 0.75);
+}
+
+.searching-form__headers-wrapper {
+  line-height: 14px;
+}
+
+.searching-form__form-header {
+  display: inline-block;
+  margin: 0;
+}
+
+.searching-form__form-header_main {
+  font-size: 14px;
+  font-family: "Arial";
+  color: rgb(21, 68, 103);
+  text-align: center;
+  font-weight: bold;
+}
+
+.searching-form__form-header_second {
+  margin-left: 20px;
+  font-size: 10.2px;
+  font-family: "Arial";
+  color: rgb(21, 68, 104);
+  text-align: left;
+  font-weight: 800;
+}
+
+.search-car__main-header {
+  margin-left: 61px;
+  margin-right: 48px;
+}
+
+.searching-form__inputes-section {
+  float: left;
+  width: 50%;
+}
+
+.searching-form__input-label {
+  font-size: 10px;
+  margin-bottom: 0;
+  font-family: "Arial";
+  color: rgb(0, 0, 0);
+  line-height: 0.8;
+}
+
+.searching-form__input-label_style_search-car {
+  display: inline-block;
+  margin-left: 17px;
+  width: 73px;
+}
+
+.searching-form__car-brand-label {
+  margin-top: 12px;
+}
+
+.searching-form__grduation-year {
+  line-height: 9.9px;
+}
+
+.searching-form__input-label_style_grey {
+  color: grey;
+  margin-left: 0;
+}
+
+.searching-form__select-menu_width_long {
+  width: 101px;
+  height: 17px;
+}
+
+.searching-form__select-menu_width_short {
+  width: 57px;
+  height: 17px;
+}
+
+.searching-form__search-button-wrapper {
+  text-align: right;
+}
+
+.search-tire__main-header {
+  margin-left: 10px;
+}
+
+.searching-form__search-button {
+  font-size: 14px;
+  margin-right: 19px;
+  font-family: "Arial";
+  color: rgb(21, 68, 103);
+  font-style: italic;
+  text-decoration: underline;
+  line-height: 2;
+  display: inline-block;
+  margin-top: -4px;
+}
+
+.search-tire {
+  width: 194px;
+  float: left;
+  margin-left: 11px;
+}
+
+.searching-form__input-label_style_search-tire {
+  margin: 10px 0 0 13px;
+  width: 41px;
+  text-align: right;
+}
+
+.searching-form__select-menu_width_extra-short {
+  width: 55px;
+  height: 17px;
+}
+
+.searching-form__checkbox-wrapper {
+  display: inline-block;
+}
+
+.searching-form__season-input {
+  display: block;
+  float: left;
+  margin: 6px 0 0 8px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.search-tire__checkbox-wrapper {
+  float: left;
+  margin-top: 1px;
+  margin-left: 5px;
+}
+
+.searching-form__input-label_style_default {
+  display: block;
+}
+
+.search-tire__checkbox[type="checkbox"] {
+  margin: 0;
+}
+
+.search-disk {
+  width: 263px;
+  float: left;
+}
+
+.searching-form__headers-wrapper_style_search-disk {
+  float: left;
+}
+
+.search-disk__main-header {
+  margin-left: 9px;
+}
+
+.search-disk__left-input-section {
+  width: 63%;
+  float: left;
+}
+
+.search-disk__right-input-section{
+  float: left;
+  width: 32%;
+  margin-top: -15px;
+  margin-left: 10px;
+  border-left: 1px solid grey;
+}
+
+.search-disk__right-input {
+  margin-left: 12px;
+}
+
+.searching-form__input-label_style_search-disk {
+  width: 87px;
+  margin-left: 14px;
+  line-height: 0.9;
+}
+
+.searching-form__input-label_style_search-disk-right {
+  width: 68px;
+  margin-left: 10px;
+}
+
+.searching-form__input-span {
+  font-size: 9px;
+}
+
+.search-disk__last-checkbox {
+  padding-top: 8px;
+}
+
+.search-disk__search-button-wrapper {
+  margin-top: -2px;
+}
+
+/*forms styles end*/
+
+/*product-content styles start*/
+
+.content-panel {
+  display: flex;
+}
+
+.content-panel__section-item {
+  margin-top: 18px;
+  position: relative;
+}
+
+.products-section-header_style_default {
+  padding-right: 5px;
+  margin-bottom: 13px;
+  background-color: #fff;
+  border-radius: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(121, 135, 141);
+  box-shadow: 0px 3px 3px 0px rgba(150, 150, 150, 0.75);
+}
+
+.products-section-header__list-picture-wrapper, .products-section-header__header-title, .products-choose-panel__circle-list-pict-wrapper, .products-choose-panel__list-header {
+  float: left;
+}
+
+.products-section-header__list-picture-wrapper {
+  border-radius: 50%;
+  background-image: linear-gradient(-180deg, rgb(32,105,136) 0%, rgb(17,65,101) 59%, rgb(15,58,94) 85%, rgb(12,50,86) 100%);
+  width: 20px;
+  height: 20px;
+  margin:2px 3px 0px 2px;
+}
+
+.products-section-header__list-picture {
+  margin-left: 4px;
+  margin-top: -3px;
+}
+
+.products-section-header__header-title {
+  margin: 0px;
+  font-size: 12.8px;
+  font-family: "Lucida Sans Unicode";
+  color: rgb(17, 65, 101);
+  line-height: 1.9;
+}
+
+.products-choose-panel__header {
+  width: 151px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(121, 135, 141);
+  border-radius: 30px;
+  padding: 1px 1px 0px 5px;
+}
+
+.products-choose-panel__circle-list-pict-wrapper {
+  width: 22px;
+  margin-right: 1px; 
+}
+
+.products-choose-panel__list-header {
+  font-size: 14.495px;
+  margin: 0px;
+  font-family: "Lucida Sans Unicode";
+  color: rgb(17, 65, 101);
+  line-height: 1.719;
+}
+
+.products-choose-panel__products-list {
+  list-style: circle;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 46px;
+  font-size: 12.591px;
+  font-family: "Lucida Sans Unicode";
+  color: rgb(17, 65, 101);
+  line-height: 2.115;
+  text-align: left;
+}
+
+.products-choose-panel__products-item_active {
+  font-size: 13.3px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.products-choose-panel_style_disks {
+  position: absolute;
+  top: 168px;
+}
+
+.products-choose-panel_style_bolts {
+ position: absolute;
+  top: 295px;
+}
+
+
+
+
+.content-panel__products-board {
+width: 526px;
+    margin-left: 11px;
+    margin-top: 16px;
+  border-radius: 3px;
+  background-image: linear-gradient(0deg, rgb(35,75,93) 0%, rgb(118,141,151) 57%, rgb(201,207,209) 100%);
+}
+
+.products-board__row {
+  display: flex;
+}
+.products-board__produt-icon {
+  width: 33.33333%;
+}
+
+.products-board__produt-icon_style_goodyear {
+    padding-left: 22px;
+    padding-right: 15px;
+    padding-top: 16px;
+}
+
+.products-board__produt-icon_style_nokian {
+    padding-top: 16px;
+    padding-left: 14px;
+    padding-right: 23px;
+  }
+
+  .products-board__produt-icon_style_hankook {
+        padding-top: 16px;
+    padding-left: 7px;
+    padding-right: 31px;
+  }
+
+.products-board__produt-header {
+  margin: 0px;
+  padding: 0px;
+  font-size: 15.2px;
+  font-family: "Lucida Sans Unicode";
+  color: rgb(32, 105, 136);
+  line-height: 0.875;
+  text-align: center;
+  font-weight: bold;
+}
+
+.products-board__produt-description, .products-board__produt-price {
+  display: block;
+  text-align: center;
+}
+
+.products-board__produt-description {
+    font-size: 13.2px;
+    line-height: 1.1;
+    /*letter-spacing: 0.1px;*/
+}
+
+.products-board__produt-price {
+  font-size: 17.146px;
+  font-family: "Arial";
+  color: rgb(17, 65, 101);
+  font-weight: bold;
+  font-style: italic;
+  /*line-height: 0.627;*/
+  padding-left: 8px;
+  /*padding-top: 3px;*/
+}
+
+.products-board__produt-description_letter-spacing_big {
+  letter-spacing: 0.8px;
+}
+
+.products-board__produt-foto-wrapper {
+  background-color: #fff;
+    border-style: solid;
+  border-width: 1px;
+  border-color: rgb(164, 174, 177);
+  border-radius: 7px;
+      padding-top: 5px;
+    padding-bottom: 4px;
+  text-align: center;
+}
+
+.products-board__produt-price_style_small-text {
+  font-size: 13px;
+  font-weight: bold;
+  display: inline;
+  padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.products-brends {
+  width: 190px;
+}
+
+.content-panel__products-brends {
+  padding-left: 10px;
+}
+
+.products-brends__tires-discks-choise-from {
+  padding-left: 13px;
+}
+
+.tires-discks-choise-from__checkboxes-set {
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.tires-discks-choise-from__label-checkbox-input {
+    font-size: 12.73px;
+  font-family: "Lucida Sans Unicode";
+  color: rgb(70, 89, 97);
+  text-align: left;
+      margin-bottom: 0px;
+    margin-top: 4px;
+}
+
+input.tires-discks-choise-from__checkbox-input {
+  margin-right: 5px;
+}
+
+
+.tires-discks-choise-from__submit-button {
+  margin: 10px 0 0 10px;
+  padding: 4px 11px;
+  font-size: 12px;
+  font-family: "Arial";
+  color: rgb(229, 233, 234);
+  line-height: 1.2;
+  text-align: left;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(167, 171, 174);
+  border-radius: 10px;
+  background-image: linear-gradient(-180deg, rgb(32,105,136) 0%, rgb(17,65,101) 59%, rgb(15,58,94) 85%, rgb(12,50,86) 100%);
+}
+
+
+/*input[type=checkbox]*/
+
+
+/*li:before{ content:'\00b7'; font-size:100px}; */
+
+
+
+
+
+
+
+
+
+.brand-logos-panel__list {
+    margin-left: 75px;
+}
+.brand-logos-panel__logo-item {
+  display: inline-block;
+      margin-right: 9.5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer_style-blue {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(36, 42, 60);
+  background-image: linear-gradient(0deg, rgb(47,47,47) 0%, rgb(78,78,78) 57%, rgb(108,108,108) 100%);
+}
+
+
+.footer__navigation-list {
+  list-style: none;
+      padding-top: 6px;
+    padding-left: 308px;
+}
+
+.footer__navigation-item {
+  display: inline-block;
+}
+
+.footer__navigation-link {
+    border-right: 2px solid grey;
+    margin-right: 8px;
+    font-size: 12px;
+    font-family: "Arial";
+    text-align: center;
+    padding-right: 14px;
+    color: white;
+}
+
+.footer__navigation-link_active {
+  color: rgb(82, 171, 203);
+}
+
+.footer__company-info {
+  font-size: 10px;
+  font-family: "Arial";
+  color: rgb(127, 71, 64);
+  line-height: 1.8;
+  text-align: center;
+}
+
+
+
+
+
+
+/*product-content styles end*/
+
+/*main content styles end------------------------------------------------------------------------------------------------*/
+
+
+

@@ -1,0 +1,97 @@
+@import url("main-fitnes.css");
+
+@media screen and (min-width: 776px) {
+
+  .wrapper {
+    width: 70%;
+    margin: 0 auto;
+    padding: 30px;
+  }  
+
+  .logo__style_lg {
+    text-align: left;
+  }
+
+  .navigation__navigation-list {
+    padding-left: 20px;
+  }
+
+  .navigation__navigation-item {
+    text-align: left;
+    display: inline-block;
+    margin-right: 60px;
+    padding: 5px 10px;
+    /*----------------------------------*/
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+    /*  в таких ситуаціях також можна використати -  outline (не впливає на положенян і ширину блока і задається одразу до всіх 4-ох сторін одночасно) */
+    /*----------------------------------*/
+  }
+
+  /*------------------------------------------Start header style---------------------------------------------------------*/
+  
+  .navigation__navigation-item_style_header:hover {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(200, 200, 200);
+    background-color: rgb(255, 255, 255);
+    border-top: none;
+    border-bottom: none;
+  }
+
+  /*---------------------------------------End header style--------------------------------------------------------------*/
+  
+  /*-------------------------------------Start content style-------------------------------------------------------------*/
+
+  /*menu style start*/
+  
+  .menu {
+    float: left;
+    margin-right: 5%;
+    width: 25%;
+    margin-bottom: 0px;
+  }
+
+  .menu__menu-item {
+    text-align: left;
+  }
+
+  .menu__menu-item:hover {
+    color: black;
+    padding-left: 30px;
+  }
+
+  /*menu style end*/
+
+  /*main content style start*/
+
+  .main-content {
+    float: left;
+    width: 70%;
+  }
+  
+  .main-content__picture-wrapper {
+    padding: 50px;
+  }
+
+  /*main content style end*/
+
+  /*-----------------------------------------------End content style-----------------------------------------------------*/
+
+  /*-----------------------------------------------Start footer style----------------------------------------------------*/
+
+  .navigation__navigation-list_position_left {
+    float: left;
+    margin: 0;
+  }
+
+  .navigation__rights-content {
+    float: right;
+    text-align: left;
+    border: none;
+  }
+
+  /*---------------------------------------------------End footer style--------------------------------------------------*/
+  
+}
