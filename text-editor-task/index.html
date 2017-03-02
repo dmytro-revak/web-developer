@@ -8,88 +8,95 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-    <div class="row text-editing-panel valign-wrapper">
-        <div class="col l4">
-            <div class="font-parameters-panel">
+    <div class="row text-editing-panel valign-wrapper grey lighten-1 teal-text text-lighten-1">
+        <div class="col l4 font-size-panel">
+            <div class="row font-size-panel__size-label-wrapper center-align">
+                <span class="font-size-panel__size-label">Font Size</span>
+            </div>
+            <div class="row font-size-panel__size-inputes">
                 <form action="#">
-                    <span>Font size</span>
-                    <input name="font-size-value" type="radio" id="font-size-12" />
-                    <label for="font-size-12">12 px</label>
-                    <input name="font-size-value" type="radio" id="font-size-14" />
-                    <label for="font-size-14">14 px</label>
-                    <input name="font-size-value" type="radio" id="font-size-16"  />
-                    <label for="font-size-16">16 px</label>
-                    <input name="font-size-value" type="radio" id="font-size-18"/>
-                    <label for="font-size-18">18 px</label>
-                    <input name="font-size-value" type="radio" id="font-size-20"/>
-                    <label for="font-size-20">20 px</label>
+                    <input name="font-size-value" type="radio" value="12px" id="font-size-12">
+                    <label for="font-size-12" class="white-text">12 px</label>
+                    <input name="font-size-value" type="radio" value="14px" id="font-size-14">
+                    <label for="font-size-14" class="white-text">14 px</label>
+                    <input name="font-size-value" type="radio" value="16px" id="font-size-16">
+                    <label for="font-size-16" class="white-text">16 px</label>
+                    <input name="font-size-value" type="radio" value="18px" id="font-size-18">
+                    <label for="font-size-18" class="white-text">18 px</label>
+                    <input name="font-size-value" type="radio" value="20px" id="font-size-20">
+                    <label for="font-size-20" class="white-text">20 px</label>
                 </form>
             </div>
         </div>
-        <div class="col l2">
-            <div class="input-field left">
-                <select>
-                  <option value="timeNewRoman">Time New Roman</option>
-                  <option value="arial">Arial</option>
-                  <option value="tahoma">Tahoma</option>
-                  <option value="veranda">Veranda</option>
+        <div class="col l2 font-family-panel">
+            <div class="row input-field left">
+                <span class="col l12 font-family-panel__family-label center-align">Font Family</span>
+                <select class="col l12 font-family-panel__select white-text">
+                    <option class="font-family-panel__option" value="timeNewRoman">Time New Roman</option>
+                    <option class="font-family-panel__option" value="arial">Arial</option>
+                    <option class="font-family-panel__option" value="tahoma">Tahoma</option>
+                    <option class="font-family-panel__option" value="veranda">Veranda</option>
                 </select>
             </div>
         </div>
         <div class="col l2">
-            <div class="input-field left">
-                <select class="icons">
-                  <option value="" data-icon="images/yuna.jpg" class="left circle" selected>Black</option>
-                  <option value="" data-icon="images/yuna.jpg" class="left circle">Brown</option>
-                  <option value="" data-icon="images" class="left circle">Blue</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Green</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Yellow</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Orange</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Red</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Purple</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Gray</option>
+            <div class="row input-field left font-color-panel">
+                <span class="col l12 font-color-panel__color-label center-align">Font Color</span>
+                <select class="col l12 icons font-color-panel__select white-text">
+                    <option value="black" data-icon="img/black.svg" class="left circle font-color-panel__option">Black</option>
+                    <option value="brown" data-icon="img/brown.svg" class="left circle font-color-panel__option">Brown</option>
+                    <option value="blue" data-icon="img/blue.svg" class="left circle font-color-panel__option">Blue</option>
+                    <option value="green" data-icon="img/green.svg" class="left circle font-color-panel__option">Green</option>
+                    <option value="yellow" data-icon="img/yellow.svg" class="left circle font-color-panel__option">Yellow</option>
+                    <option value="orange" data-icon="img/orange.svg" class="left circle font-color-panel__option">Orange</option>
+                    <option value="red" data-icon="img/red.svg" class="left circle font-color-panel__option">Red</option>
+                    <option value="purple" data-icon="img/purple.svg" class="left circle font-color-panel__option">Purple</option>
+                    <option value="grey" data-icon="img/grey.svg" class="left circle font-color-panel__option">Gray</option>
+                    <option value="white" data-icon="img/white.svg" class="left circle font-color-panel__option">White </option>
                 </select>
             </div>
         </div>
         <div class="col l2">
-            <div class="input-field left">
-                <select class="icons">
-                  <option value="" data-icon="images/yuna.jpg" class="left circle" selected>Black</option>
-                  <option value="" data-icon="images/yuna.jpg" class="left circle">Brown</option>
-                  <option value="" data-icon="images" class="left circle">Blue</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Green</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Yellow</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Orange</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Red</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Purple</option>
-                  <option value="" data-icon="images/office.jpg" class="left circle">Gray</option>
+            <div class="row input-field left background-color-panel">
+                <span class="col l12 background-color-panel__color-label center-align">Background Color</span>
+                <select class="col l12 icons background-color-panel__select white-text">
+                    <option value="black" data-icon="img/black.svg" class="left circle background-color-panel__option">Black</option>
+                    <option value="brown" data-icon="img/brown.svg" class="left circle background-color-panel__option">Brown</option>
+                    <option value="blue" data-icon="img/blue.svg" class="left circle background-color-panel__option">Blue</option>
+                    <option value="green" data-icon="img/green.svg" class="left circle background-color-panel__option">Green</option>
+                    <option value="yellow" data-icon="img/yellow.svg" class="left circle background-color-panel__option">Yellow</option>
+                    <option value="orange" data-icon="img/orange.svg" class="left circle background-color-panel__option">Orange</option>
+                    <option value="red" data-icon="img/red.svg" class="left circle background-color-panel__option">Red</option>
+                    <option value="purple" data-icon="img/purple.svg" class="left circle background-color-panel__option">Purple</option>
+                    <option value="grey" data-icon="img/grey.svg" class="left circle background-color-panel__option">Gray</option>
+                    <option value="white" data-icon="img/white.svg" class="left circle background-color-panel__option">White </option>
                 </select>
             </div>
         </div>
         <div class="col l2">
-          <div class="switch">
-            <label>
-              Off
-              <input type="checkbox">
-              <span class="lever"></span>
-              On
-            </label>
-          </div>
-                      <div class="switch">
-            <label>
-              Off
-              <input type="checkbox">
-              <span class="lever"></span>
-              On
-            </label>
-          </div>
+            <div class="row switch bold-text-toogle">
+                <label class="bold-text-toogle__label white-text">
+                Normal
+                <input class="bold-text-toogle__input" type="checkbox">
+                <span class="lever"></span>
+                <span class="teal-text text-lighten-1">Bold</span>
+                </label>
+            </div>
+            <div class="row switch italic-text-toogle">
+                <label class="italic-text-toogle__label white-text">
+                Normal
+                <input class="italic-text-toogle__input" type="checkbox">
+                <span class="lever"></span>
+                <span class="teal-text text-lighten-1">Italic</span>
+                </label>
+            </div>
         </div>
     </div>
     <div class="row">
             <div class="col l8">
-                <form action="" class="col l12">
+                <form action="#" class="col l12 text-editing-working-area">
                     <div class="input-field col l12">
-                        <textarea  id="text-editing-area" class="materialize-textarea" type="text" class="validate"></textarea>
+                        <textarea  id="text-editing-area" class="materialize-textarea"></textarea>
                         <label for="text-editing-area">Text</label>
                     </div>
                 </form>
@@ -97,19 +104,27 @@
             <div class="col l4">
                 <div class="row">
                     <div class="col l12">
-                        <button class="waves-effect waves-light btn-large">Редагувати</button>
+                        <button class="col l12 waves-effect waves-light btn-large">Редагувати</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col l12">
-                        <button class="waves-effect waves-light btn-large">Зберегти</button>
+                        <button class="col l12 waves-effect waves-light btn-large">Зберегти</button>
                     </div>
                 </div>
             </div>
     </div>
     <div class="row">
-        <div class="col l10">
-            <div class="showing-text-panel grey lighten-1">
+        <div class="col l10 offset-l1">
+            <div class="showing-text-panel valign-wrapper">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
             </div>
         </div>
     </div>
