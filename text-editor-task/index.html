@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text editor</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <div class="row text-editing-panel valign-wrapper">
+        <div class="col l4">
+            <div class="font-parameters-panel">
+                <form action="#">
+                    <span>Font size</span>
+                    <input name="font-size-value" type="radio" id="font-size-12" />
+                    <label for="font-size-12">12 px</label>
+                    <input name="font-size-value" type="radio" id="font-size-14" />
+                    <label for="font-size-14">14 px</label>
+                    <input name="font-size-value" type="radio" id="font-size-16"  />
+                    <label for="font-size-16">16 px</label>
+                    <input name="font-size-value" type="radio" id="font-size-18"/>
+                    <label for="font-size-18">18 px</label>
+                    <input name="font-size-value" type="radio" id="font-size-20"/>
+                    <label for="font-size-20">20 px</label>
+                </form>
+            </div>
+        </div>
+        <div class="col l2">
+            <div class="input-field left">
+                <select>
+                  <option value="timeNewRoman">Time New Roman</option>
+                  <option value="arial">Arial</option>
+                  <option value="tahoma">Tahoma</option>
+                  <option value="veranda">Veranda</option>
+                </select>
+            </div>
+        </div>
+        <div class="col l2">
+            <div class="input-field left">
+                <select class="icons">
+                  <option value="" data-icon="images/yuna.jpg" class="left circle" selected>Black</option>
+                  <option value="" data-icon="images/yuna.jpg" class="left circle">Brown</option>
+                  <option value="" data-icon="images" class="left circle">Blue</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Green</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Yellow</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Orange</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Red</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Purple</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Gray</option>
+                </select>
+            </div>
+        </div>
+        <div class="col l2">
+            <div class="input-field left">
+                <select class="icons">
+                  <option value="" data-icon="images/yuna.jpg" class="left circle" selected>Black</option>
+                  <option value="" data-icon="images/yuna.jpg" class="left circle">Brown</option>
+                  <option value="" data-icon="images" class="left circle">Blue</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Green</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Yellow</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Orange</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Red</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Purple</option>
+                  <option value="" data-icon="images/office.jpg" class="left circle">Gray</option>
+                </select>
+            </div>
+        </div>
+        <div class="col l2">
+          <div class="switch">
+            <label>
+              Off
+              <input type="checkbox">
+              <span class="lever"></span>
+              On
+            </label>
+          </div>
+                      <div class="switch">
+            <label>
+              Off
+              <input type="checkbox">
+              <span class="lever"></span>
+              On
+            </label>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col l8">
+                <form action="" class="col l12">
+                    <div class="input-field col l12">
+                        <textarea  id="text-editing-area" class="materialize-textarea" type="text" class="validate"></textarea>
+                        <label for="text-editing-area">Text</label>
+                    </div>
+                </form>
+            </div>
+            <div class="col l4">
+                <div class="row">
+                    <div class="col l12">
+                        <button class="waves-effect waves-light btn-large">Редагувати</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l12">
+                        <button class="waves-effect waves-light btn-large">Зберегти</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+        <div class="col l10">
+            <div class="showing-text-panel grey lighten-1">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
