@@ -39,12 +39,12 @@
         $showTextContainer.style[property] = elementWithValue.value;
     }
 
-    // Switches display property for element. Makes it visible or none  
+    // Switches display property for element. Makes it visible or unvisible  
     function swithcElementVisibility(element) {
-        if (element.style.display) {
-            element.style.display = '';
-        } else {
+        if (getComputedStyle(element).display === 'none') {
             element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
         }
     }
     
@@ -127,8 +127,12 @@
  // todo
     for(var i = 0; i < $chooseTableListInputes.length; i++) {
         $chooseTableListInputes[i].onchange = function () {
-            if (this.checked) {
-                swithcElementVisibility( document.querySelector(this.value) );       
+            for (var itr = 0; itr < $chooseTableListInputes.length; itr++) {
+                if ($chooseTableListInputes[itr].checked) {
+                    swithcElementVisibility( document.querySelector($chooseTableListInputes[itr].value) );
+                    continue;       
+                }
+            document.querySelector($chooseTableListInputes[itr].value).style.display = 'none';
             }
         }
     }
