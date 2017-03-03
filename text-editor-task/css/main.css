@@ -5,3 +5,7 @@
     background-color: #bdbdbd;
     overflow: auto;
 }    
+
+.adding-panel-control, .table-adding-panel, .list-adding-panel {
+    display: none;
+}

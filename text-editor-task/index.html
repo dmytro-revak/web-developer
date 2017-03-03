@@ -8,115 +8,136 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-    <div class="row text-editing-panel valign-wrapper grey lighten-1 teal-text text-lighten-1">
+    <!-- Font editing panel start -->
+    <div class="row font-editing-panel valign-wrapper grey lighten-1 teal-text text-lighten-1">
+        <!-- Font size input panel start -->
         <div class="col l4 font-size-panel">
             <div class="row font-size-panel__size-label-wrapper center-align">
                 <span class="font-size-panel__size-label">Font Size</span>
             </div>
             <div class="row font-size-panel__size-inputes">
-                <form action="#">
-                    <input name="font-size-value" type="radio" value="12px" id="font-size-12">
-                    <label for="font-size-12" class="white-text">12 px</label>
-                    <input name="font-size-value" type="radio" value="14px" id="font-size-14">
-                    <label for="font-size-14" class="white-text">14 px</label>
-                    <input name="font-size-value" type="radio" value="16px" id="font-size-16">
-                    <label for="font-size-16" class="white-text">16 px</label>
-                    <input name="font-size-value" type="radio" value="18px" id="font-size-18">
-                    <label for="font-size-18" class="white-text">18 px</label>
-                    <input name="font-size-value" type="radio" value="20px" id="font-size-20">
-                    <label for="font-size-20" class="white-text">20 px</label>
-                </form>
+                <input name="font-size-value" type="radio" value="12px" id="font-size-12">
+                <label for="font-size-12" class="white-text">12 px</label>
+                <input name="font-size-value" type="radio" value="14px" id="font-size-14">
+                <label for="font-size-14" class="white-text">14 px</label>
+                <input name="font-size-value" type="radio" value="16px" id="font-size-16">
+                <label for="font-size-16" class="white-text">16 px</label>
+                <input name="font-size-value" type="radio" value="18px" id="font-size-18">
+                <label for="font-size-18" class="white-text">18 px</label>
+                <input name="font-size-value" type="radio" value="20px" id="font-size-20">
+                <label for="font-size-20" class="white-text">20 px</label>
             </div>
         </div>
+        <!-- Font size input panel end -->
+        <!-- Font family select panel start  -->
         <div class="col l2 font-family-panel">
             <div class="row input-field left">
                 <span class="col l12 font-family-panel__family-label center-align">Font Family</span>
-                <select class="col l12 font-family-panel__select white-text">
-                    <option class="font-family-panel__option" value="timeNewRoman">Time New Roman</option>
-                    <option class="font-family-panel__option" value="arial">Arial</option>
-                    <option class="font-family-panel__option" value="tahoma">Tahoma</option>
-                    <option class="font-family-panel__option" value="veranda">Veranda</option>
+                <select class="col l12 font-family-panel__select-list white-text">
+                    <option class="font-family-panel__option-item" value="Times New Roman">Time New Roman</option>
+                    <option class="font-family-panel__option-item" value="Arial">Arial</option>
+                    <option class="font-family-panel__option-item" value="Tahoma">Tahoma</option>
+                    <option class="font-family-panel__option-item" value="Veranda">Veranda</option>
                 </select>
             </div>
         </div>
-        <div class="col l2">
-            <div class="row input-field left font-color-panel">
+        <!-- Font family select panel end -->
+        <!-- Font color select panel start -->
+        <div class="col l2 font-color-panel">
+            <div class="row input-field left">
                 <span class="col l12 font-color-panel__color-label center-align">Font Color</span>
-                <select class="col l12 icons font-color-panel__select white-text">
-                    <option value="black" data-icon="img/black.svg" class="left circle font-color-panel__option">Black</option>
-                    <option value="brown" data-icon="img/brown.svg" class="left circle font-color-panel__option">Brown</option>
-                    <option value="blue" data-icon="img/blue.svg" class="left circle font-color-panel__option">Blue</option>
-                    <option value="green" data-icon="img/green.svg" class="left circle font-color-panel__option">Green</option>
-                    <option value="yellow" data-icon="img/yellow.svg" class="left circle font-color-panel__option">Yellow</option>
-                    <option value="orange" data-icon="img/orange.svg" class="left circle font-color-panel__option">Orange</option>
+                <select class="col l12 icons font-color-panel__select-list white-text">
+                    <option value="black" data-icon="img/black.svg" class="left circle font-color-panel__option-item">Black</option>
+                    <option value="brown" data-icon="img/brown.svg" class="left circle font-color-panel__option-item">Brown</option>
+                    <option value="blue" data-icon="img/blue.svg" class="left circle font-color-panel__option-item">Blue</option>
+                    <option value="green" data-icon="img/green.svg" class="left circle font-color-panel__option-item">Green</option>
+                    <option value="yellow" data-icon="img/yellow.svg" class="left circle font-color-panel__option-item">Yellow</option>
+                    <option value="orange" data-icon="img/orange.svg" class="left circle font-color-panel__option-item">Orange</option>
                     <option value="red" data-icon="img/red.svg" class="left circle font-color-panel__option">Red</option>
-                    <option value="purple" data-icon="img/purple.svg" class="left circle font-color-panel__option">Purple</option>
-                    <option value="grey" data-icon="img/grey.svg" class="left circle font-color-panel__option">Gray</option>
-                    <option value="white" data-icon="img/white.svg" class="left circle font-color-panel__option">White </option>
+                    <option value="purple" data-icon="img/purple.svg" class="left circle font-color-panel__option-item">Purple</option>
+                    <option value="grey" data-icon="img/grey.svg" class="left circle font-color-panel__option-item">Gray</option>
+                    <option value="white" data-icon="img/white.svg" class="left circle font-color-panel__option-item">White </option>
                 </select>
             </div>
         </div>
-        <div class="col l2">
-            <div class="row input-field left background-color-panel">
+        <!-- Font color select panel end -->
+        <!-- Background color select panel start -->
+        <div class="col l2 background-color-panel">
+            <div class="row input-field left">
                 <span class="col l12 background-color-panel__color-label center-align">Background Color</span>
-                <select class="col l12 icons background-color-panel__select white-text">
-                    <option value="black" data-icon="img/black.svg" class="left circle background-color-panel__option">Black</option>
-                    <option value="brown" data-icon="img/brown.svg" class="left circle background-color-panel__option">Brown</option>
-                    <option value="blue" data-icon="img/blue.svg" class="left circle background-color-panel__option">Blue</option>
-                    <option value="green" data-icon="img/green.svg" class="left circle background-color-panel__option">Green</option>
-                    <option value="yellow" data-icon="img/yellow.svg" class="left circle background-color-panel__option">Yellow</option>
-                    <option value="orange" data-icon="img/orange.svg" class="left circle background-color-panel__option">Orange</option>
-                    <option value="red" data-icon="img/red.svg" class="left circle background-color-panel__option">Red</option>
-                    <option value="purple" data-icon="img/purple.svg" class="left circle background-color-panel__option">Purple</option>
-                    <option value="grey" data-icon="img/grey.svg" class="left circle background-color-panel__option">Gray</option>
-                    <option value="white" data-icon="img/white.svg" class="left circle background-color-panel__option">White </option>
+                <select class="col l12 icons background-color-panel__select-list white-text">
+                    <option value="black" data-icon="img/black.svg" class="left circle background-color-panel__option-item">Black</option>
+                    <option value="brown" data-icon="img/brown.svg" class="left circle background-color-panel__option-item">Brown</option>
+                    <option value="blue" data-icon="img/blue.svg" class="left circle background-color-panel__option-item">Blue</option>
+                    <option value="green" data-icon="img/green.svg" class="left circle background-color-panel__option-item">Green</option>
+                    <option value="yellow" data-icon="img/yellow.svg" class="left circle background-color-panel__option-item">Yellow</option>
+                    <option value="orange" data-icon="img/orange.svg" class="left circle background-color-panel__option-item">Orange</option>
+                    <option value="red" data-icon="img/red.svg" class="left circle background-color-panel__option-item">Red</option>
+                    <option value="purple" data-icon="img/purple.svg" class="left circle background-color-panel__option-item">Purple</option>
+                    <option value="grey" data-icon="img/grey.svg" class="left circle background-color-panel__option-item">Gray</option>
+                    <option value="white" data-icon="img/white.svg" class="left circle background-color-panel__option-item">White</option>
                 </select>
             </div>
         </div>
+        <!-- Background color select panel end -->
+        <!-- Toggle input for bold and italic font start -->
         <div class="col l2">
             <div class="row switch bold-text-toogle">
                 <label class="bold-text-toogle__label white-text">
                 Normal
-                <input class="bold-text-toogle__input" type="checkbox">
+                <input class="bold-text-toogle__input" type="checkbox" value="bold">
                 <span class="lever"></span>
-                <span class="teal-text text-lighten-1">Bold</span>
+                <span class="teal-text text-lighten-1 bold-text-toogle__label">Bold</span>
                 </label>
             </div>
             <div class="row switch italic-text-toogle">
                 <label class="italic-text-toogle__label white-text">
                 Normal
-                <input class="italic-text-toogle__input" type="checkbox">
+                <input class="italic-text-toogle__input" type="checkbox" value="italic">
                 <span class="lever"></span>
-                <span class="teal-text text-lighten-1">Italic</span>
+                <span class="teal-text text-lighten-1 italic-text-toogle__label">Italic</span>
                 </label>
             </div>
         </div>
+        <!-- Toggle input for bold and italic font end -->
     </div>
+    <!-- Font editing panel end -->
+    <!-- Text editing and buttons panels start -->
     <div class="row">
-            <div class="col l8">
-                <form action="#" class="col l12">
-                    <div class="input-field col l12">
-                        <textarea  id="text-editing-area" class="materialize-textarea"></textarea>
-                        <label for="text-editing-area-label">Text</label>
-                    </div>
-                </form>
+            <!-- Text editing area start -->
+            <div class="col l8 text-editing-area-wrapper">
+                <div class="input-field col l12">
+                    <textarea  id="text-editing-area" class="materialize-textarea"></textarea>
+                    <label for="text-editing-area-label">Text</label>
+                </div>
             </div>
-            <div class="col l4">
+            <!-- Text editing area end -->
+            <!-- Buttons panels start -->
+            <div class="col l4 buttons-panel">
                 <div class="row">
                     <div class="col l12">
-                        <button class="col l12 waves-effect waves-light btn-large edit-button" name="edit">Редагувати</button>
+                        <button class="col l12 waves-effect waves-light btn-large edit-button buttons-panel__button" name="edit">Редагувати</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col l12">
-                        <button class="col l12 waves-effect waves-light btn-large save-button" name="save">Зберегти</button>
+                        <button class="col l12 waves-effect waves-light btn-large save-button buttons-panel__button" name="save">Зберегти</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l12">
+                        <button class="col l12 waves-effect waves-light btn-large add-button buttons-panel__button" name="add">Додати</button>
                     </div>
                 </div>
             </div>
+            <!-- Buttons panels end -->
     </div>
+    <!-- Text editing and buttons panels end -->
+    <!-- Showing text and adding panles start -->
     <div class="row">
-        <div class="col l10 offset-l1">
-            <div class="showing-text-panel valign-wrapper">
+        <!-- Showing panel start -->
+        <div class="col l8">
+            <div class="showing-text-panel">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -126,6 +147,112 @@
                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </div>
+        </div>
+        <!-- Showing panel end -->
+        <!-- Addin panel start -->
+        <div class="col l4">
+            <!-- Table or List adding control panel start  -->
+            <div class="adding-panel-control center-align">
+                <input name="adding-panel-radio" type="radio" value="table" id="add-table" checked>
+                <label for="add-table" class="teal-text text-lighten-2">Table</label>
+                <input name="adding-panel-radio" type="radio" value="list" id="add-list">
+                <label for="add-list" class="teal-text text-lighten-2">List</label>
+            </div>
+            <!-- Table or List adding control panel end  -->
+            <!-- Table adding content panel start  -->
+            <div class="table-adding-panel">
+                <!-- Amount of rows start -->
+                <div class="input-field row-amount-wrapper">
+                    <input placeholder="5" id="row-amount" type="text">
+                    <label for="row-amount">Amount of Rows</label>
+                </div>
+                <!-- Amount of rows end -->
+                <!-- Amount of columns start -->
+                <div class="input-field column-amount-wrapper">
+                    <input placeholder="4" id="column-amount" type="text">
+                    <label for="column-amount">Amount of Columns</label>
+                </div>
+                <!-- Amount of columns end -->
+                <!-- Table style text label start -->
+                <h5 class="table-style-text center-align teal-text text-lighten-2">
+                    Table style
+                </h5>
+                <!-- Table style text label end -->
+                <!-- Table cell width start -->
+                <div class="input-field table-cell-width-wrapper">
+                    <input placeholder="8" id="table-cell-width" type="text">
+                    <label for="table-cell-width">Table cell Width</label>
+                </div>
+                <!-- Table cell width end -->
+                <!-- Table cell height start -->
+                <div class="input-field table-cell-height-wrapper">
+                    <input placeholder="10" id="table-cell-height" type="text">
+                    <label for="table-cell-height">Table cell Height</label>
+                </div>
+                <!-- Table cell height end -->
+                <!-- Table cell line width start -->
+                <div class="input-field table-line-widht-wrapper">
+                    <input placeholder="2" id="table-line-widht" type="text">
+                    <label for="table-line-widht">Table line Width</label>
+                </div>
+                <!-- Table cell line width end -->
+                <!-- Table cell line type start -->
+                <div class="col l12 input-field left table-line-type-wrapper">
+                    <span class="col l12 table-line-type__text-label center-align">Table line type</span>
+                    <select class="table-line-type__select-list white-text">
+                        <option value="solid" class="table-line-type__option-item">Solid</option>
+                        <option value="dotted" class="table-line-type__option-item">Dotted</option>
+                        <option value="dashed" class="table-line-type__option-item">Dashed</option>
+                        <option value="double" class="table-line-type__option-item">Double</option>
+                    </select>
+                </div>
+                <!-- Table cell line type end -->
+                <!-- Table cell line color start -->
+                <div class="col l12 input-field left table-line-color-wrapper">
+                    <span class="col l12 table-line-color-wrapper-label center-align">Table line color</span>
+                    <select class="col l12 icons table-line-color-wrapper__select-list white-text">
+                        <option value="black" data-icon="img/black.svg" class="left circle table-line-color__oprion-item">Black</option>
+                        <option value="brown" data-icon="img/brown.svg" class="left circle table-line-color__oprion-item">Brown</option>
+                        <option value="blue" data-icon="img/blue.svg" class="left circle table-line-color__oprion-item">Blue</option>
+                        <option value="green" data-icon="img/green.svg" class="left circle table-line-color__oprion-item">Green</option>
+                        <option value="yellow" data-icon="img/yellow.svg" class="left circle table-line-color__oprion-item">Yellow</option>
+                        <option value="orange" data-icon="img/orange.svg" class="left circle table-line-color__oprion-item">Orange</option>
+                        <option value="red" data-icon="img/red.svg" class="left circle table-line-color__oprion-item">Red</option>
+                        <option value="purple" data-icon="img/purple.svg" class="left circle table-line-color__oprion-item">Purple</option>
+                        <option value="grey" data-icon="img/grey.svg" class="left circle table-line-color__oprion-item">Gray</option>
+                        <option value="white" data-icon="img/white.svg" class="left circle table-line-color__oprion-item">White </option>
+                    </select>
+                </div>
+                <!-- Table cell line color start -->
+                <!-- Create table button start -->
+                <div class="row">
+                    <div class="col l12">
+                        <button class="col l12 waves-effect waves-light btn-large create-table-btn" name="create-table">Створити таблицю</button>
+                    </div>
+                </div>
+                <!-- Create table button end -->
+            </div>
+            <!-- Table adding content panel end  -->
+            <!-- List adding content panel start -->
+            <div class="list-adding-panel">
+                <!-- Amount of list elements start -->
+                <div class="input-field list-elements-amount-wrapper">
+                    <input placeholder="3" id="list-elements-amount" type="text">
+                    <label for="list-elements-amount">List elements amount</label>
+                </div>
+                <!-- Amount of list elements end -->
+                <!-- List style panel start -->
+                <div class="col l12 input-field left list-style-wrapper">
+                    <span class="col l12 list-style__text-label center-align">List style</span>
+                    <select class="list-style__select-list white-text">
+                        <option value="circle" class="list-style__option-item">Circle</option>
+                        <option value="disc" class="list-style__option-item">Disc</option>
+                        <option value="square" class="list-style__option-item">Square</option>
+                    </select>
+                </div>
+                <!-- List style panel end -->
+            </div>
+            <!-- List adding content panel end -->
         </div>
     </div>
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
