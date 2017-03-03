@@ -58,6 +58,26 @@
         document.querySelector(setOfElements[i].value).style.display = 'none';
         }
     }
+
+    // Finds the element by it's selector and returns the selected element value
+    function returnElementValue(elementSelector) {
+        return document.querySelector(elementSelector).value;
+    }
+
+
+    createTable();
+    function createTable() {
+        debugger
+        var genereteTable  = document.createElement('table');
+        for(var i = 0; i < 3; i++) {
+            var tableRow = document.createElement('tr');
+            for(var j = 0; j < 5; j++) {
+                var tableColumn = document.createElement('td');
+                tableRow.appendChild(tableColumn);
+            }
+            genereteTable.appendChild(tableRow);
+        }
+    }
     
     
     // Application logic /////////////////////////////////////////////////////////////////////////////////////////
