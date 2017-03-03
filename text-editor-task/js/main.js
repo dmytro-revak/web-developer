@@ -13,7 +13,9 @@
         $fontColorList = document.querySelector('.font-color-panel__select-list'),
         $backgroundColorList = document.querySelector('.background-color-panel__select-list'),
         $boldTextInput = document.querySelector('.bold-text-toogle__input'),
-        $italicTextInput = document.querySelector('.italic-text-toogle__input');
+        $italicTextInput = document.querySelector('.italic-text-toogle__input'),
+        $addingButton = document.querySelector('.add-button'),
+        $chooseTableListInputes = document.querySelectorAll('[name="adding-panel-radio"]');
 
 
     // Function description-------------------------------------------------------------------
@@ -36,6 +38,15 @@
     function changeShowingTextPropertyValue(elementWithValue, property) {
         $showTextContainer.style[property] = elementWithValue.value;
     }
+
+    // Switches display property for element. Makes it visible or none  
+    function swithcElementVisibility(element) {
+        if (element.style.display) {
+            element.style.display = '';
+        } else {
+            element.style.display = 'block';
+        }
+    }
     
     
     // Application logic-----------------------------------------------------------------------
@@ -50,6 +61,10 @@
         transferTextBetweenWorkingAndShowingAreas(this);
     }
     
+
+    // FONT EDITING PANEL LOGIC START ----------------------
+
+
     // Add changing font-size function for the each fontSize input
     for (var i = 0; i < $fontSizeInputes.length; i++) {
         $fontSizeInputes[i].onchange = function () {
@@ -99,6 +114,22 @@
             changeShowingTextPropertyValue(this, 'fontStyle');
         } else {
             $showTextContainer.style.fontStyle = 'normal';
+        }
+    }
+
+    // FONT EDITING PANEL LOGIC END ----------------------
+
+    // Toggle visibility for input choose-List-or-Table panel
+    $addingButton.onclick = function () {
+        swithcElementVisibility( document.querySelector('.adding-panel-control') );
+    }
+
+ // todo
+    for(var i = 0; i < $chooseTableListInputes.length; i++) {
+        $chooseTableListInputes[i].onchange = function () {
+            if (this.checked) {
+                swithcElementVisibility( document.querySelector(this.value) );       
+            }
         }
     }
     
