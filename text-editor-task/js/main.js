@@ -1,7 +1,7 @@
 (function initTheEditor() {
 
     
-    // Variable declaration-------------------------------------------------------------------
+    // Variable declaration //////////////////////////////////////////////////////////////////////////////////////////
 
     // Save needed elements to variables
     var $showTextContainer = document.querySelector('.showing-text-panel'),
@@ -18,7 +18,7 @@
         $chooseTableListInputes = document.querySelectorAll('[name="adding-panel-radio"]');
 
 
-    // Function description-------------------------------------------------------------------
+    // Function description ///////////////////////////////////////////////////////////////////////////////////////////
 
     // Initialised select animation for materialize
     $(document).ready(function() {
@@ -60,7 +60,7 @@
     }
     
     
-    // Application logic-----------------------------------------------------------------------
+    // Application logic /////////////////////////////////////////////////////////////////////////////////////////
 
     // Transfer text from showing area to use working area after click on edit button
     $editButton.onclick = function () {
@@ -73,7 +73,7 @@
     }
     
 
-    // FONT EDITING PANEL LOGIC START ----------------------
+    // FONT EDITING PANEL LOGIC START -------------------------------------------------------------------------
 
 
     // Add changing font-size function for the each fontSize input
@@ -128,7 +128,7 @@
         }
     }
 
-    // FONT EDITING PANEL LOGIC END ----------------------
+    // FONT EDITING PANEL LOGIC END -------------------------------------------------------------------------------
 
     // Toggle visibility for input choose-List-or-Table panel
     $addingButton.onclick = function () {
