@@ -47,6 +47,17 @@
             element.style.display = 'none';
         }
     }
+
+    // Function which get group of elements and make all of them unvisible except checked element
+    function showCheckedElementDate(setOfElements) {
+        for (var i = 0; i < setOfElements.length; i++) {
+            if (setOfElements[i].checked) {
+                swithcElementVisibility( document.querySelector(setOfElements[i].value) );
+                continue;       
+            }
+        document.querySelector(setOfElements[i].value).style.display = 'none';
+        }
+    }
     
     
     // Application logic-----------------------------------------------------------------------
@@ -124,16 +135,10 @@
         swithcElementVisibility( document.querySelector('.adding-panel-control') );
     }
 
- // todo
+    // Make visible table or list adding panel when user checking the appropriate input
     for(var i = 0; i < $chooseTableListInputes.length; i++) {
         $chooseTableListInputes[i].onchange = function () {
-            for (var itr = 0; itr < $chooseTableListInputes.length; itr++) {
-                if ($chooseTableListInputes[itr].checked) {
-                    swithcElementVisibility( document.querySelector($chooseTableListInputes[itr].value) );
-                    continue;       
-                }
-            document.querySelector($chooseTableListInputes[itr].value).style.display = 'none';
-            }
+            showCheckedElementDate($chooseTableListInputes);
         }
     }
     
