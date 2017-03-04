@@ -66,25 +66,40 @@
 
     // Creates the table with table-input parameters which are entered by user
     function createTable() {
-        var table  = document.createElement('table');
+        var table  = document.createElement('table'),
+            tableBorderWidth = returnElementValue('#table-border-line-widht') + 'px',
+            borderStyleSelect = document.querySelector('select.table-line-type__select-list'),
+            borderColorSelect = document.querySelector('select.table-line-color__select-list');
+            tableBorderStyle = borderStyleSelect.options[borderStyleSelect.selectedIndex].value;
+            tableBorderColor = borderColorSelect.options[borderColorSelect.selectedIndex].value;
         for(var i = 0; i < returnElementValue('#row-amount'); i++) {
             var tableRow = document.createElement('tr');
             for(var j = 0; j < returnElementValue('#column-amount'); j++) {
                 var tableColumn = document.createElement('td');
                 tableColumn.style.height = returnElementValue('#table-cell-height') + 'px';
                 tableColumn.style.width = returnElementValue('#table-cell-width') + 'px';
-                tableColumn.style.border = '1px solid black';
+                tableColumn.style.border = tableBorderWidth + ' ' + tableBorderStyle + ' ' + tableBorderColor;
                 tableRow.appendChild(tableColumn);
             }
             table.appendChild(tableRow);
         }
-        var tableBorderWidth = returnElementValue('#table-border-line-widht') + 'px',
-            borderStyleSelect = document.querySelector('select.table-line-type__select-list'),
-            borderColorSelect = document.querySelector('select.table-line-color__select-list');
-            tableBorderStyle = borderStyleSelect.options[borderStyleSelect.selectedIndex].value;
-            tableBorderColor = borderColorSelect.options[borderColorSelect.selectedIndex].value;
         table.style.border = tableBorderWidth + ' ' + tableBorderStyle + ' ' + tableBorderColor;
-        return table;
+        return table.outerHTML;
+    }
+    
+    function() createList() {
+        var list = document.createElement('ul');
+        for (var i = 0; i < returnElementValue('#list-elements-amount'); i++) {
+             var listItem = document.createElement('li');
+            list.appendChild(listItem);
+        }
+        list.style.listStyleType = returnElementValue('#list-elements-amount');
+        return list.outerHTML;
+    }
+    
+    function setDateToTextarea(date) {
+        debugger
+        $userWorkingArea.value = $userWorkingArea.value + date;
     }
 
     // Application logic /////////////////////////////////////////////////////////////////////////////////////////
@@ -171,7 +186,7 @@
 
     // Create table when user press the buttoun   
     document.querySelector('.create-table-btn').onclick = function () {
-        createTable();
+        setDateToTextarea( createTable() );
     }
     
 })();
