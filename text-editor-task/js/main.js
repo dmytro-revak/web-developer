@@ -15,6 +15,7 @@
         $backgroundColorList = document.querySelector('.background-color-panel__select-list'),
         $boldTextInput = document.querySelector('.bold-text-toogle__input'),
         $italicTextInput = document.querySelector('.italic-text-toogle__input'),
+        $underlineTextInput = document.querySelector('.underline-text-toogle__input'),
         $addingButton = document.querySelector('.add-button'),
         $chooseTableListInputes = document.querySelectorAll('[name="adding-panel-radio"]');
 
@@ -43,6 +44,15 @@
                 changeShowingTextPropertyValue(selectList[i], property);
             }
         }
+    }
+
+    // Function which changes bold, italic or underline text (checkbox) paremeter for showing container
+    function switchPropertyByCheckbox(element, property, defaultParameter) {
+        if (element.checked) {
+            changeShowingTextPropertyValue(element, property);
+        } else {
+            $showTextContainer.style[property] = defaultParameter;
+        }   
     }
 
     // Switches display property for element. Makes it visible or unvisible  
@@ -158,21 +168,19 @@
     
     // Add changing font-weight for showing panel when user switch the bold-text input 
     $boldTextInput.onchange = function () {
-        if ($boldTextInput.checked) {
-            changeShowingTextPropertyValue(this, 'fontWeight');
-        } else {
-            $showTextContainer.style.fontWeight = 'normal';
-        }
+        switchPropertyByCheckbox($boldTextInput, 'fontWeight', 'normal');
     }
     
     // Add changing font-style for showing panel when user switch the style-text input 
     $italicTextInput.onchange = function () {
-        if ($italicTextInput.checked) {
-            changeShowingTextPropertyValue(this, 'fontStyle');
-        } else {
-            $showTextContainer.style.fontStyle = 'normal';
-        }
+        switchPropertyByCheckbox($italicTextInput, 'fontStyle', 'normal');
     }
+
+    // Add changing text-decoration (underline) for showing panel when user switch the underline-text input 
+    $underlineTextInput.onchange = function () {
+        switchPropertyByCheckbox($underlineTextInput, 'textDecoration', 'none');
+    }
+
 
     // FONT EDITING PANEL LOGIC END -------------------------------------------------------------------------------
 
