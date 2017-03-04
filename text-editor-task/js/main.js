@@ -25,18 +25,23 @@
         $('select').material_select();
     });
 
-    // If user has pressed 'edit' button followind function gets all text with showing panel and puts it to editing area; If user has pressed 'save' button followind function gets text from editiong panel and puts it to showing panel as HTML markup
-    function transferTextBetweenWorkingAndShowingAreas(clickedElement) {
-        if (clickedElement.name === 'edit') {
-            $userWorkingArea.value = $showTextContainer.innerHTML;
-        } else {
-            $showTextContainer.innerHTML = $userWorkingArea.value;
-        }
+    // Function gets some string date and put it as textarea value for user editing
+    function setDateToTextarea(date) {
+        $userWorkingArea.value += date;
     }
-    
+
     // Change appropriate font property for showing container. Take property value from changint element 
     function changeShowingTextPropertyValue(elementWithValue, property) {
         $showTextContainer.style[property] = elementWithValue.value;
+    }
+
+    // Function which runs font parameters changing function when user select some value for appropriate select list of parameters
+    function setOnchangeFunctionsForSelect(selectList, property) {
+        for (var i = 0; i < selectList.length; i++) {
+            if (selectList[i].selected) {
+                changeShowingTextPropertyValue(selectList[i], property);
+            }
+        }
     }
 
     // Switches display property for element. Makes it visible or unvisible  
@@ -66,24 +71,32 @@
 
     // Creates the table with table-input parameters which are entered by user
     function createTable() {
+        // Create table element, get style parameters for it and set them for one
         var table  = document.createElement('table'),
             tableBorderWidth = returnElementValue('#table-border-line-widht') + 'px',
             borderStyleSelect = document.querySelector('select.table-line-type__select-list'),
             borderColorSelect = document.querySelector('select.table-line-color__select-list');
             tableBorderStyle = borderStyleSelect.options[borderStyleSelect.selectedIndex].value;
             tableBorderColor = borderColorSelect.options[borderColorSelect.selectedIndex].value;
+        table.style.border = tableBorderWidth + ' ' + tableBorderStyle + ' ' + tableBorderColor;
+
+        // Create needed amount of rows
         for(var i = 0; i < returnElementValue('#row-amount'); i++) {
             var tableRow = document.createElement('tr');
+            // Create needed amount of columns
             for(var j = 0; j < returnElementValue('#column-amount'); j++) {
                 var tableColumn = document.createElement('td');
+                // Get columns style parameters and set it for each column
                 tableColumn.style.height = returnElementValue('#table-cell-height') + 'px';
                 tableColumn.style.width = returnElementValue('#table-cell-width') + 'px';
                 tableColumn.style.border = tableBorderWidth + ' ' + tableBorderStyle + ' ' + tableBorderColor;
+                // Add each created column to row
                 tableRow.appendChild(tableColumn);
             }
+            // Add each created row to table
             table.appendChild(tableRow);
         }
-        table.style.border = tableBorderWidth + ' ' + tableBorderStyle + ' ' + tableBorderColor;
+        // Return complete table 
         return table.outerHTML;
     }
     
@@ -97,10 +110,6 @@
         return list.outerHTML;
     }
     
-    // Function gets some string date and put it as textarea value for user editing
-    function setDateToTextarea(date) {
-        $userWorkingArea.value += date;
-    }
 
     // Application logic /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -111,7 +120,7 @@
 
     // Transfer text from editing area to working area as HTML markup
     $saveButton.onclick = function () {
-        transferTextBetweenWorkingAndShowingAreas(this);
+        $showTextContainer.innerHTML = $userWorkingArea.value;  
     }
     
 
@@ -124,32 +133,20 @@
             changeShowingTextPropertyValue(this, 'fontSize');
         }
     }
-    
+
     // Add changing font-family function for the fontFamily select and when user select to one of available item set showing block that font-family
     $fontFamilyList.onchange = function () {
-        for (var i = 0; i < $fontFamilyList.length; i++) {
-            if ($fontFamilyList[i].selected) {
-                changeShowingTextPropertyValue($fontFamilyList[i], 'fontFamily');
-            }
-        }
+        setOnchangeFunctionsForSelect($fontFamilyList, 'fontFamily');
     }
     
     // Add changing font-color function for the fontColor select and when user select to one of available item set showing block that font-color
     $fontColorList.onchange = function () {
-        for (var i = 0; i < $fontColorList.length; i++) {
-            if ($fontColorList[i].selected) {
-                changeShowingTextPropertyValue($fontColorList[i], 'color');
-            }
-        }
+        setOnchangeFunctionsForSelect($fontColorList, 'color');
     }
     
     // Add changing background function for the backgroundColor select and when user select to one of available item set showing block that background-color
     $backgroundColorList.onchange = function () {
-        for (var i = 0; i < $backgroundColorList.length; i++) {
-            if ($backgroundColorList[i].selected) {
-                changeShowingTextPropertyValue($backgroundColorList[i], 'background');
-            }
-        }
+        setOnchangeFunctionsForSelect($backgroundColorList, 'background');
     }
     
     // Add changing font-weight for showing panel when user switch the bold-text input 
@@ -184,7 +181,7 @@
         }
     }
 
-    // Create table when user press the buttoun   
+    // Create table when user press the buttoun and put it to textarea
     document.querySelector('.create-table-btn').onclick = function () {
         setDateToTextarea( createTable() );
     }
