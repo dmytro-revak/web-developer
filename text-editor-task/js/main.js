@@ -87,7 +87,7 @@
         return table.outerHTML;
     }
     
-    function() createList() {
+    function createList() {
         var list = document.createElement('ul');
         for (var i = 0; i < returnElementValue('#list-elements-amount'); i++) {
              var listItem = document.createElement('li');
@@ -97,16 +97,16 @@
         return list.outerHTML;
     }
     
+    // Function gets some string date and put it as textarea value for user editing
     function setDateToTextarea(date) {
-        debugger
-        $userWorkingArea.value = $userWorkingArea.value + date;
+        $userWorkingArea.value += date;
     }
 
     // Application logic /////////////////////////////////////////////////////////////////////////////////////////
 
     // Transfer text from showing area to use working area after click on edit button
     $editButton.onclick = function () {
-        transferTextBetweenWorkingAndShowingAreas(this);
+        setDateToTextarea($showTextContainer.innerHTML);
     }
 
     // Transfer text from editing area to working area as HTML markup
