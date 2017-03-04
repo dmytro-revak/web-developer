@@ -2,13 +2,14 @@
 
     
     // Variable declaration //////////////////////////////////////////////////////////////////////////////////////////
-
+    // debugger
     // Save needed elements to variables
     var $showTextContainer = document.querySelector('.showing-text-panel'),
         $userWorkingArea = document.getElementById('text-editing-area'),
         $editButton = document.querySelector('.edit-button'),
         $saveButton = document.querySelector('.save-button'),
         $fontSizeInputes = document.querySelectorAll('[name="font-size-value"]'),
+        $textAlignInputes = document.querySelectorAll('[name="font-align-value"]'),
         $fontFamilyList = document.querySelector('.font-family-panel__select-list'),
         $fontColorList = document.querySelector('.font-color-panel__select-list'),
         $backgroundColorList = document.querySelector('.background-color-panel__select-list'),
@@ -122,7 +123,6 @@
     $saveButton.onclick = function () {
         $showTextContainer.innerHTML = $userWorkingArea.value;  
     }
-    
 
     // FONT EDITING PANEL LOGIC START -------------------------------------------------------------------------
 
@@ -131,6 +131,13 @@
     for (var i = 0; i < $fontSizeInputes.length; i++) {
         $fontSizeInputes[i].onchange = function () {
             changeShowingTextPropertyValue(this, 'fontSize');
+        }
+    }
+
+    // Add changing text-align function for thr each textAlign input
+    for (var i = 0; i < $textAlignInputes.length; i++) {
+        $textAlignInputes[i].onchange = function () {
+            changeShowingTextPropertyValue(this, 'textAlign');
         }
     }
 
