@@ -13,6 +13,7 @@
         $fontFamilyList = document.querySelector('.font-family-panel__select-list'),
         $fontColorList = document.querySelector('.font-color-panel__select-list'),
         $backgroundColorList = document.querySelector('.background-color-panel__select-list'),
+        $backgroundImageList = document.querySelector('.background-image-panel__select-list'),
         $boldTextInput = document.querySelector('.bold-text-toogle__input'),
         $italicTextInput = document.querySelector('.italic-text-toogle__input'),
         $underlineTextInput = document.querySelector('.underline-text-toogle__input'),
@@ -163,7 +164,12 @@
     
     // Add changing background function for the backgroundColor select and when user select to one of available item set showing block that background-color
     $backgroundColorList.onchange = function () {
-        setOnchangeFunctionsForSelect($backgroundColorList, 'background');
+        setOnchangeFunctionsForSelect($backgroundColorList, 'backgroundColor');
+    }
+
+    // Add changing background function for the backgroundImage select and when user select to one of available item set showing block that background-image
+    $backgroundImageList.onchange = function () {
+        setOnchangeFunctionsForSelect($backgroundImageList, 'backgroundImage');
     }
     
     // Add changing font-weight for showing panel when user switch the bold-text input 
