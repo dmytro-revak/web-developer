@@ -12,6 +12,7 @@
         $textAlignInputes = document.querySelectorAll('[name="font-align-value"]'),
         $fontFamilyList = document.querySelector('.font-family-panel__select-list'),
         $fontColorList = document.querySelector('.font-color-panel__select-list'),
+        $backgroundPanelBtn = document.querySelector('.background-panel__buttton'),
         $backgroundColorList = document.querySelector('.background-color-panel__select-list'),
         $backgroundImageList = document.querySelector('.background-image-panel__select-list'),
         $boldTextInput = document.querySelector('.bold-text-toogle__input'),
@@ -160,6 +161,11 @@
     // Add changing font-color function for the fontColor select and when user select to one of available item set showing block that font-color
     $fontColorList.onchange = function () {
         setOnchangeFunctionsForSelect($fontColorList, 'color');
+    }
+
+    $backgroundPanelBtn.onclick = function () {
+        swithcElementVisibility( document.querySelector('.background-panel__color-panel') );
+        swithcElementVisibility( document.querySelector('.background-panel__image-panel') );
     }
     
     // Add changing background function for the backgroundColor select and when user select to one of available item set showing block that background-color

@@ -74,7 +74,9 @@
         <!-- Font color select panel end -->
         <!-- Background select panel start -->
         <div class="col l2 background-panel">
-            <button class="col l12 waves-effect waves-light btn background-panel__buttton">Background Color</button>
+            <button class="col l12 waves-effect waves-light btn background-panel__buttton">
+                <span class="background-panel__button-name">Switch Background</span>
+            </button>
             <div class="input-field left background-panel__color-panel">
                 <select class="col l12 icons background-color-panel__select-list white-text">
                     <option value="black" data-icon="img/black.svg" class="left circle background-color-panel__option-item">Black</option>
@@ -89,7 +91,7 @@
                     <option value="white" data-icon="img/white.svg" class="left circle background-color-panel__option-item">White</option>
                 </select>
             </div>
-            <div class="input-field left background-panel__image-panel">
+            <div class="col l12 input-field left background-panel__image-panel">
                 <select class="col l12 icons background-image-panel__select-list white-text">
                     <option value="url('img/1.jpg')" data-icon="img/1.jpg" class="left circle background-color-panel__option-item">Orange Wall</option>
                     <option value="url('img/2.jpg')" data-icon="img/2.jpg" class="left circle background-color-panel__option-item">Silver Lines</option>
@@ -101,6 +103,7 @@
                     <option value="url('img/8.png')" data-icon="img/8.png" class="left circle background-color-panel__option-item">Figure</option>
                     <option value="url('img/9.jpg')" data-icon="img/9.jpg" class="left circle background-color-panel__option-item">Light Bubbl</option>
                 </select>
+                <input type="file" name="loadImage" class="background-panel__load-input">
             </div>
         </div>
         <!-- Background select panel end -->

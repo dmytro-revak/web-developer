@@ -9,5 +9,13 @@
 }    
 
 /*.adding-panel-control, .table-adding-panel, .list-adding-panel, .background-panel__image-panel {*/
+    /*display: none;*/
+/*}*/
+
+.background-panel__button-name_image, .background-panel__image-panel {
     display: none;
+}
+
+.background-panel__load-input {
+    width: 100%;
 }
