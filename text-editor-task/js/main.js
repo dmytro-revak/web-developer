@@ -2,16 +2,22 @@
     
     // Variable declaration //////////////////////////////////////////////////////////////////////////////////////////
 
-    // Save needed elements to variables
-    var $showTextContainer = document.querySelector('.showing-text-panel'),
-        $userWorkingArea = document.getElementById('text-editing-area'),
+    // Main panels and needed working containers
+    var $showingTextPanel = document.querySelector('.showing-text-panel'),
+        $showTextContainer = document.querySelector('.showing-text-panel__show-container'),
         $textEditingPanel = document.querySelector('.text-editing-panel'),
+        $userWorkingArea = document.getElementById('text-editing-area'),
         $fontEditPanel = document.querySelector('.font-editing-panel'),
-        $editButton = document.querySelector('.edit-button'),
+        $tableListCreatingPanel = document.querySelector('.table-list-creating-panel');
+        
+    // Control buttons
+    var $editButton = document.querySelector('.edit-button'),
         $styleButton = document.querySelector('.style-button'),
         $saveButton = document.querySelector('.save-button'),
-        $addingButton = document.querySelector('.add-button'),
-        $fontSizeInputes = document.querySelectorAll('[name="font-size-value"]'),
+        $addingButton = document.querySelector('.add-button');
+
+    // Selects and inputes. Switch background button
+    var $fontSizeInputes = document.querySelectorAll('[name="font-size-value"]'),
         $textAlignInputes = document.querySelectorAll('[name="font-align-value"]'),
         $fontFamilyList = document.querySelector('.font-family-panel__select-list'),
         $fontColorList = document.querySelector('.font-color-panel__select-list'),
@@ -22,7 +28,6 @@
         $italicTextInput = document.querySelector('.italic-text-toogle__input'),
         $underlineTextInput = document.querySelector('.underline-text-toogle__input'),
         $chooseTableListInputes = document.querySelectorAll('[name="adding-panel-radio"]');
-
 
     // Function description ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -50,7 +55,7 @@
         }
     }
 
-    // Function which changes bold, italic or underline text (checkbox) paremeter for showing container
+    // Function which toggle bold, italic or underline text (checkbox) paremeter for showing container
     function switchPropertyByCheckbox(element, property, defaultParameter) {
         if (element.checked) {
             changeShowingTextPropertyValue(element, property);
@@ -115,6 +120,7 @@
         return table.outerHTML;
     }
     
+    // Creates the list with list-input parameters which are entered by user
     function createList() {
         var list = document.createElement('ul');
         for (var i = 0; i < returnElementValue('#list-elements-amount'); i++) {
@@ -127,31 +133,42 @@
     
     // Application logic /////////////////////////////////////////////////////////////////////////////////////////
 
+    // Transfer default text from showing container to the working area
     $userWorkingArea.value = $showTextContainer.innerHTML;
 
-    var switchingPanels = [$showTextContainer, $textEditingPanel];
+    // All main panel within one array
+    var switchingPanels = [$showingTextPanel, $textEditingPanel, $tableListCreatingPanel];
 
-    // Transfer text from showing area to use working area after click on edit button
-    $editButton.onclick = function () {
+    // Make working area visible and other main panel invisible
+    $editButton.onclick = function (e) {
+        e.stopPropagation();
         showOneOfTheSetElements(switchingPanels, $textEditingPanel);
     }
 
-    // Transfer text from editing area to working area as HTML markup
-    $saveButton.onclick = function () {
-        showOneOfTheSetElements(switchingPanels, $showTextContainer);
+    // Transfer text from editing area to showing container as HTML markup and make showing panel visible
+    $saveButton.onclick = function (e) {
+        e.stopPropagation();
+        showOneOfTheSetElements(switchingPanels, $showingTextPanel);
+        $showTextContainer.innerHTML = $userWorkingArea.value;
     }
 
-    $styleButton.onclick  = function () {
+    // Show or hide font edit panel after user's click on style button
+    $styleButton.onclick  = function (e) {
+        e.stopPropagation();
         swithcElementVisibility($fontEditPanel);
     }
 
-    // Toggle visibility for input choose-List-or-Table panel
-    $addingButton.onclick = function () {
-        swithcElementVisibility( document.querySelector('.adding-panel-control') );
+    // Show table-list creatin pable and hide other main panels
+    $addingButton.onclick = function (e) {
+        e.stopPropagation();
+        showOneOfTheSetElements(switchingPanels, $tableListCreatingPanel);
+    }
+
+    document.body.onclick  = function() {
+        showOneOfTheSetElements(switchingPanels);
     }
 
     // FONT EDITING PANEL LOGIC START -------------------------------------------------------------------------
-
 
     // Add changing font-size function for the each fontSize input
     for (var i = 0; i < $fontSizeInputes.length; i++) {
@@ -207,7 +224,6 @@
         switchPropertyByCheckbox($underlineTextInput, 'textDecoration', 'none');
     }
 
-
     // FONT EDITING PANEL LOGIC END -------------------------------------------------------------------------------
 
 
@@ -220,8 +236,8 @@
     // }
 
     // Create table when user press the buttoun and put it to textarea
-    document.querySelector('.create-table-btn').onclick = function () {
-        setDateToTextarea( createTable() );
-    }
+    // document.querySelector('.create-table-btn').onclick = function () {
+    //     setDateToTextarea( createTable() );
+    // }
     
 })();

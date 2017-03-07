@@ -6,7 +6,12 @@
     flex-wrap: wrap;
     justify-content: space-around;    
 }
-.showing-text-panel {
+
+.font-editing-panel, .text-editing-panel, .showing-text-panel, .table-list-creating-panel {
+    display: none;
+}
+
+.showing-text-panel__show-container {
     height: 500px;
     padding: 15px;
     border: 1px solid #9e9e9e;
@@ -15,10 +20,6 @@
     background-size: cover;
     background-repeat: no-repeat;
 }    
-
-/*.adding-panel-control, .table-adding-panel, .list-adding-panel, .background-panel__image-panel {*/
-    /*display: none;*/
-/*}*/
 
 .background-panel__button-name_image, .background-panel__image-panel {
     display: none;
