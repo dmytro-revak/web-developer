@@ -2,6 +2,10 @@
     margin-top: 20px;
 }
 
+.background-panel__image-panel {
+    flex-wrap: wrap;
+    justify-content: space-around;    
+}
 .showing-text-panel {
     height: 500px;
     padding: 15px;

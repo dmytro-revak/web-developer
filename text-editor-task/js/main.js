@@ -1,15 +1,16 @@
 (function initTheEditor() {
-
     
     // Variable declaration //////////////////////////////////////////////////////////////////////////////////////////
-    // debugger
+
     // Save needed elements to variables
     var $showTextContainer = document.querySelector('.showing-text-panel'),
         $userWorkingArea = document.getElementById('text-editing-area'),
+        $textEditingPanel = document.querySelector('.text-editing-panel'),
         $fontEditPanel = document.querySelector('.font-editing-panel'),
         $editButton = document.querySelector('.edit-button'),
         $styleButton = document.querySelector('.style-button'),
         $saveButton = document.querySelector('.save-button'),
+        $addingButton = document.querySelector('.add-button'),
         $fontSizeInputes = document.querySelectorAll('[name="font-size-value"]'),
         $textAlignInputes = document.querySelectorAll('[name="font-align-value"]'),
         $fontFamilyList = document.querySelector('.font-family-panel__select-list'),
@@ -20,7 +21,6 @@
         $boldTextInput = document.querySelector('.bold-text-toogle__input'),
         $italicTextInput = document.querySelector('.italic-text-toogle__input'),
         $underlineTextInput = document.querySelector('.underline-text-toogle__input'),
-        $addingButton = document.querySelector('.add-button'),
         $chooseTableListInputes = document.querySelectorAll('[name="adding-panel-radio"]');
 
 
@@ -62,20 +62,20 @@
     // Switches display property for element. Makes it visible or unvisible  
     function swithcElementVisibility(element) {
         if (getComputedStyle(element).display === 'none') {
-            element.style.display = 'block';
+            element.style.display = 'flex';
         } else {
             element.style.display = 'none';
         }
     }
 
-    // Function which get group of elements and make all of them unvisible except checked element
-    function showCheckedElementDate(setOfElements) {
-        for (var i = 0; i < setOfElements.length; i++) {
-            if (setOfElements[i].checked) {
-                swithcElementVisibility( document.querySelector(setOfElements[i].value) );
-                continue;       
+    // Function which get group of elements and make all of them unvisible except one element
+    function showOneOfTheSetElements(setOfElements, elementToShow) {
+        for (var item of setOfElements) {
+            if (item === elementToShow) {
+                elementToShow.style.display = 'block'; 
+            } else {
+                item.style.display = 'none';
             }
-        document.querySelector(setOfElements[i].value).style.display = 'none';
         }
     }
 
@@ -125,21 +125,29 @@
         return list.outerHTML;
     }
     
-
     // Application logic /////////////////////////////////////////////////////////////////////////////////////////
+
+    $userWorkingArea.value = $showTextContainer.innerHTML;
+
+    var switchingPanels = [$showTextContainer, $textEditingPanel];
 
     // Transfer text from showing area to use working area after click on edit button
     $editButton.onclick = function () {
-        setDateToTextarea($showTextContainer.innerHTML);
+        showOneOfTheSetElements(switchingPanels, $textEditingPanel);
     }
 
     // Transfer text from editing area to working area as HTML markup
     $saveButton.onclick = function () {
-        $showTextContainer.innerHTML = $userWorkingArea.value;  
+        showOneOfTheSetElements(switchingPanels, $showTextContainer);
     }
 
     $styleButton.onclick  = function () {
         swithcElementVisibility($fontEditPanel);
+    }
+
+    // Toggle visibility for input choose-List-or-Table panel
+    $addingButton.onclick = function () {
+        swithcElementVisibility( document.querySelector('.adding-panel-control') );
     }
 
     // FONT EDITING PANEL LOGIC START -------------------------------------------------------------------------
@@ -202,17 +210,14 @@
 
     // FONT EDITING PANEL LOGIC END -------------------------------------------------------------------------------
 
-    // Toggle visibility for input choose-List-or-Table panel
-    $addingButton.onclick = function () {
-        swithcElementVisibility( document.querySelector('.adding-panel-control') );
-    }
+
 
     // Make visible table or list adding panel when user checking the appropriate input
-    for(var i = 0; i < $chooseTableListInputes.length; i++) {
-        $chooseTableListInputes[i].onchange = function () {
-            showCheckedElementDate($chooseTableListInputes);
-        }
-    }
+    // for(var i = 0; i < $chooseTableListInputes.length; i++) {
+    //     $chooseTableListInputes[i].onchange = function () {
+    //         showCheckedElementDate($chooseTableListInputes);
+    //     }
+    // }
 
     // Create table when user press the buttoun and put it to textarea
     document.querySelector('.create-table-btn').onclick = function () {

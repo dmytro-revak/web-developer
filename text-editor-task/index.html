@@ -107,8 +107,8 @@
                     <option value="white" data-icon="img/white.svg" class="left circle background-color-panel__option-item">White</option>
                 </select>
             </div>
-            <div class="col l12 input-field left background-panel__image-panel">
-                <select class="col l12 icons background-image-panel__select-list white-text">
+            <div class="input-field left background-panel__image-panel">
+                <select class="icons background-image-panel__select-list white-text">
                     <option value="url('img/1.jpg')" data-icon="img/1.jpg" class="left circle background-color-panel__option-item">Orange Wall</option>
                     <option value="url('img/2.jpg')" data-icon="img/2.jpg" class="left circle background-color-panel__option-item">Silver Lines</option>
                     <option value="url('img/3.jpg')" data-icon="img/3.jpg" class="left circle background-color-panel__option-item">Dark Bublles</option>
@@ -119,7 +119,7 @@
                     <option value="url('img/8.png')" data-icon="img/8.png" class="left circle background-color-panel__option-item">Figure</option>
                     <option value="url('img/9.jpg')" data-icon="img/9.jpg" class="left circle background-color-panel__option-item">Light Bubbl</option>
                 </select>
-                <input type="file" name="loadImage" class="background-panel__load-input">
+                <input type="file" name="loadImage" class="col l12 background-panel__load-input">
             </div>
         </div>
         <!-- Background select panel end -->
@@ -154,19 +154,18 @@
     </div>
     <!-- Font editing panel end -->
     <!-- Text editing area start -->
-    <div class="row">
+    <div class="row text-editing-panel">
         <div class="col l12 text-editing-area-wrapper">
             <div class="input-field col l12">
-                <textarea  id="text-editing-area" class="materialize-textarea"></textarea>
+                <textarea id="text-editing-area" class="materialize-textarea"></textarea>
                 <label for="text-editing-area-label">Text</label>
             </div>
         </div>        
     </div>
     <!-- Text editing area end -->
-    <!-- Showing text and adding panles start -->
+    <!-- Showing panel start -->
     <div class="row">
-        <!-- Showing panel start -->
-        <div class="col l8">
+        <div class="col l12">
             <div class="showing-text-panel">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -178,9 +177,11 @@
                 </p>
             </div>
         </div>
-        <!-- Showing panel end -->
-        <!-- Addin panel start -->
-        <div class="col l4">
+    </div>
+    <!-- Showing panel end -->
+    <!-- Adding panel start -->
+    <div class="row">
+        <div class="col l12">
             <!-- Table or List adding control panel start  -->
             <div class="adding-panel-control center-align">
                 <input name="adding-panel-radio" type="radio" value=".table-adding-panel" id="add-table">
