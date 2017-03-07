@@ -77,7 +77,7 @@
     function showOneOfTheSetElements(setOfElements, elementToShow) {
         for (var item of setOfElements) {
             if (item === elementToShow) {
-                elementToShow.style.display = 'block'; 
+                swithcElementVisibility(elementToShow); 
             } else {
                 item.style.display = 'none';
             }
@@ -140,32 +140,24 @@
     var switchingPanels = [$showingTextPanel, $textEditingPanel, $tableListCreatingPanel];
 
     // Make working area visible and other main panel invisible
-    $editButton.onclick = function (e) {
-        e.stopPropagation();
+    $editButton.onclick = function () {
         showOneOfTheSetElements(switchingPanels, $textEditingPanel);
     }
 
     // Transfer text from editing area to showing container as HTML markup and make showing panel visible
-    $saveButton.onclick = function (e) {
-        e.stopPropagation();
+    $saveButton.onclick = function () {
         showOneOfTheSetElements(switchingPanels, $showingTextPanel);
         $showTextContainer.innerHTML = $userWorkingArea.value;
     }
 
     // Show or hide font edit panel after user's click on style button
-    $styleButton.onclick  = function (e) {
-        e.stopPropagation();
+    $styleButton.onclick  = function () {
         swithcElementVisibility($fontEditPanel);
     }
 
     // Show table-list creatin pable and hide other main panels
-    $addingButton.onclick = function (e) {
-        e.stopPropagation();
+    $addingButton.onclick = function () {
         showOneOfTheSetElements(switchingPanels, $tableListCreatingPanel);
-    }
-
-    document.body.onclick  = function() {
-        showOneOfTheSetElements(switchingPanels);
     }
 
     // FONT EDITING PANEL LOGIC START -------------------------------------------------------------------------
@@ -226,18 +218,4 @@
 
     // FONT EDITING PANEL LOGIC END -------------------------------------------------------------------------------
 
-
-
-    // Make visible table or list adding panel when user checking the appropriate input
-    // for(var i = 0; i < $chooseTableListInputes.length; i++) {
-    //     $chooseTableListInputes[i].onchange = function () {
-    //         showCheckedElementDate($chooseTableListInputes);
-    //     }
-    // }
-
-    // Create table when user press the buttoun and put it to textarea
-    // document.querySelector('.create-table-btn').onclick = function () {
-    //     setDateToTextarea( createTable() );
-    // }
-    
 })();
