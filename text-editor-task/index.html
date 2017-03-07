@@ -8,6 +8,22 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
+    <!-- Buttons panels start -->
+    <div class="row buttons-panel buttons-panel_style_default">
+        <div class="col l3">
+            <button class="col l12 waves-effect waves-light btn-large edit-button buttons-panel__button" name="edit">Edit</button>
+        </div>
+        <div class="col l3">
+            <button class="col l12 waves-effect waves-light btn-large style-button buttons-panel__button" name="edit">Style</button>
+        </div>
+        <div class="col l3">
+            <button class="col l12 waves-effect waves-light btn-large save-button buttons-panel__button" name="save">Save</button>
+        </div>
+        <div class="col l3">
+            <button class="col l12 waves-effect waves-light btn-large add-button buttons-panel__button" name="add">Add</button>
+        </div>
+    </div>
+    <!-- Buttons panels end -->
     <!-- Font editing panel start -->
     <div class="row font-editing-panel valign-wrapper grey lighten-1 teal-text text-lighten-1">
         <!-- Font size-align input panel start -->
@@ -137,37 +153,16 @@
         <!-- Toggle input for bold, italic and underline font end -->
     </div>
     <!-- Font editing panel end -->
-    <!-- Text editing and buttons panels start -->
+    <!-- Text editing area start -->
     <div class="row">
-            <!-- Text editing area start -->
-            <div class="col l8 text-editing-area-wrapper">
-                <div class="input-field col l12">
-                    <textarea  id="text-editing-area" class="materialize-textarea"></textarea>
-                    <label for="text-editing-area-label">Text</label>
-                </div>
+        <div class="col l12 text-editing-area-wrapper">
+            <div class="input-field col l12">
+                <textarea  id="text-editing-area" class="materialize-textarea"></textarea>
+                <label for="text-editing-area-label">Text</label>
             </div>
-            <!-- Text editing area end -->
-            <!-- Buttons panels start -->
-            <div class="col l4 buttons-panel">
-                <div class="row">
-                    <div class="col l12">
-                        <button class="col l12 waves-effect waves-light btn-large edit-button buttons-panel__button" name="edit">Редагувати</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col l12">
-                        <button class="col l12 waves-effect waves-light btn-large save-button buttons-panel__button" name="save">Зберегти</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col l12">
-                        <button class="col l12 waves-effect waves-light btn-large add-button buttons-panel__button" name="add">Додати</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Buttons panels end -->
+        </div>        
     </div>
-    <!-- Text editing and buttons panels end -->
+    <!-- Text editing area end -->
     <!-- Showing text and adding panles start -->
     <div class="row">
         <!-- Showing panel start -->

@@ -6,7 +6,9 @@
     // Save needed elements to variables
     var $showTextContainer = document.querySelector('.showing-text-panel'),
         $userWorkingArea = document.getElementById('text-editing-area'),
+        $fontEditPanel = document.querySelector('.font-editing-panel'),
         $editButton = document.querySelector('.edit-button'),
+        $styleButton = document.querySelector('.style-button'),
         $saveButton = document.querySelector('.save-button'),
         $fontSizeInputes = document.querySelectorAll('[name="font-size-value"]'),
         $textAlignInputes = document.querySelectorAll('[name="font-align-value"]'),
@@ -134,6 +136,10 @@
     // Transfer text from editing area to working area as HTML markup
     $saveButton.onclick = function () {
         $showTextContainer.innerHTML = $userWorkingArea.value;  
+    }
+
+    $styleButton.onclick  = function () {
+        swithcElementVisibility($fontEditPanel);
     }
 
     // FONT EDITING PANEL LOGIC START -------------------------------------------------------------------------
