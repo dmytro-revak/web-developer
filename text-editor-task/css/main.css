@@ -15,11 +15,9 @@
     justify-content: space-around;    
 }
 
-.font-editing-panel, .showing-text-panel, .table-list-creating-panel, .list-adding-panel, .ordered-list-style {
+.font-editing-panel, .text-editing-panel, .showing-text-panel, .table-list-creating-panel, .list-adding-panel, .ordered-list-style, .list-style-wrapper, .list-elements-amount-wrapper, .creating-list-buttons {
     display: none;
 }
-
-/*.text-editing-panel*/
 
 .showing-text-panel__show-container {
     height: 800px;
@@ -37,4 +35,8 @@
 
 .background-panel__load-input {
     width: 100%;
+}
+
+.choose-list-style {
+    margin-top: 50px;
 }

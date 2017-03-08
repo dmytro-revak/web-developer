@@ -261,18 +261,22 @@
         reserSelectList(selectForReset);
     }
     
+    // Seva ordered and unerdered list panels to one array
     var listPanels = [$unorderedListPanel, $orderedListPanel];
+
+    // Switch ordered and unerdered list panels visibility and make listItemAmount input invisible after user's input changing
     for (var i = 0; i < $chooseListStyleInputes.length; i++) {
         $chooseListStyleInputes[i].onchange = function () {
             var showElement = document.querySelector(this.value);
             showOneOfTheSetElements(listPanels, showElement, 'block');
+            document.querySelector('.list-elements-amount-wrapper').style.display = 'none';   
         }
     }
     
+    // Show list items amount input after user's choosing type of list mark
     for(var i = 0; i < listPanels.length; i++) {
-           // debugger
-        listPanels[i].onblur = function() {
-            alert(1);
+        listPanels[i].children[1].onchange = function() {
+            document.querySelector('.list-elements-amount-wrapper').style.display = 'block';   
         }
     }
     
