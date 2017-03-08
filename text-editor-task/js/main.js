@@ -73,11 +73,15 @@
     }
 
     // Switches display property for element. Makes it visible or unvisible  
-    function swithcElementVisibility(element, dispProperty) {
-        if (getComputedStyle(element).display === 'none') {
-            element.style.display = dispProperty;
+    function swithcElementVisibility(element, dispProperty, switchVisibility) {
+        if (switchVisibility) {
+            if (getComputedStyle(element).display === 'none') {
+                element.style.display = dispProperty;
+            } else {
+                element.style.display = 'none';
+            }
         } else {
-            element.style.display = 'none';
+            element.style.display = dispProperty;
         }
     }
 
@@ -85,7 +89,7 @@
     function showOneOfTheSetElements(setOfElements, elementToShow, dispProperty) {
         for (var i = 0; i < setOfElements.length; i++) {
             if (setOfElements[i] === elementToShow) {
-                swithcElementVisibility(elementToShow, dispProperty); 
+                swithcElementVisibility(elementToShow, dispProperty, true); 
             } else {
                 setOfElements[i].style.display = 'none';
             }
@@ -173,7 +177,7 @@
 
     // Show or hide font edit panel after user's click on style button
     $styleButton.onclick  = function () {
-        swithcElementVisibility($fontEditPanel, 'flex');
+        swithcElementVisibility($fontEditPanel, 'flex', true);
     }
 
     // Show table-list creatin pable and hide other main panels
@@ -208,8 +212,8 @@
     }
 
     $backgroundPanelBtn.onclick = function () {
-        swithcElementVisibility( document.querySelector('.background-panel__color-panel'), 'block');
-        swithcElementVisibility( document.querySelector('.background-panel__image-panel'), 'flex');
+        swithcElementVisibility( document.querySelector('.background-panel__color-panel'), 'block', true);
+        swithcElementVisibility( document.querySelector('.background-panel__image-panel'), 'flex', true);
     }
     
     // Add changing background function for the backgroundColor select and when user select to one of available item set showing block that background-color. Also remove setted before backgroun-image
@@ -275,11 +279,15 @@
     
     // Show list items amount input after user's choosing type of list mark
     for(var i = 0; i < listPanels.length; i++) {
-        listPanels[i].children[1].onchange = function() {
-            document.querySelector('.list-elements-amount-wrapper').style.display = 'block';   
+        listPanels[i].children[1].onchange = function() {  
+            maleElementInvisible('.list-elements-amount-wrapper')
         }
     }
     
+    document.getElementById('list-elements-amount').onblur = function() {
+        alert(1);
+    }
+
     // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
 
     
