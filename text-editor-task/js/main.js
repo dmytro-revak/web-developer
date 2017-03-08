@@ -8,7 +8,8 @@
         $textEditingPanel = document.querySelector('.text-editing-panel'),
         $userWorkingArea = document.getElementById('text-editing-area'),
         $fontEditPanel = document.querySelector('.font-editing-panel'),
-        $tableListCreatingPanel = document.querySelector('.table-list-creating-panel');
+        $tableListCreatingPanel = document.querySelector('.table-list-creating-panel'),
+        $tableListCreatingForms = document.querySelectorAll('.table-list-add-form');
         
     // Control buttons
     var $editButton = document.querySelector('.edit-button'),
@@ -22,12 +23,17 @@
         $fontFamilyList = document.querySelector('.font-family-panel__select-list'),
         $fontColorList = document.querySelector('.font-color-panel__select-list'),
         $backgroundPanelBtn = document.querySelector('.background-panel__buttton'),
-        $backgroundColorList = document.querySelector('.background-color-panel__select-list'),
-        $backgroundImageList = document.querySelector('.background-image-panel__select-list'),
+        $backgroundColorList = document.querySelector('.background-panel__color-select-list'),
+        $backgroundImageList = document.querySelector('.background-panel__image-select-list'),
         $boldTextInput = document.querySelector('.bold-text-toogle__input'),
         $italicTextInput = document.querySelector('.italic-text-toogle__input'),
         $underlineTextInput = document.querySelector('.underline-text-toogle__input'),
-        $chooseTableListInputes = document.querySelectorAll('[name="adding-panel-radio"]');
+        $chooseTableListInputes = document.querySelectorAll('[name="adding-panel-radio"]'),
+        $chooseListStyleInputes = document.querySelectorAll('[name="choose-list-style-radio"]');
+    
+    // Create Table and create list panels
+    var $unorderedListPanel = document.querySelector('.unordered-list-style'),
+        $orderedListPanel = document.querySelector('.ordered-list-style');
 
     // Function description ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -65,21 +71,21 @@
     }
 
     // Switches display property for element. Makes it visible or unvisible  
-    function swithcElementVisibility(element) {
+    function swithcElementVisibility(element, dispProperty) {
         if (getComputedStyle(element).display === 'none') {
-            element.style.display = 'flex';
+            element.style.display = dispProperty;
         } else {
             element.style.display = 'none';
         }
     }
 
     // Function which get group of elements and make all of them unvisible except one element
-    function showOneOfTheSetElements(setOfElements, elementToShow) {
-        for (var item of setOfElements) {
-            if (item === elementToShow) {
-                swithcElementVisibility(elementToShow); 
+    function showOneOfTheSetElements(setOfElements, elementToShow, dispProperty) {
+        for (var i = 0; i < setOfElements.length; i++) {
+            if (setOfElements[i] === elementToShow) {
+                swithcElementVisibility(elementToShow, dispProperty); 
             } else {
-                item.style.display = 'none';
+                setOfElements[i].style.display = 'none';
             }
         }
     }
@@ -116,6 +122,7 @@
             // Add each created row to table
             table.appendChild(tableRow);
         }
+
         // Return complete table 
         return table.outerHTML;
     }
@@ -141,23 +148,23 @@
 
     // Make working area visible and other main panel invisible
     $editButton.onclick = function () {
-        showOneOfTheSetElements(switchingPanels, $textEditingPanel);
+        showOneOfTheSetElements(switchingPanels, $textEditingPanel, 'block');
     }
 
     // Transfer text from editing area to showing container as HTML markup and make showing panel visible
     $saveButton.onclick = function () {
-        showOneOfTheSetElements(switchingPanels, $showingTextPanel);
+        showOneOfTheSetElements(switchingPanels, $showingTextPanel, 'block');
         $showTextContainer.innerHTML = $userWorkingArea.value;
     }
 
     // Show or hide font edit panel after user's click on style button
     $styleButton.onclick  = function () {
-        swithcElementVisibility($fontEditPanel);
+        swithcElementVisibility($fontEditPanel, 'flex');
     }
 
     // Show table-list creatin pable and hide other main panels
     $addingButton.onclick = function () {
-        showOneOfTheSetElements(switchingPanels, $tableListCreatingPanel);
+        showOneOfTheSetElements(switchingPanels, $tableListCreatingPanel, 'block');
     }
 
     // FONT EDITING PANEL LOGIC START -------------------------------------------------------------------------
@@ -187,13 +194,14 @@
     }
 
     $backgroundPanelBtn.onclick = function () {
-        swithcElementVisibility( document.querySelector('.background-panel__color-panel') );
-        swithcElementVisibility( document.querySelector('.background-panel__image-panel') );
+        swithcElementVisibility( document.querySelector('.background-panel__color-panel'), 'block');
+        swithcElementVisibility( document.querySelector('.background-panel__image-panel'), 'flex');
     }
     
-    // Add changing background function for the backgroundColor select and when user select to one of available item set showing block that background-color
+    // Add changing background function for the backgroundColor select and when user select to one of available item set showing block that background-color. Also remove setted before backgroun-image
     $backgroundColorList.onchange = function () {
         setOnchangeFunctionsForSelect($backgroundColorList, 'backgroundColor');
+        $showTextContainer.style.backgroundImage = '';
     }
 
     // Add changing background function for the backgroundImage select and when user select to one of available item set showing block that background-image
@@ -217,5 +225,27 @@
     }
 
     // FONT EDITING PANEL LOGIC END -------------------------------------------------------------------------------
-
+    for (var i = 0; i < $chooseTableListInputes.length; i++) {
+        $chooseTableListInputes[i].onchange = function () {
+            var showElement = document.querySelector(this.value);
+            showOneOfTheSetElements($tableListCreatingForms, showElement, 'block');
+        }
+    }
+    
+    var listPanels = [$unorderedListPanel, $orderedListPanel];
+    for (var i = 0; i < $chooseListStyleInputes.length; i++) {
+        $chooseListStyleInputes[i].onchange = function () {
+            var showElement = document.querySelector(this.value);
+            showOneOfTheSetElements(listPanels, showElement, 'block');
+        }
+    }
+    
+    for(var i = 0; i < listPanels.length; i++) {
+           debugger
+        listPanels[i].onblur = function() {
+            alert(1);
+        }
+    }
+    
+    
 })();

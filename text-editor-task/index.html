@@ -11,16 +11,16 @@
     <!-- Buttons panels start -->
     <div class="row buttons-panel buttons-panel_style_default">
         <div class="col l3">
-            <button class="col l12 waves-effect waves-light btn-large edit-button buttons-panel__button" name="edit">Edit</button>
+            <button class="waves-effect waves-light btn-large edit-button buttons-panel__button" name="edit">Edit</button>
         </div>
         <div class="col l3">
-            <button class="col l12 waves-effect waves-light btn-large style-button buttons-panel__button" name="edit">Style</button>
+            <button class="waves-effect waves-light btn-large style-button buttons-panel__button" name="style">Style</button>
         </div>
         <div class="col l3">
-            <button class="col l12 waves-effect waves-light btn-large save-button buttons-panel__button" name="save">Save</button>
+            <button class="waves-effect waves-light btn-large save-button buttons-panel__button" name="save">Save</button>
         </div>
         <div class="col l3">
-            <button class="col l12 waves-effect waves-light btn-large add-button buttons-panel__button" name="add">Add</button>
+            <button class="waves-effect waves-light btn-large add-button buttons-panel__button" name="add">Add</button>
         </div>
     </div>
     <!-- Buttons panels end -->
@@ -90,36 +90,40 @@
         <!-- Font color select panel end -->
         <!-- Background select panel start -->
         <div class="col l2 background-panel">
-            <button class="col l12 waves-effect waves-light btn background-panel__buttton">
-                <span class="background-panel__button-name">Switch Background</span>
-            </button>
-            <div class="input-field left background-panel__color-panel">
-                <select class="col l12 icons background-color-panel__select-list white-text">
-                    <option value="black" data-icon="img/black.svg" class="left circle background-color-panel__option-item">Black</option>
-                    <option value="brown" data-icon="img/brown.svg" class="left circle background-color-panel__option-item">Brown</option>
-                    <option value="blue" data-icon="img/blue.svg" class="left circle background-color-panel__option-item">Blue</option>
-                    <option value="green" data-icon="img/green.svg" class="left circle background-color-panel__option-item">Green</option>
-                    <option value="yellow" data-icon="img/yellow.svg" class="left circle background-color-panel__option-item">Yellow</option>
-                    <option value="orange" data-icon="img/orange.svg" class="left circle background-color-panel__option-item">Orange</option>
-                    <option value="red" data-icon="img/red.svg" class="left circle background-color-panel__option-item">Red</option>
-                    <option value="purple" data-icon="img/purple.svg" class="left circle background-color-panel__option-item">Purple</option>
-                    <option value="grey" data-icon="img/grey.svg" class="left circle background-color-panel__option-item">Gray</option>
-                    <option value="white" data-icon="img/white.svg" class="left circle background-color-panel__option-item">White</option>
-                </select>
+            <div class="row">
+                <button class="col l12 waves-effect waves-light btn background-panel__buttton">
+                    <span class="background-panel__button-name">Switch Background</span>
+                </button>
             </div>
-            <div class="input-field left background-panel__image-panel">
-                <select class="icons background-image-panel__select-list white-text">
-                    <option value="url('img/1.jpg')" data-icon="img/1.jpg" class="left circle background-color-panel__option-item">Orange Wall</option>
-                    <option value="url('img/2.jpg')" data-icon="img/2.jpg" class="left circle background-color-panel__option-item">Silver Lines</option>
-                    <option value="url('img/3.jpg')" data-icon="img/3.jpg" class="left circle background-color-panel__option-item">Dark Bublles</option>
-                    <option value="url('img/4.jpg')" data-icon="img/4.jpg" class="left circle background-color-panel__option-item">Dark Web</option>
-                    <option value="url('img/5.jpg')" data-icon="img/5.jpg" class="left circle background-color-panel__option-item">Relief Triangl</option>
-                    <option value="url('img/6.jpg')" data-icon="img/6.jpg" class="left circle background-color-panel__option-item">Space Light</option>
-                    <option value="url('img/7.jpg')" data-icon="img/7.jpg" class="left circle background-color-panel__option-item">Space Lines</option>
-                    <option value="url('img/8.png')" data-icon="img/8.png" class="left circle background-color-panel__option-item">Figure</option>
-                    <option value="url('img/9.jpg')" data-icon="img/9.jpg" class="left circle background-color-panel__option-item">Light Bubbl</option>
-                </select>
-                <input type="file" name="loadImage" class="col l12 background-panel__load-input">
+            <div class="row">
+                <div class="col l12 input-field left background-panel__color-panel">
+                    <select class="icons background-panel__color-select-list white-text">
+                        <option value="black" data-icon="img/black.svg" class="left circle">Black</option>
+                        <option value="brown" data-icon="img/brown.svg" class="left circle">Brown</option>
+                        <option value="blue" data-icon="img/blue.svg" class="left circle">Blue</option>
+                        <option value="green" data-icon="img/green.svg" class="left circle">Green</option>
+                        <option value="yellow" data-icon="img/yellow.svg" class="left circle">Yellow</option>
+                        <option value="orange" data-icon="img/orange.svg" class="left circle">Orange</option>
+                        <option value="red" data-icon="img/red.svg" class="left circle">Red</option>
+                        <option value="purple" data-icon="img/purple.svg" class="left circle">Purple</option>
+                        <option value="grey" data-icon="img/grey.svg" class="left circle">Gray</option>
+                        <option value="white" data-icon="img/white.svg" class="left circle">White</option>
+                    </select>
+                </div>
+                <div class="col l12 input-field left background-panel__image-panel">
+                    <select class="icons background-panel__image-select-list white-text">
+                        <option value="url('img/1.jpg')" data-icon="img/1.jpg" class="left circle">Orange Wall</option>
+                        <option value="url('img/2.jpg')" data-icon="img/2.jpg" class="left circle">Silver Lines</option>
+                        <option value="url('img/3.jpg')" data-icon="img/3.jpg" class="left circle">Dark Bublles</option>
+                        <option value="url('img/4.jpg')" data-icon="img/4.jpg" class="left circle">Dark Web</option>
+                        <option value="url('img/5.jpg')" data-icon="img/5.jpg" class="left circle">Relief Triangl</option>
+                        <option value="url('img/6.jpg')" data-icon="img/6.jpg" class="left circle">Space Light</option>
+                        <option value="url('img/7.jpg')" data-icon="img/7.jpg" class="left circle">Space Lines</option>
+                        <option value="url('img/8.png')" data-icon="img/8.png" class="left circle">Figure</option>
+                        <option value="url('img/9.jpg')" data-icon="img/9.jpg" class="left circle">Light Bubbl</option>
+                    </select>
+                    <input type="file" name="loadImage" class="col l12 background-panel__load-input">
+                </div>
             </div>
         </div>
         <!-- Background select panel end -->
@@ -181,15 +185,15 @@
     <div class="row table-list-creating-panel">
         <div class="col l12">
             <!-- Table or List adding control panel start  -->
-            <div class="adding-panel-control center-align">
-                <input name="adding-panel-radio" type="radio" value=".table-adding-panel" id="add-table">
+            <div class="col l12 adding-panel-control center-align">
+                <input name="adding-panel-radio" type="radio" value=".table-adding-panel" id="add-table" checked>
                 <label for="add-table" class="teal-text text-lighten-2">Table</label>
                 <input name="adding-panel-radio" type="radio" value=".list-adding-panel" id="add-list">
                 <label for="add-list" class="teal-text text-lighten-2">List</label>
             </div>
             <!-- Table or List adding control panel end  -->
             <!-- Table adding content panel start  -->
-            <div class="table-adding-panel">
+            <form class="table-adding-panel table-list-add-form">
                 <!-- Amount of rows start -->
                 <div class="input-field row-amount-wrapper">
                     <input placeholder="5" id="row-amount" type="text">
@@ -225,6 +229,12 @@
                     <label for="table-line-widht">Table line Width</label>
                 </div>
                 <!-- Table border-line width end -->
+                <!-- Table cellspacing start -->
+                <div class="input-field table-cellspacing-wrapper">
+                    <input placeholder="1" id="table-cellspacing" type="text">
+                    <label for="table-cellspacing">Table Cellspacing</label>
+                </div>
+                <!-- Table cellspacing end -->
                 <!-- Table border-line type start -->
                 <div class="col l12 input-field left table-line-type-wrapper">
                     <span class="col l12 table-line-type__text-label center-align">Table line type</span>
@@ -253,41 +263,60 @@
                     </select>
                 </div>
                 <!-- Table border-line color start -->
-                <!-- Create table button start -->
+                <!-- Create and reset table button start -->
                 <div class="row">
-                    <div class="col l12">
-                        <button class="col l12 waves-effect waves-light btn-large create-table-btn" name="create-table">Створити таблицю</button>
-                    </div>
+                        <button class="col l5 waves-effect waves-light btn-large create-table-btn" name="create-table">Create a table</button>
+                        <button type="reset" class="col l5 offset-l2 waves-effect waves-light btn-large create-table-btn" name="create-table">Reset Parameters</button>
                 </div>
-                <!-- Create table button end -->
-            </div>
+                <!-- Create and reser table button end -->
+            </form>
             <!-- Table adding content panel end  -->
             <!-- List adding content panel start -->
-            <div class="list-adding-panel">
+            <form class="list-adding-panel table-list-add-form">
+                <!-- Table or List adding control panel start  -->
+                <div class="choose-list-style center-align">
+                    <input name="choose-list-style-radio" type="radio" value=".unordered-list-style" id="ul-list-style" checked>
+                    <label for="ul-list-style" class="teal-text text-lighten-2">Unordered list</label>
+                    <input name="choose-list-style-radio" type="radio" value=".ordered-list-style" id="ol-list-style">
+                    <label for="ol-list-style" class="teal-text text-lighten-2">Ordered list</label>
+                </div>
+                <!-- Table or List adding control panel end  -->
+                <!-- Unordered list style panel start -->
+                <div class="col l12 input-field left list-style-wrapper unordered-list-style">
+                    <span class="col l12 list-style__text-label center-align">Unordered list style</span>
+                    <select class="unordered-list-style__select-list white-text">
+                        <option value="circle" class="unordered-list-style__option-item">Circle</option>
+                        <option value="disc" class="unordered-list-style__option-item">Disc</option>
+                        <option value="square" class="unordered-list-style__option-item">Square</option>
+                    </select>
+                </div>
+                <!-- Unordered list style panel end -->
+                <!-- Ordered list style panel start -->
+                <div class="col l12 input-field left list-style-wrapper ordered-list-style">
+                    <span class="col l12 list-style__text-label center-align">Ordered list style</span>
+                    <select class="ordered-list-style__select-list white-text">
+                        <option value="decimal" class="ordered-list-style__option-item">Decimal</option>
+                        <option value="decimal-leading-zero" class="ordered-list-style__option-item">Decimal leading zero</option>
+                        <option value="lower-roman" class="ordered-list-style__option-item">Lower roman</option>
+                        <option value="upper-roman" class="ordered-list-style__option-item">Upper roman</option>
+                        <option value="lower-alpha" class="ordered-list-style__option-item">Lower alpha</option>
+                        <option value="lower-greek" class="ordered-list-style__option-item">Lower greek</option>
+                    </select>
+                </div>
+                <!-- Ordered list style panel end -->
                 <!-- Amount of list elements start -->
-                <div class="input-field list-elements-amount-wrapper">
+                <div class="col l12 input-field list-elements-amount-wrapper">
                     <input placeholder="3" id="list-elements-amount" type="text">
                     <label for="list-elements-amount">List elements amount</label>
                 </div>
                 <!-- Amount of list elements end -->
-                <!-- List style panel start -->
-                <div class="col l12 input-field left list-style-wrapper">
-                    <span class="col l12 list-style__text-label center-align">List style</span>
-                    <select class="list-style__select-list white-text">
-                        <option value="circle" class="list-style__option-item">Circle</option>
-                        <option value="disc" class="list-style__option-item">Disc</option>
-                        <option value="square" class="list-style__option-item">Square</option>
-                    </select>
-                </div>
-                <!-- List style panel end -->
-                <!-- Create list button start -->
+                <!-- Create and reset list button start -->
                 <div class="row">
-                    <div class="col l12">
-                        <button class="col l12 waves-effect waves-light btn-large create-list-btn" name="create-list">Створити список</button>
-                    </div>
+                    <button class="col l5 waves-effect waves-light btn-large create-list-btn" name="create-list">Create a list</button>
+                    <button class="col l5 offset-l2 waves-effect waves-light btn-large create-list-btn" name="create-list">Reset Parameters</button>
                 </div>
-                <!-- Create list button end -->
-            </div>
+                <!-- Create and reset list button end -->
+            </form>
             <!-- List adding content panel end -->
         </div>
     </div>

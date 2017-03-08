@@ -2,12 +2,20 @@
     margin-top: 20px;
 }
 
+.buttons-panel__button {
+    width: 100%;
+}
+
+.background-panel__buttton {
+    margin: 10px;
+}
+
 .background-panel__image-panel {
     flex-wrap: wrap;
     justify-content: space-around;    
 }
 
-.font-editing-panel, .text-editing-panel, .showing-text-panel, .table-list-creating-panel {
+.font-editing-panel, .text-editing-panel, .showing-text-panel, .table-list-creating-panel, .list-adding-panel, .ordered-list-style {
     display: none;
 }
 
