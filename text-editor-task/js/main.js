@@ -36,7 +36,8 @@
         $resetTableButton = document.querySelector('[name="reset-table"]'),
         $unorderedListPanel = document.querySelector('.unordered-list-style'),
         $orderedListPanel = document.querySelector('.ordered-list-style'),
-        $listAmountInputWrapper = document.querySelector('.list-elements-amount-wrapper');
+        $listAmountInputWrapper = document.querySelector('.list-elements-amount-wrapper'),
+        $listCreatingButtonsWrapper = document.querySelector('.creating-list-buttons');
 
     // Function description ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -274,7 +275,8 @@
         $chooseListStyleInputes[i].onchange = function () {
             var showElement = document.querySelector(this.value);
             showOneOfTheSetElements(listPanels, showElement, 'block');
-            swithcElementVisibility($listAmountInputWrapper, 'none'); 
+            swithcElementVisibility($listAmountInputWrapper, 'none');
+            swithcElementVisibility($listCreatingButtonsWrapper, 'none'); 
         }
     }
     
@@ -285,9 +287,10 @@
         }
     }
     
-    // document.getElementById('list-elements-amount').onblur = function() {
-    //     alert(1);
-    // }
+    // Show creating list buttons after user's choosing amount of list items
+    document.getElementById('list-elements-amount').onblur = function() {
+        swithcElementVisibility($listCreatingButtonsWrapper, 'block');
+    }
 
 
     // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
