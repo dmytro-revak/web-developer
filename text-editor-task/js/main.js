@@ -8,8 +8,7 @@
         $textEditingPanel = document.querySelector('.text-editing-panel'),
         $userWorkingArea = document.getElementById('text-editing-area'),
         $fontEditPanel = document.querySelector('.font-editing-panel'),
-        $tableListCreatingPanel = document.querySelector('.table-list-creating-panel'),
-        $tableListCreatingForms = document.querySelectorAll('.table-list-add-form');
+        $tableListCreatingPanel = document.querySelector('.table-list-creating-panel');
         
     // Control buttons
     var $editButton = document.querySelector('.edit-button'),
@@ -17,7 +16,7 @@
         $saveButton = document.querySelector('.save-button'),
         $addingButton = document.querySelector('.add-button');
 
-    // Selects and inputes. Switch background button
+    // Font editing panels selects and inputes. Addition buttons
     var $fontSizeInputes = document.querySelectorAll('[name="font-size-value"]'),
         $textAlignInputes = document.querySelectorAll('[name="font-align-value"]'),
         $fontFamilyList = document.querySelector('.font-family-panel__select-list'),
@@ -27,12 +26,15 @@
         $backgroundImageList = document.querySelector('.background-panel__image-select-list'),
         $boldTextInput = document.querySelector('.bold-text-toogle__input'),
         $italicTextInput = document.querySelector('.italic-text-toogle__input'),
-        $underlineTextInput = document.querySelector('.underline-text-toogle__input'),
-        $chooseTableListInputes = document.querySelectorAll('[name="adding-panel-radio"]'),
-        $chooseListStyleInputes = document.querySelectorAll('[name="choose-list-style-radio"]');
-    
-    // Create Table and create list panels
-    var $unorderedListPanel = document.querySelector('.unordered-list-style'),
+        $underlineTextInput = document.querySelector('.underline-text-toogle__input');
+
+    // Create Table and create List panels elements
+    var $tableListCreatingForms = document.querySelectorAll('.table-list-add-form'),
+        $chooseTableListForms = document.querySelectorAll('[name="adding-panel-radio"]'),
+        $chooseListStyleInputes = document.querySelectorAll('[name="choose-list-style-radio"]'),
+        $createTableButton = document.querySelector('[name="create-table"]'),
+        $resetTableButton = document.querySelector('[name="reset-table"]'),
+        $unorderedListPanel = document.querySelector('.unordered-list-style'),
         $orderedListPanel = document.querySelector('.ordered-list-style');
 
     // Function description ///////////////////////////////////////////////////////////////////////////////////////////
@@ -95,16 +97,28 @@
         return document.querySelector(elementSelector).value;
     }
 
+    // Set default value for a select list
+    function reserSelectList(arguments) {
+        for (var i = 0; i < arguments.length; i++) {
+            arguments[i].selectedIndex = 0;
+        }
+    }
+
     // Creates the table with table-input parameters which are entered by user
     function createTable() {
         // Create table element, get style parameters for it and set them for one
         var table  = document.createElement('table'),
             tableBorderWidth = returnElementValue('#table-border-line-widht') + 'px',
             borderStyleSelect = document.querySelector('select.table-line-type__select-list'),
-            borderColorSelect = document.querySelector('select.table-line-color__select-list');
-            tableBorderStyle = borderStyleSelect.options[borderStyleSelect.selectedIndex].value;
+            borderColorSelect = document.querySelector('select.table-line-color__select-list'),
+            tableBorderStyle = borderStyleSelect.options[borderStyleSelect.selectedIndex].value,
             tableBorderColor = borderColorSelect.options[borderColorSelect.selectedIndex].value;
+        
+        // Set table parameters for a table
         table.style.border = tableBorderWidth + ' ' + tableBorderStyle + ' ' + tableBorderColor;
+        debugger
+        //Ser the border-spacing property
+        table.style.borderSpacing = returnElementValue('#table-cellspacing') + 'px';
 
         // Create needed amount of rows
         for(var i = 0; i < returnElementValue('#row-amount'); i++) {
@@ -225,11 +239,26 @@
     }
 
     // FONT EDITING PANEL LOGIC END -------------------------------------------------------------------------------
-    for (var i = 0; i < $chooseTableListInputes.length; i++) {
-        $chooseTableListInputes[i].onchange = function () {
+
+    // TABLE AND LIST PANELS LOGIC START--------------------------------------------------------------------------- 
+
+    // Switch visibility for table or list creating forms
+    for (var i = 0; i < $chooseTableListForms.length; i++) {
+        $chooseTableListForms[i].onchange = function () {
             var showElement = document.querySelector(this.value);
             showOneOfTheSetElements($tableListCreatingForms, showElement, 'block');
         }
+    }
+
+    // Create table with user writted parameters and put it to the textarea
+    $createTableButton.onclick = function () {
+        setDateToTextarea( createTable() );
+    }
+
+    // Reset all table select with attribute [data-reset-item="table"] and set for them dafault parameters
+    $resetTableButton.onclick = function () {
+        var selectForReset = document.querySelectorAll('[data-reset-item=' + this.dataset.reset + ']');
+        reserSelectList(selectForReset);
     }
     
     var listPanels = [$unorderedListPanel, $orderedListPanel];
@@ -241,11 +270,13 @@
     }
     
     for(var i = 0; i < listPanels.length; i++) {
-           debugger
+           // debugger
         listPanels[i].onblur = function() {
             alert(1);
         }
     }
     
+    // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
+
     
 })();

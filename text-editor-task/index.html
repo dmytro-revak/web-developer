@@ -159,7 +159,7 @@
     <!-- Font editing panel end -->
     <!-- Text editing area start -->
     <div class="row text-editing-panel">
-        <div class="col l12 text-editing-area-wrapper">
+        <div class="col l12 text-editing-panel__editing-area-wrapper">
             <div class="input-field col l12">
                 <textarea id="text-editing-area" class="materialize-textarea"></textarea>
                 <label for="text-editing-area-label">Text</label>
@@ -238,7 +238,7 @@
                 <!-- Table border-line type start -->
                 <div class="col l12 input-field left table-line-type-wrapper">
                     <span class="col l12 table-line-type__text-label center-align">Table line type</span>
-                    <select class="table-line-type__select-list white-text">
+                    <select class="table-line-type__select-list white-text" data-reset-item="table">
                         <option value="solid" class="table-line-type__option-item">Solid</option>
                         <option value="dotted" class="table-line-type__option-item">Dotted</option>
                         <option value="dashed" class="table-line-type__option-item">Dashed</option>
@@ -249,7 +249,7 @@
                 <!-- Table border-line color start -->
                 <div class="col l12 input-field left table-line-color-wrapper">
                     <span class="col l12 table-line-color-wrapper-label center-align">Table line color</span>
-                    <select class="col l12 icons table-line-color__select-list white-text">
+                    <select class="col l12 icons table-line-color__select-list white-text" data-reset-item="table">
                         <option value="black" data-icon="img/black.svg" class="left circle table-line-color__oprion-item">Black</option>
                         <option value="brown" data-icon="img/brown.svg" class="left circle table-line-color__oprion-item">Brown</option>
                         <option value="blue" data-icon="img/blue.svg" class="left circle table-line-color__oprion-item">Blue</option>
@@ -265,8 +265,8 @@
                 <!-- Table border-line color start -->
                 <!-- Create and reset table button start -->
                 <div class="row">
-                        <button class="col l5 waves-effect waves-light btn-large create-table-btn" name="create-table">Create a table</button>
-                        <button type="reset" class="col l5 offset-l2 waves-effect waves-light btn-large create-table-btn" name="create-table">Reset Parameters</button>
+                        <button type="button" class="col l5 waves-effect waves-light btn-large create-table-btn" name="create-table">Create a table</button>
+                        <button type="reset" class="col l5 offset-l2 waves-effect waves-light btn-large reset-table-btn" name="reset-table" data-reset="table">Reset Parameters</button>
                 </div>
                 <!-- Create and reser table button end -->
             </form>
