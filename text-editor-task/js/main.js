@@ -37,7 +37,8 @@
         $unorderedListPanel = document.querySelector('.unordered-list-style'),
         $orderedListPanel = document.querySelector('.ordered-list-style'),
         $listAmountInputWrapper = document.querySelector('.list-elements-amount-wrapper'),
-        $listCreatingButtonsWrapper = document.querySelector('.creating-list-buttons');
+        $listCreatingButtonsWrapper = document.querySelector('.creating-list-buttons'),
+        $resetListButton = document.querySelector('[name="reset-list"]');
 
     // Function description ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -261,7 +262,7 @@
         setDateToTextarea( createTable() );
     }
 
-    // Reset all table select with attribute [data-reset-item="table"] and set for them dafault parameters
+    // Reset all table selects with attribute [data-reset-item="table"] and set for them dafault parameters
     $resetTableButton.onclick = function () {
         var selectForReset = document.querySelectorAll('[data-reset-item=' + this.dataset.reset + ']');
         reserSelectList(selectForReset);
@@ -292,8 +293,16 @@
         swithcElementVisibility($listCreatingButtonsWrapper, 'block');
     }
 
+    // Reset all list selects with attribute [data-reset-item="list"] and set for them dafault parameters
+    $resetListButton.onclick = function () {
+        var selectForReset = document.querySelectorAll('[data-reset-item=' + this.dataset.reset + ']');
+        reserSelectList(selectForReset);
+    }
+
+    // todo Create list Function
+
+
 
     // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
 
-    
 })();
