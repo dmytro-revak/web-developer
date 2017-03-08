@@ -35,7 +35,8 @@
         $createTableButton = document.querySelector('[name="create-table"]'),
         $resetTableButton = document.querySelector('[name="reset-table"]'),
         $unorderedListPanel = document.querySelector('.unordered-list-style'),
-        $orderedListPanel = document.querySelector('.ordered-list-style');
+        $orderedListPanel = document.querySelector('.ordered-list-style'),
+        $listAmountInputWrapper = document.querySelector('.list-elements-amount-wrapper');
 
     // Function description ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -273,20 +274,21 @@
         $chooseListStyleInputes[i].onchange = function () {
             var showElement = document.querySelector(this.value);
             showOneOfTheSetElements(listPanels, showElement, 'block');
-            document.querySelector('.list-elements-amount-wrapper').style.display = 'none';   
+            swithcElementVisibility($listAmountInputWrapper, 'none'); 
         }
     }
     
     // Show list items amount input after user's choosing type of list mark
     for(var i = 0; i < listPanels.length; i++) {
         listPanels[i].children[1].onchange = function() {  
-            maleElementInvisible('.list-elements-amount-wrapper')
+            swithcElementVisibility($listAmountInputWrapper, 'block');
         }
     }
     
-    document.getElementById('list-elements-amount').onblur = function() {
-        alert(1);
-    }
+    // document.getElementById('list-elements-amount').onblur = function() {
+    //     alert(1);
+    // }
+
 
     // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
 
