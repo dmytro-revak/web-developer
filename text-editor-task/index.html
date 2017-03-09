@@ -193,7 +193,7 @@
             </div>
             <!-- Table or List adding control panel end  -->
             <!-- Table adding content panel start  -->
-            <form class="table-adding-panel table-list-add-form">
+            <form class="table-adding-panel table-list-add-panel">
                 <!-- Amount of rows start -->
                 <div class="input-field row-amount-wrapper">
                     <input placeholder="5" id="row-amount" type="text">
@@ -272,51 +272,53 @@
             </form>
             <!-- Table adding content panel end  -->
             <!-- List adding content panel start -->
-            <!-- Table or List adding control panel start  -->
-            <div class="choose-list-style center-align">
-                <input name="choose-list-style-radio" type="radio" value=".unordered-list-style" id="ul-list-style">
-                <label for="ul-list-style" class="teal-text text-lighten-2">Unordered list</label>
-                <input name="choose-list-style-radio" type="radio" value=".ordered-list-style" id="ol-list-style">
-                <label for="ol-list-style" class="teal-text text-lighten-2">Ordered list</label>
+            <div class="list-adding-panel table-list-add-panel">
+                <!-- Choose list type panel start  -->
+                <div class="choose-list-style center-align">
+                    <input name="choose-list-style-radio" type="radio" value=".unordered-list-style" id="ul-list-style">
+                    <label for="ul-list-style" class="teal-text text-lighten-2">Unordered list</label>
+                    <input name="choose-list-style-radio" type="radio" value=".ordered-list-style" id="ol-list-style">
+                    <label for="ol-list-style" class="teal-text text-lighten-2">Ordered list</label>
+                </div>
+                <!-- Choose list type panel end  -->
+                <form class="list-adding-form">
+                    <!-- Unordered list style panel start -->
+                    <div class="col l12 input-field left list-style-wrapper unordered-list-style">
+                        <span class="col l12 list-style__text-label center-align">Unordered list style</span>
+                        <select class="unordered-list-style__select-list white-text" data-reset-item="list">
+                            <option value="circle" class="unordered-list-style__option-item">Circle</option>
+                            <option value="disc" class="unordered-list-style__option-item">Disc</option>
+                            <option value="square" class="unordered-list-style__option-item">Square</option>
+                        </select>
+                    </div>
+                    <!-- Unordered list style panel end --> 
+                    <!-- Ordered list style panel start -->
+                    <div class="col l12 input-field left list-style-wrapper ordered-list-style">
+                        <span class="col l12 list-style__text-label center-align">Ordered list style</span>
+                        <select class="ordered-list-style__select-list white-text" data-reset-item="list">
+                            <option value="decimal" class="ordered-list-style__option-item">Decimal</option>
+                            <option value="decimal-leading-zero" class="ordered-list-style__option-item">Decimal leading zero</option>
+                            <option value="lower-roman" class="ordered-list-style__option-item">Lower roman</option>
+                            <option value="upper-roman" class="ordered-list-style__option-item">Upper roman</option>
+                            <option value="lower-alpha" class="ordered-list-style__option-item">Lower alpha</option>
+                            <option value="lower-greek" class="ordered-list-style__option-item">Lower greek</option>
+                        </select>
+                    </div>
+                    <!-- Ordered list style panel end -->
+                    <!-- Amount of list elements start -->
+                    <div class="col l12 input-field list-elements-amount-wrapper">
+                        <input placeholder="3" id="list-elements-amount" type="text">
+                        <label for="list-elements-amount">List elements amount</label>
+                    </div>
+                    <!-- Amount of list elements end -->
+                    <!-- Create and reset list button start -->
+                    <div class="row creating-list-buttons">
+                        <button class="col l5 waves-effect waves-light btn-large create-list-btn" name="create-list">Create a list</button>
+                        <button type="reset" class="col l5 offset-l2 waves-effect waves-light btn-large reset-list-btn" name="reset-list" data-reset="list">Reset Parameters</button>
+                    </div>
+                    <!-- Create and reset list button end -->
+                </form>
             </div>
-            <!-- Table or List adding control panel end  -->
-            <form class="list-adding-panel table-list-add-form"
-                <!-- Unordered list style panel start -->
-                <div class="col l12 input-field left list-style-wrapper unordered-list-style">
-                    <span class="col l12 list-style__text-label center-align">Unordered list style</span>
-                    <select class="unordered-list-style__select-list white-text" data-reset-item="list">
-                        <option value="circle" class="unordered-list-style__option-item">Circle</option>
-                        <option value="disc" class="unordered-list-style__option-item">Disc</option>
-                        <option value="square" class="unordered-list-style__option-item">Square</option>
-                    </select>
-                </div>
-                <!-- Unordered list style panel end -->
-                <!-- Ordered list style panel start -->
-                <div class="col l12 input-field left list-style-wrapper ordered-list-style">
-                    <span class="col l12 list-style__text-label center-align">Ordered list style</span>
-                    <select class="ordered-list-style__select-list white-text" data-reset-item="list">
-                        <option value="decimal" class="ordered-list-style__option-item">Decimal</option>
-                        <option value="decimal-leading-zero" class="ordered-list-style__option-item">Decimal leading zero</option>
-                        <option value="lower-roman" class="ordered-list-style__option-item">Lower roman</option>
-                        <option value="upper-roman" class="ordered-list-style__option-item">Upper roman</option>
-                        <option value="lower-alpha" class="ordered-list-style__option-item">Lower alpha</option>
-                        <option value="lower-greek" class="ordered-list-style__option-item">Lower greek</option>
-                    </select>
-                </div>
-                <!-- Ordered list style panel end -->
-                <!-- Amount of list elements start -->
-                <div class="col l12 input-field list-elements-amount-wrapper">
-                    <input placeholder="3" id="list-elements-amount" type="text">
-                    <label for="list-elements-amount">List elements amount</label>
-                </div>
-                <!-- Amount of list elements end -->
-                <!-- Create and reset list button start -->
-                <div class="row creating-list-buttons">
-                    <button class="col l5 waves-effect waves-light btn-large create-list-btn" name="create-list">Create a list</button>
-                    <button type="reset" class="col l5 offset-l2 waves-effect waves-light btn-large reset-list-btn" name="reset-list" data-reset="list">Reset Parameters</button>
-                </div>
-                <!-- Create and reset list button end -->
-            </form>
             <!-- List adding content panel end -->
         </div>
     </div>

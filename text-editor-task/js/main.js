@@ -29,7 +29,7 @@
         $underlineTextInput = document.querySelector('.underline-text-toogle__input');
 
     // Create Table and create List panels elements
-    var $tableListCreatingForms = document.querySelectorAll('.table-list-add-form'),
+    var $tableListCreatingForms = document.querySelectorAll('.table-list-add-panel'),
         $chooseTableListForms = document.querySelectorAll('[name="adding-panel-radio"]'),
         $chooseListStyleInputes = document.querySelectorAll('[name="choose-list-style-radio"]'),
         $createTableButton = document.querySelector('[name="create-table"]'),
@@ -283,13 +283,13 @@
     
     // Show list items amount input after user's choosing type of list mark
     for(var i = 0; i < listPanels.length; i++) {
-        listPanels[i].children[1].onchange = function() {  
+        listPanels[i].children[1].onchange = function () {  
             swithcElementVisibility($listAmountInputWrapper, 'block');
         }
     }
     
     // Show creating list buttons after user's choosing amount of list items
-    document.getElementById('list-elements-amount').onblur = function() {
+    document.getElementById('list-elements-amount').onblur = function () {
         swithcElementVisibility($listCreatingButtonsWrapper, 'block');
     }
 
