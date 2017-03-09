@@ -175,6 +175,12 @@
         list.style.listStyleType = $listMarkType;
         return list.outerHTML;
     }
+
+    // Verifies is user entered date integer number 
+    function numericFieldValidation(element) {
+        var dateForValidation = element.value;
+        return parseInt(dateForValidation) == dateForValidation
+    }
     
     // Application logic /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -207,124 +213,130 @@
 
     // FONT EDITING PANEL LOGIC START -------------------------------------------------------------------------
 
-    // Add changing font-size function for the each fontSize input
-    for (var i = 0; i < $fontSizeInputes.length; i++) {
-        $fontSizeInputes[i].onchange = function () {
-            changeShowingTextPropertyValue(this, 'fontSize');
+    (function initFontEditingPanel() {
+        // Add changing font-size function for the each fontSize input
+        for (var i = 0; i < $fontSizeInputes.length; i++) {
+            $fontSizeInputes[i].onchange = function () {
+                changeShowingTextPropertyValue(this, 'fontSize');
+            };
+        }
+
+        // Add changing text-align function for thr each textAlign input
+        for (var i = 0; i < $textAlignInputes.length; i++) {
+            $textAlignInputes[i].onchange = function () {
+                changeShowingTextPropertyValue(this, 'textAlign');
+            };
+        }
+
+        // Add changing font-family function for the fontFamily select and when user select to one of available item set showing block that font-family
+        $fontFamilyList.onchange = function () {
+            setOnchangeFunctionsForSelect($fontFamilyList, 'fontFamily');
         };
-    }
-
-    // Add changing text-align function for thr each textAlign input
-    for (var i = 0; i < $textAlignInputes.length; i++) {
-        $textAlignInputes[i].onchange = function () {
-            changeShowingTextPropertyValue(this, 'textAlign');
+        
+        // Add changing font-color function for the fontColor select and when user select to one of available item set showing block that font-color
+        $fontColorList.onchange = function () {
+            setOnchangeFunctionsForSelect($fontColorList, 'color');
         };
-    }
 
-    // Add changing font-family function for the fontFamily select and when user select to one of available item set showing block that font-family
-    $fontFamilyList.onchange = function () {
-        setOnchangeFunctionsForSelect($fontFamilyList, 'fontFamily');
-    };
-    
-    // Add changing font-color function for the fontColor select and when user select to one of available item set showing block that font-color
-    $fontColorList.onchange = function () {
-        setOnchangeFunctionsForSelect($fontColorList, 'color');
-    };
+        $backgroundPanelBtn.onclick = function () {
+            swithcElementVisibility( document.querySelector('.background-panel__color-panel'), 'block', true);
+            swithcElementVisibility( document.querySelector('.background-panel__image-panel'), 'flex', true);
+        };
+        
+        // Add changing background function for the backgroundColor select and when user select to one of available item set showing block that background-color. Also remove setted before backgroun-image
+        $backgroundColorList.onchange = function () {
+            setOnchangeFunctionsForSelect($backgroundColorList, 'backgroundColor');
+            $showTextContainer.style.backgroundImage = '';
+        };
 
-    $backgroundPanelBtn.onclick = function () {
-        swithcElementVisibility( document.querySelector('.background-panel__color-panel'), 'block', true);
-        swithcElementVisibility( document.querySelector('.background-panel__image-panel'), 'flex', true);
-    };
-    
-    // Add changing background function for the backgroundColor select and when user select to one of available item set showing block that background-color. Also remove setted before backgroun-image
-    $backgroundColorList.onchange = function () {
-        setOnchangeFunctionsForSelect($backgroundColorList, 'backgroundColor');
-        $showTextContainer.style.backgroundImage = '';
-    };
+        // Add changing background function for the backgroundImage select and when user select to one of available item set showing block that background-image
+        $backgroundImageList.onchange = function () {
+            setOnchangeFunctionsForSelect($backgroundImageList, 'backgroundImage');
+        };
+        
+        // Add changing font-weight for showing panel when user switch the bold-text input 
+        $boldTextInput.onchange = function () {
+            switchPropertyByCheckbox($boldTextInput, 'fontWeight', 'normal');
+        };
+        
+        // Add changing font-style for showing panel when user switch the style-text input 
+        $italicTextInput.onchange = function () {
+            switchPropertyByCheckbox($italicTextInput, 'fontStyle', 'normal');
+        };
 
-    // Add changing background function for the backgroundImage select and when user select to one of available item set showing block that background-image
-    $backgroundImageList.onchange = function () {
-        setOnchangeFunctionsForSelect($backgroundImageList, 'backgroundImage');
-    };
-    
-    // Add changing font-weight for showing panel when user switch the bold-text input 
-    $boldTextInput.onchange = function () {
-        switchPropertyByCheckbox($boldTextInput, 'fontWeight', 'normal');
-    };
-    
-    // Add changing font-style for showing panel when user switch the style-text input 
-    $italicTextInput.onchange = function () {
-        switchPropertyByCheckbox($italicTextInput, 'fontStyle', 'normal');
-    };
+        // Add changing text-decoration (underline) for showing panel when user switch the underline-text input 
+        $underlineTextInput.onchange = function () {
+            switchPropertyByCheckbox($underlineTextInput, 'textDecoration', 'none');
+        };
 
-    // Add changing text-decoration (underline) for showing panel when user switch the underline-text input 
-    $underlineTextInput.onchange = function () {
-        switchPropertyByCheckbox($underlineTextInput, 'textDecoration', 'none');
-    };
+    })();
 
     // FONT EDITING PANEL LOGIC END -------------------------------------------------------------------------------
 
     // TABLE AND LIST PANELS LOGIC START--------------------------------------------------------------------------- 
 
-    // Switch visibility for table or list creating forms
-    for (var i = 0; i < $chooseTableListForms.length; i++) {
-        $chooseTableListForms[i].onchange = function () {
-            var showElement = document.querySelector(this.value);
-            showOneOfTheSetElements($tableListCreatingForms, showElement, 'block');
-        };
-    }
-
-    // Create table with user writted parameters and put it to the textarea
-    $createTableButton.onclick = function () {
-        setDateToTextarea( createTable() );
-    };
-
-    // Reset all table selects with attribute [data-reset-item="table"] and set for them dafault parameters
-    $resetTableButton.onclick = function () {
-        var selectForReset = document.querySelectorAll('[data-reset-item=' + this.dataset.reset + ']');
-        reserSelectList(selectForReset);
-    };
-    
-    // Seva ordered and unerdered list panels to one array
-    var listPanels = [$unorderedListPanel, $orderedListPanel];
-
-    // Switch ordered and unerdered list panels visibility and make listItemAmount input invisible after user's input changing
-    for (var i = 0; i < $chooseListStyleInputes.length; i++) {
-        $chooseListStyleInputes[i].onchange = function () {
-            var showElement = document.querySelector(this.value);
-            showOneOfTheSetElements(listPanels, showElement, 'block');
-            swithcElementVisibility($listAmountInputWrapper, 'none');
-            swithcElementVisibility($listCreatingButtonsWrapper, 'none'); 
-        };
-    }
-    
-    // Show list items amount input after user's choosing type of list mark
-    for(var i = 0; i < listPanels.length; i++) {
-        listPanels[i].children[1].onchange = function () {  
-            swithcElementVisibility($listAmountInputWrapper, 'block');
-        };
-    }
-    
-    // Show creating list buttons after user's choosing amount of list items
-    document.getElementById('list-elements-amount').onblur = function () {
-        swithcElementVisibility($listCreatingButtonsWrapper, 'block');
-    };
-
-    // Reset all list selects with attribute [data-reset-item="list"] and set for them dafault parameters
-    $resetListButton.onclick = function () {
-        var selectForReset = document.querySelectorAll('[data-reset-item=' + this.dataset.reset + ']');
-        reserSelectList(selectForReset);
-    };
-
-    // Create list with user writted parameters and put it to the textarea
-    $createListButton.onclick = function () {
-        if ($chooseListStyleInputes[0].checked) {
-            setDateToTextarea( createList('ul') );
-        } else {
-            setDateToTextarea( createList('ol') );
+    (function initTableListPanels() {
+        // Switch visibility for table or list creating forms
+        for (var i = 0; i < $chooseTableListForms.length; i++) {
+            $chooseTableListForms[i].onchange = function () {
+                var showElement = document.querySelector(this.value);
+                showOneOfTheSetElements($tableListCreatingForms, showElement, 'block');
+            };
         }
-    };
 
+        // Create table with user writted parameters and put it to the textarea
+        $createTableButton.onclick = function () {
+            setDateToTextarea( createTable() );
+        };
+
+        // Reset all table selects with attribute [data-reset-item="table"] and set for them dafault parameters
+        $resetTableButton.onclick = function () {
+            var selectForReset = document.querySelectorAll('[data-reset-item=' + this.dataset.reset + ']');
+            reserSelectList(selectForReset);
+        };
+        
+        // Seva ordered and unerdered list panels to one array
+        var listPanels = [$unorderedListPanel, $orderedListPanel];
+
+        // Switch ordered and unerdered list panels visibility and make listItemAmount input invisible after user's input changing
+        for (var i = 0; i < $chooseListStyleInputes.length; i++) {
+            $chooseListStyleInputes[i].onchange = function () {
+                var showElement = document.querySelector(this.value);
+                showOneOfTheSetElements(listPanels, showElement, 'block');
+                swithcElementVisibility($listAmountInputWrapper, 'none');
+                swithcElementVisibility($listCreatingButtonsWrapper, 'none'); 
+            };
+        }
+        
+        // Show list items amount input after user's choosing type of list mark
+        for(var i = 0; i < listPanels.length; i++) {
+            listPanels[i].children[1].onchange = function () {  
+                swithcElementVisibility($listAmountInputWrapper, 'block');
+            };
+        }
+        
+        // Show creating list buttons after user's choosing amount of list items
+        document.getElementById('list-elements-amount').onblur = function () {
+            swithcElementVisibility($listCreatingButtonsWrapper, 'block');
+        };
+
+        // Reset all list selects with attribute [data-reset-item="list"] and set for them dafault parameters
+        $resetListButton.onclick = function () {
+            var selectForReset = document.querySelectorAll('[data-reset-item=' + this.dataset.reset + ']');
+            reserSelectList(selectForReset);
+        };
+
+        // Create list with user writted parameters and put it to the textarea
+        $createListButton.onclick = function () {
+            if ($chooseListStyleInputes[0].checked) {
+                setDateToTextarea( createList('ul') );
+            } else {
+                setDateToTextarea( createList('ol') );
+            }
+        };
+
+    })();
+    
     // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
 
 })();
