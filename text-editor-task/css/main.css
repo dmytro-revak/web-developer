@@ -1,3 +1,11 @@
+.showing-text-panel__show-container ul {
+    padding: 40px;
+}
+
+.showing-text-panel__show-container ul li {
+    list-style-type: inherit; 
+}
+
 .buttons-panel_style_default {
     margin-top: 20px;
 }

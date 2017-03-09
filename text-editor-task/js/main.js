@@ -38,7 +38,8 @@
         $orderedListPanel = document.querySelector('.ordered-list-style'),
         $listAmountInputWrapper = document.querySelector('.list-elements-amount-wrapper'),
         $listCreatingButtonsWrapper = document.querySelector('.creating-list-buttons'),
-        $resetListButton = document.querySelector('[name="reset-list"]');
+        $resetListButton = document.querySelector('[name="reset-list"]'),
+        $createListButton = document.querySelector('[name="create-list"]');
 
     // Function description ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -101,7 +102,7 @@
 
     // Finds the element by it's selector and returns the selected element value
     function returnElementValue(elementSelector) {
-        return document.querySelector(elementSelector).value;
+        return parseInt(document.querySelector(elementSelector).value);
     }
 
     // Set default value for a select list
@@ -123,7 +124,7 @@
         
         // Set table parameters for a table
         table.style.border = tableBorderWidth + ' ' + tableBorderStyle + ' ' + tableBorderColor;
-        debugger
+
         //Ser the border-spacing property
         table.style.borderSpacing = returnElementValue('#table-cellspacing') + 'px';
 
@@ -149,13 +150,29 @@
     }
     
     // Creates the list with list-input parameters which are entered by user
-    function createList() {
-        var list = document.createElement('ul');
+    function createList(listType) {
+
+        // Create specify list element
+        var list = document.createElement(listType);
+
+        // Add certain amount of items for that list
         for (var i = 0; i < returnElementValue('#list-elements-amount'); i++) {
-             var listItem = document.createElement('li');
+            var listItem = document.createElement('li');
+            listItem.innerHTML = 'item ' + (i + 1);
             list.appendChild(listItem);
         }
-        list.style.listStyleType = returnElementValue('#list-elements-amount');
+
+        // Get the user selected list mark type property  
+        if (listType === 'ul') {
+            var $listMarkTypeSelect = document.querySelector('select.unordered-list-style__select-list'),
+                $listMarkType = $listMarkTypeSelect.options[$listMarkTypeSelect.selectedIndex].value;
+        } else {
+            var $listMarkTypeSelect = document.querySelector('select.ordered-list-style__select-list'),
+                $listMarkType = $listMarkTypeSelect.options[$listMarkTypeSelect.selectedIndex].value;
+        }
+
+        // Set list mark type property to created list
+        list.style.listStyleType = $listMarkType;
         return list.outerHTML;
     }
     
@@ -170,23 +187,23 @@
     // Make working area visible and other main panel invisible
     $editButton.onclick = function () {
         showOneOfTheSetElements(switchingPanels, $textEditingPanel, 'block');
-    }
+    };
 
     // Transfer text from editing area to showing container as HTML markup and make showing panel visible
     $saveButton.onclick = function () {
         showOneOfTheSetElements(switchingPanels, $showingTextPanel, 'block');
         $showTextContainer.innerHTML = $userWorkingArea.value;
-    }
+    };
 
     // Show or hide font edit panel after user's click on style button
     $styleButton.onclick  = function () {
         swithcElementVisibility($fontEditPanel, 'flex', true);
-    }
+    };
 
     // Show table-list creatin pable and hide other main panels
     $addingButton.onclick = function () {
         showOneOfTheSetElements(switchingPanels, $tableListCreatingPanel, 'block');
-    }
+    };
 
     // FONT EDITING PANEL LOGIC START -------------------------------------------------------------------------
 
@@ -194,56 +211,56 @@
     for (var i = 0; i < $fontSizeInputes.length; i++) {
         $fontSizeInputes[i].onchange = function () {
             changeShowingTextPropertyValue(this, 'fontSize');
-        }
+        };
     }
 
     // Add changing text-align function for thr each textAlign input
     for (var i = 0; i < $textAlignInputes.length; i++) {
         $textAlignInputes[i].onchange = function () {
             changeShowingTextPropertyValue(this, 'textAlign');
-        }
+        };
     }
 
     // Add changing font-family function for the fontFamily select and when user select to one of available item set showing block that font-family
     $fontFamilyList.onchange = function () {
         setOnchangeFunctionsForSelect($fontFamilyList, 'fontFamily');
-    }
+    };
     
     // Add changing font-color function for the fontColor select and when user select to one of available item set showing block that font-color
     $fontColorList.onchange = function () {
         setOnchangeFunctionsForSelect($fontColorList, 'color');
-    }
+    };
 
     $backgroundPanelBtn.onclick = function () {
         swithcElementVisibility( document.querySelector('.background-panel__color-panel'), 'block', true);
         swithcElementVisibility( document.querySelector('.background-panel__image-panel'), 'flex', true);
-    }
+    };
     
     // Add changing background function for the backgroundColor select and when user select to one of available item set showing block that background-color. Also remove setted before backgroun-image
     $backgroundColorList.onchange = function () {
         setOnchangeFunctionsForSelect($backgroundColorList, 'backgroundColor');
         $showTextContainer.style.backgroundImage = '';
-    }
+    };
 
     // Add changing background function for the backgroundImage select and when user select to one of available item set showing block that background-image
     $backgroundImageList.onchange = function () {
         setOnchangeFunctionsForSelect($backgroundImageList, 'backgroundImage');
-    }
+    };
     
     // Add changing font-weight for showing panel when user switch the bold-text input 
     $boldTextInput.onchange = function () {
         switchPropertyByCheckbox($boldTextInput, 'fontWeight', 'normal');
-    }
+    };
     
     // Add changing font-style for showing panel when user switch the style-text input 
     $italicTextInput.onchange = function () {
         switchPropertyByCheckbox($italicTextInput, 'fontStyle', 'normal');
-    }
+    };
 
     // Add changing text-decoration (underline) for showing panel when user switch the underline-text input 
     $underlineTextInput.onchange = function () {
         switchPropertyByCheckbox($underlineTextInput, 'textDecoration', 'none');
-    }
+    };
 
     // FONT EDITING PANEL LOGIC END -------------------------------------------------------------------------------
 
@@ -254,19 +271,19 @@
         $chooseTableListForms[i].onchange = function () {
             var showElement = document.querySelector(this.value);
             showOneOfTheSetElements($tableListCreatingForms, showElement, 'block');
-        }
+        };
     }
 
     // Create table with user writted parameters and put it to the textarea
     $createTableButton.onclick = function () {
         setDateToTextarea( createTable() );
-    }
+    };
 
     // Reset all table selects with attribute [data-reset-item="table"] and set for them dafault parameters
     $resetTableButton.onclick = function () {
         var selectForReset = document.querySelectorAll('[data-reset-item=' + this.dataset.reset + ']');
         reserSelectList(selectForReset);
-    }
+    };
     
     // Seva ordered and unerdered list panels to one array
     var listPanels = [$unorderedListPanel, $orderedListPanel];
@@ -278,30 +295,35 @@
             showOneOfTheSetElements(listPanels, showElement, 'block');
             swithcElementVisibility($listAmountInputWrapper, 'none');
             swithcElementVisibility($listCreatingButtonsWrapper, 'none'); 
-        }
+        };
     }
     
     // Show list items amount input after user's choosing type of list mark
     for(var i = 0; i < listPanels.length; i++) {
         listPanels[i].children[1].onchange = function () {  
             swithcElementVisibility($listAmountInputWrapper, 'block');
-        }
+        };
     }
     
     // Show creating list buttons after user's choosing amount of list items
     document.getElementById('list-elements-amount').onblur = function () {
         swithcElementVisibility($listCreatingButtonsWrapper, 'block');
-    }
+    };
 
     // Reset all list selects with attribute [data-reset-item="list"] and set for them dafault parameters
     $resetListButton.onclick = function () {
         var selectForReset = document.querySelectorAll('[data-reset-item=' + this.dataset.reset + ']');
         reserSelectList(selectForReset);
-    }
+    };
 
-    // todo Create list Function
-
-
+    // Create list with user writted parameters and put it to the textarea
+    $createListButton.onclick = function () {
+        if ($chooseListStyleInputes[0].checked) {
+            setDateToTextarea( createList('ul') );
+        } else {
+            setDateToTextarea( createList('ol') );
+        }
+    };
 
     // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
 
