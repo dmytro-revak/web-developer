@@ -195,6 +195,7 @@
 
     }
 
+    // Creates error label near the each invalid input
     function creatingErrorLabel(errorInput) {
         var errorLabel = document.createElement('span');
         errorLabel.innerHTML = 'It\'s only integer number allowed';
@@ -360,14 +361,26 @@
             $saveButton.click();
         };
 
-        // Add validation and highlight functions for each table and list input 
+        // Add validation, highlight and createErrorLabel functions for each table and list input 
         $inputesForValidation.forEach(function (item) {
             item.onchange = function () {
+
+                // Start validation after inpute's onchange
                 if ( numericFieldValidation(this) ) {
+
+                    // Highlight field with green if it is valid and remove error label if it was been created
                     validationHighlight(this, true);
-                } else {   
+                    if (this.previousElementSibling) {
+                        this.parentNode.removeChild(this.previousElementSibling);
+                    }
+
+                } else {
+
+                    // Highlight field with red if it is invalid and create error label if it wasn't been created
                     validationHighlight(this, false);
-                    creatingErrorLabel(this);
+                    if (!this.previousElementSibling) {
+                        creatingErrorLabel(this);
+                    }
                 }
             }
         });
