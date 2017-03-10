@@ -48,3 +48,8 @@
 .choose-list-style {
     margin-top: 50px;
 }
+
+.error-input-label {
+    display: none;
+    color: #F44336;
+}

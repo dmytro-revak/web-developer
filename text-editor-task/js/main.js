@@ -40,7 +40,7 @@
         $listCreatingButtonsWrapper = document.querySelector('.creating-list-buttons'),
         $resetListButton = document.querySelector('[name="reset-list"]'),
         $createListButton = document.querySelector('[name="create-list"]'),
-        $inputesForValidation = document.querySelector('[data-validate]');
+        $inputesForValidation = document.querySelectorAll('[data-validate]');
 
     // Function description ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -357,6 +357,11 @@
 
     // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
 
-    $inputesForValidation.onchange = function () {
-    }
+    // Add validation and highlight functions for each table and list input 
+    $inputesForValidation.forEach(function (item) {
+        item.onchange = function () {
+            validationHighlight(this);
+        }
+    });
+
 })();
