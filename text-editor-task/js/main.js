@@ -14,7 +14,8 @@
     var $editButton = document.querySelector('.edit-button'),
         $styleButton = document.querySelector('.style-button'),
         $saveButton = document.querySelector('.save-button'),
-        $addingButton = document.querySelector('.add-button');
+        $addingButton = document.querySelector('.add-button'),
+        $blockingButton = document.querySelector('.block-button');
 
     // Font editing panels selects and inputes. Addition buttons
     var $fontSizeInputes = document.querySelectorAll('[name="font-size-value"]'),
@@ -180,7 +181,7 @@
     // Verifies is user entered date integer number 
     function numericFieldValidation(element) {
         var dateForValidation = element.value;
-        return parseInt(dateForValidation) == dateForValidation
+        return parseInt(dateForValidation) == dateForValidation;
     }
 
     // Highlight the correct and incorrect field after validation

@@ -10,17 +10,20 @@
 <body>
     <!-- Buttons panels start -->
     <div class="row buttons-panel buttons-panel_style_default">
-        <div class="col l3">
+        <div class="col l2">
             <button class="waves-effect waves-light btn-large edit-button buttons-panel__button" name="edit">Edit</button>
         </div>
-        <div class="col l3">
+        <div class="col l2">
             <button class="waves-effect waves-light btn-large style-button buttons-panel__button" name="style">Style</button>
         </div>
-        <div class="col l3">
+        <div class="col l2 offset-l1">
             <button class="waves-effect waves-light btn-large save-button buttons-panel__button" name="save">Save</button>
         </div>
-        <div class="col l3">
+        <div class="col l2">
             <button class="waves-effect waves-light btn-large add-button buttons-panel__button" name="add">Add</button>
+        </div>
+        <div class="col l2 offset-l1">
+            <button class="waves-effect waves-light btn-large block-button buttons-panel__button" name="block">Block</button>
         </div>
     </div>
     <!-- Buttons panels end -->
@@ -322,6 +325,17 @@
             <!-- List adding content panel end -->
         </div>
     </div>
+    <!-- Adding panel end -->
+    <!-- Modal window start -->
+    <div class="block-modal-window">
+        <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+          </div>
+    </div>
+    <!-- Modal window end -->
+
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
