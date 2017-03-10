@@ -39,7 +39,8 @@
         $listAmountInputWrapper = document.querySelector('.list-elements-amount-wrapper'),
         $listCreatingButtonsWrapper = document.querySelector('.creating-list-buttons'),
         $resetListButton = document.querySelector('[name="reset-list"]'),
-        $createListButton = document.querySelector('[name="create-list"]');
+        $createListButton = document.querySelector('[name="create-list"]'),
+        $inputesForValidation = document.querySelector('[data-validate]');
 
     // Function description ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -287,7 +288,7 @@
         // Create table with user writted parameters and put it to the textarea
         $createTableButton.onclick = function () {
             setDateToTextarea( createTable() );
-            
+
             // Trigger click event on 'save' button
             $saveButton.click();
         };
@@ -341,7 +342,12 @@
         };
 
     })();
-    
+
     // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
 
+    $inputesForValidation.onchange = function () {
+        // debugger
+        numericFieldValidation(this);
+        console.log(1);
+    }
 })();
