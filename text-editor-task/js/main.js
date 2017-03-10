@@ -184,8 +184,8 @@
     }
 
     // Highlight the correct and incorrect field after validation
-    function validationHighlight(element) {
-        if ( numericFieldValidation(element) ) {
+    function validationHighlight(element, isValid) {
+        if (isValid) {
             element.style.borderBottom = '1px solid #4CAF50';
             element.style.boxShadow = '0 1px 0 0 #4CAF50';
         } else {
@@ -193,6 +193,13 @@
             element.style.boxShadow = '0 1px 0 0 #F44336';
         }
 
+    }
+
+    function creatingErrorLabel(errorInput) {
+        var errorLabel = document.createElement('span');
+        errorLabel.innerHTML = 'It\'s only integer number allowed';
+        errorLabel.className = 'error-input-label';
+        errorInput.parentNode.insertBefore(errorLabel, errorInput);
     }
     
     // Application logic /////////////////////////////////////////////////////////////////////////////////////////
@@ -353,15 +360,20 @@
             $saveButton.click();
         };
 
+        // Add validation and highlight functions for each table and list input 
+        $inputesForValidation.forEach(function (item) {
+            item.onchange = function () {
+                if ( numericFieldValidation(this) ) {
+                    validationHighlight(this, true);
+                } else {   
+                    validationHighlight(this, false);
+                    creatingErrorLabel(this);
+                }
+            }
+        });
+
     })();
 
     // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
-
-    // Add validation and highlight functions for each table and list input 
-    $inputesForValidation.forEach(function (item) {
-        item.onchange = function () {
-            validationHighlight(this);
-        }
-    });
 
 })();
