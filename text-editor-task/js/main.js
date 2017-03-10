@@ -182,6 +182,18 @@
         var dateForValidation = element.value;
         return parseInt(dateForValidation) == dateForValidation
     }
+
+    // Highlight the correct and incorrect field after validation
+    function validationHighlight(element) {
+        if ( numericFieldValidation(element) ) {
+            element.style.borderBottom = '1px solid #4CAF50';
+            element.style.boxShadow = '0 1px 0 0 #4CAF50';
+        } else {
+            element.style.borderBottom = '1px solid #F44336';
+            element.style.boxShadow = '0 1px 0 0 #F44336';
+        }
+
+    }
     
     // Application logic /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -346,8 +358,5 @@
     // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
 
     $inputesForValidation.onchange = function () {
-        // debugger
-        numericFieldValidation(this);
-        console.log(1);
     }
 })();
