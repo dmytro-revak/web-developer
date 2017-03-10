@@ -287,6 +287,9 @@
         // Create table with user writted parameters and put it to the textarea
         $createTableButton.onclick = function () {
             setDateToTextarea( createTable() );
+            
+            // Trigger click event on 'save' button
+            $saveButton.click();
         };
 
         // Reset all table selects with attribute [data-reset-item="table"] and set for them dafault parameters
@@ -333,6 +336,8 @@
             } else {
                 setDateToTextarea( createList('ol') );
             }
+            // Trigger click event on 'save' button
+            $saveButton.click();
         };
 
     })();
