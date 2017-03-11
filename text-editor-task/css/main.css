@@ -29,7 +29,7 @@
     justify-content: space-around;    
 }
 
-.font-editing-panel, .background-panel__button-name_image, .background-panel__image-panel, .text-editing-panel, .showing-text-panel, .table-list-creating-panel, .list-adding-panel, .ordered-list-style, .list-style-wrapper, .list-elements-amount-wrapper, .creating-list-buttons {
+.font-editing-panel, .background-panel__button-name_image, .background-panel__image-panel, .text-editing-panel, .showing-text-panel, .table-list-creating-panel, .list-adding-panel, .ordered-list-style, .list-style-wrapper, .list-elements-amount-wrapper, .creating-list-buttons, .modal-window__error-label {
     display: none;
 }
 

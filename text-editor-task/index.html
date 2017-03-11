@@ -165,7 +165,7 @@
         <div class="col l12 text-editing-panel__editing-area-wrapper">
             <div class="input-field col l12">
                 <textarea id="text-editing-area" class="materialize-textarea"></textarea>
-                <label for="text-editing-area-label">Text</label>
+                <label for="text-editing-area" class="text-editing-area-label ">Text</label>
             </div>
         </div>        
     </div>
@@ -227,9 +227,9 @@
                 </div>
                 <!-- Table cell height end -->
                 <!-- Table border-line width start -->
-                <div class="input-field table-line-widht-wrapper">
+                <div class="input-field table-border-line-widht-wrapper">
                     <input placeholder="2" id="table-border-line-widht" type="text" data-validate>
-                    <label for="table-line-widht">Table line Width</label>
+                    <label for="table-border-line-widht">Table line Width</label>
                 </div>
                 <!-- Table border-line width end -->
                 <!-- Table cellspacing start -->
@@ -333,12 +333,13 @@
             <h5 class="modal-window__lable teal-text text-lighten-2 center-align">
                 Enter the correct password to continue
             </h5>
-            <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
-                <label for="password">Password</label>
+            <div class="input-field col l12">
+                <input id="password" type="password" class="modal-window__password-input">
+                <label for="password" class="modal-window__password-label">Enter the password</label>
+                <span class="error-input-label modal-window__error-label">Incorrect password</span>
             </div>
             <div class="row">
-                <button type="button" class="col l4 offset-l4 waves-effect waves-light btn-large continue-button buttons-panel__button" name="continue">
+                <button type="button" class="col l4 offset-l4 waves-effect waves-light btn-large modal-window__continue-button" name="continue">
                     Continue
                 </button>
             </div>

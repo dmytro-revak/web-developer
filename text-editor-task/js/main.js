@@ -43,6 +43,11 @@
         $createListButton = document.querySelector('[name="create-list"]'),
         $inputesForValidation = document.querySelectorAll('[data-validate]');
 
+    // Modal window elements
+    var $modalWindow = document.querySelector('.modal-window'),
+        $passwordInput = document.querySelector('[type="password"]'),
+        $continueButton = document.querySelector('[name="continue"]');
+
     // Function description ///////////////////////////////////////////////////////////////////////////////////////////
 
     // Initialised select animation for materialize
@@ -107,10 +112,12 @@
         return parseInt(document.querySelector(elementSelector).value);
     }
 
-    // Set default value for a select list
-    function reserSelectList(arguments) {
-        for (var i = 0; i < arguments.length; i++) {
-            arguments[i].selectedIndex = 0;
+    // Set default value for an each select list item
+    function reserSelectList() {
+        for (var i = 0; i < arguments[0].length; i++) {
+            for (var j = 0; j < arguments[0][i].length; j++) {
+                arguments[0][i][j].selectedIndex = 0;        
+            }
         }
     }
 
@@ -164,13 +171,16 @@
             list.appendChild(listItem);
         }
 
-        // Get the user selected list mark type property  
+        // Get the user selected list mark type property
+        var $listMarkTypeSelect,
+            $listMarkType;
+
         if (listType === 'ul') {
-            var $listMarkTypeSelect = document.querySelector('select.unordered-list-style__select-list'),
-                $listMarkType = $listMarkTypeSelect.options[$listMarkTypeSelect.selectedIndex].value;
+            $listMarkTypeSelect = document.querySelector('select.unordered-list-style__select-list');
+            $listMarkType = $listMarkTypeSelect.options[$listMarkTypeSelect.selectedIndex].value;
         } else {
-            var $listMarkTypeSelect = document.querySelector('select.ordered-list-style__select-list'),
-                $listMarkType = $listMarkTypeSelect.options[$listMarkTypeSelect.selectedIndex].value;
+            $listMarkTypeSelect = document.querySelector('select.ordered-list-style__select-list');
+            $listMarkType = $listMarkTypeSelect.options[$listMarkTypeSelect.selectedIndex].value;
         }
 
         // Set list mark type property to created list
@@ -397,5 +407,35 @@
     })();
 
     // TABLE AND LIST PANELS LOGIC END--------------------------------------------------------------------------- 
+
+    // All modal window logic
+
+    (function initModalWindow() {
+
+        // Block the application when user click on "block" button
+        $blockingButton.onclick = function () {
+            swithcElementVisibility($modalWindow, 'block');
+        };
+
+        // Verify the user's password
+        $continueButton. onclick = function () {
+            if ($passwordInput.value === 'password') {
+                validationHighlight($passwordInput, true);
+
+                // Hide error lable and make check border for password input 
+                swithcElementVisibility($modalWindow, 'none');
+                $passwordInput.value = '';
+                $passwordInput.style.border = '';
+                $passwordInput.style.boxShadow = '';
+                swithcElementVisibility(document.querySelector('.modal-window__error-label'), 'none');
+        } else {
+
+            // Notice user about wrong attempt
+            validationHighlight($passwordInput, false);
+            swithcElementVisibility(document.querySelector('.modal-window__error-label'), 'inline');
+        }
+    };
+
+    })();
 
 })();
