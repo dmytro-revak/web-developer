@@ -212,43 +212,50 @@
     // All main panel within one array
     var switchingPanels = [$showingTextPanel, $textEditingPanel, $tableListCreatingPanel];
 
-    // Make working area visible and other main panel invisible
-    $editButton.onclick = function () {
-        showOneOfTheSetElements(switchingPanels, $textEditingPanel, 'block');
-    };
+    // Init all buttons panel logic
+    (function initButtonsPanel() {
 
-    // Transfer text from editing area to showing container as HTML markup and make showing panel visible
-    $saveButton.onclick = function () {
-        showOneOfTheSetElements(switchingPanels, $showingTextPanel, 'block');
-        $showTextContainer.innerHTML = $userWorkingArea.value;
-    };
+        // Make working area visible and other main panel invisible
+        $editButton.onclick = function () {
+            showOneOfTheSetElements(switchingPanels, $textEditingPanel, 'block');
+        };
 
-    // Show or hide font edit panel after user's click on style button
-    $styleButton.onclick  = function () {
-        swithcElementVisibility($fontEditPanel, 'flex', true);
-    };
+        // Transfer text from editing area to showing container as HTML markup and make showing panel visible
+        $saveButton.onclick = function () {
+            showOneOfTheSetElements(switchingPanels, $showingTextPanel, 'block');
+            $showTextContainer.innerHTML = $userWorkingArea.value;
+        };
 
-    // Show table-list creatin pable and hide other main panels
-    $addingButton.onclick = function () {
-        showOneOfTheSetElements(switchingPanels, $tableListCreatingPanel, 'block');
-    };
+        // Show or hide font edit panel after user's click on style button
+        $styleButton.onclick  = function () {
+            swithcElementVisibility($fontEditPanel, 'flex', true);
+        };
+
+        // Show table-list creatin pable and hide other main panels
+        $addingButton.onclick = function () {
+            showOneOfTheSetElements(switchingPanels, $tableListCreatingPanel, 'block');
+        };
+
+    })();
 
     // FONT EDITING PANEL LOGIC START -------------------------------------------------------------------------
 
+    // Init all font editing panel logic
     (function initFontEditingPanel() {
+
         // Add changing font-size function for the each fontSize input
-        for (var i = 0; i < $fontSizeInputes.length; i++) {
-            $fontSizeInputes[i].onchange = function () {
+        $fontSizeInputes.forEach(function (item) {
+            item.onchange = function () {
                 changeShowingTextPropertyValue(this, 'fontSize');
             };
-        }
+        });
 
         // Add changing text-align function for thr each textAlign input
-        for (var i = 0; i < $textAlignInputes.length; i++) {
-            $textAlignInputes[i].onchange = function () {
+        $textAlignInputes.forEach(function (item) {
+            item.onchange = function () {
                 changeShowingTextPropertyValue(this, 'textAlign');
-            };
-        }
+            }; 
+        });
 
         // Add changing font-family function for the fontFamily select and when user select to one of available item set showing block that font-family
         $fontFamilyList.onchange = function () {
@@ -298,13 +305,14 @@
     // TABLE AND LIST PANELS LOGIC START--------------------------------------------------------------------------- 
 
     (function initTableListPanels() {
+
         // Switch visibility for table or list creating forms
-        for (var i = 0; i < $chooseTableListForms.length; i++) {
-            $chooseTableListForms[i].onchange = function () {
+        $chooseTableListForms.forEach(function (item) {
+            item.onchange = function () {
                 var showElement = document.querySelector(this.value);
                 showOneOfTheSetElements($tableListCreatingForms, showElement, 'block');
             };
-        }
+        });
 
         // Create table with user writted parameters and put it to the textarea
         $createTableButton.onclick = function () {
@@ -320,25 +328,25 @@
             reserSelectList(selectForReset);
         };
         
-        // Seva ordered and unerdered list panels to one array
+        // Save ordered and unerdered list panels to one array
         var listPanels = [$unorderedListPanel, $orderedListPanel];
 
         // Switch ordered and unerdered list panels visibility and make listItemAmount input invisible after user's input changing
-        for (var i = 0; i < $chooseListStyleInputes.length; i++) {
-            $chooseListStyleInputes[i].onchange = function () {
+        $chooseListStyleInputes.forEach(function (item) {
+            item.onchange = function () {
                 var showElement = document.querySelector(this.value);
                 showOneOfTheSetElements(listPanels, showElement, 'block');
                 swithcElementVisibility($listAmountInputWrapper, 'none');
                 swithcElementVisibility($listCreatingButtonsWrapper, 'none'); 
             };
-        }
+        });
         
         // Show list items amount input after user's choosing type of list mark
-        for(var i = 0; i < listPanels.length; i++) {
-            listPanels[i].children[1].onchange = function () {  
+        listPanels.forEach(function (item) {
+            item.children[1].onchange = function () {  
                 swithcElementVisibility($listAmountInputWrapper, 'block');
             };
-        }
+        });
         
         // Show creating list buttons after user's choosing amount of list items
         document.getElementById('list-elements-amount').onblur = function () {
@@ -383,7 +391,7 @@
                         creatingErrorLabel(this);
                     }
                 }
-            }
+            };
         });
 
     })();
