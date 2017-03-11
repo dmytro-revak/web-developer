@@ -10,19 +10,19 @@
 <body>
     <!-- Buttons panels start -->
     <div class="row buttons-panel buttons-panel_style_default">
-        <div class="col l2">
+        <div class="col l2 offset-l1">
             <button class="waves-effect waves-light btn-large edit-button buttons-panel__button" name="edit">Edit</button>
         </div>
         <div class="col l2">
             <button class="waves-effect waves-light btn-large style-button buttons-panel__button" name="style">Style</button>
         </div>
-        <div class="col l2 offset-l1">
+        <div class="col l2">
             <button class="waves-effect waves-light btn-large save-button buttons-panel__button" name="save">Save</button>
         </div>
         <div class="col l2">
             <button class="waves-effect waves-light btn-large add-button buttons-panel__button" name="add">Add</button>
         </div>
-        <div class="col l2 offset-l1">
+        <div class="col l2">
             <button class="waves-effect waves-light btn-large block-button buttons-panel__button" name="block">Block</button>
         </div>
     </div>
@@ -327,12 +327,22 @@
     </div>
     <!-- Adding panel end -->
     <!-- Modal window start -->
-    <div class="block-modal-window">
-        <!-- Modal content -->
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
-          </div>
+    <div class="row modal-window">
+        <!-- Modal window content -->
+        <div class="col l8 offset-l2 modal-window__modal-content">
+            <h5 class="modal-window__lable teal-text text-lighten-2 center-align">
+                Enter the correct password to continue
+            </h5>
+            <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+            <div class="row">
+                <button type="button" class="col l4 offset-l4 waves-effect waves-light btn-large continue-button buttons-panel__button" name="continue">
+                    Continue
+                </button>
+            </div>
+        </div>
     </div>
     <!-- Modal window end -->
 
