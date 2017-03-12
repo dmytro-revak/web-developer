@@ -39,25 +39,25 @@
 // }
 // console.log( getProgressionNumbersAmount(4, 3) );
 
-// function getNumberDegree(startNumber, degree) {
-//   var numberDegree = 1;
-//   for (var i = 0; i < degree; i++) {
-//     numberDegree *= startNumber;
-//   }
-//   return numberDegree;
-// }
+function getNumberDegree(startNumber, degree) {
+  var numberDegree = 1;
+  for (var i = 0; i < degree; i++) {
+    numberDegree *= startNumber;
+  }
+  return numberDegree;
+}
 
 //----------------------------
 
-// function getProgressionNumbersAmount(progressionLength, progressionDenominator) {
-//   var currentNumber = 1 * getNumberDegree(progressionDenominator, progressionLength - 1);
-//   if (currentNumber !== 1 ) {
-//     return currentNumber + getProgressionNumbersAmount(progressionLength - 1, progressionDenominator);
-//   } else {
-//     return currentNumber;
-//   }
-// }
-// console.log( getProgressionNumbersAmount(5, 2) );
+function getProgressionNumbersAmount(progressionLength, progressionDenominator) {
+  var currentNumber = 1 * getNumberDegree(progressionDenominator, progressionLength - 1);
+  if (currentNumber !== 1 ) {
+    return currentNumber + getProgressionNumbersAmount(progressionLength - 1, progressionDenominator);
+  } else {
+    return currentNumber;
+  }
+}
+console.log( getProgressionNumbersAmount(5, 2) );
 
 
 //-----------------------------------------------------------------------------------------------------------------------
