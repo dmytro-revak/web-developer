@@ -19,4 +19,12 @@
         }
     });
 
+    // Change style of created element with cliking on one of the choose-style-buttons
+    chooseStyleButtons.forEach(function(chooseButton) {
+        chooseButton.onclick = function() {
+            bouncingBlock.style.border = getComputedStyle(this).border;   
+            bouncingBlock.style.background = getComputedStyle(this).background;
+        }
+    });
+
 })();
