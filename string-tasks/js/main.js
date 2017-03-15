@@ -1,8 +1,9 @@
-(function initStringTasks() {
+// (function initStringTasks() {
 
     // Save working area and page buttons to variables
     var workingTextArea = document.getElementById('working-text-area'),
-        spacesAmountButton = document.getElementById('spaces-amount-button');
+        spacesAmountButton = document.getElementById('spaces-amount-button'),
+        emailValidatioinButton = document.getElementById('email-validatioin');
 
         // Count amount of spaces 
         spacesAmountButton.onclick = function() {
@@ -18,4 +19,8 @@
 
             alert('User have entered ' + spacesConter + ' spaces');
         };
-})();
+
+        function emailValidation() {
+            alert(1);
+        }
+// })();
