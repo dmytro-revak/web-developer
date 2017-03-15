@@ -1,26 +1,35 @@
-// (function initStringTasks() {
+(function initStringTasks() {
 
-    // Save working area and page buttons to variables
-    var workingTextArea = document.getElementById('working-text-area'),
+    // Save working area and page buttons to variables. And define a variable for the textarea value. 
+    var userText,
+        workingTextArea = document.getElementById('working-text-area'),
         spacesAmountButton = document.getElementById('spaces-amount-button'),
         emailValidatioinButton = document.getElementById('email-validatioin');
 
+        // Put user's text to the variable after it has been changed.
+        workingTextArea.onchange = function() {
+            userText  = workingTextArea.value;
+        };
+
         // Count amount of spaces 
         spacesAmountButton.onclick = function() {
-
-            var userText  = workingTextArea.value,
-                spacesConter = 0;
-
+            var spacesConter = 0;
             for (var i = 0; i < userText.length; i++) {
                 if (userText[i] === ' ') {
                     spacesConter++
                 }
             }
-
-            alert('User have entered ' + spacesConter + ' spaces');
+            alert('You have entered ' + spacesConter + ' spaces');
         };
 
-        function emailValidation() {
-            alert(1);
-        }
-// })();
+        // Validate the user's email
+        emailValidatioinButton.onclick = function() {
+            var atSignIndex  = userText.indexOf('@');
+            if (atSignIndex === -1 || atSignIndex === 0 || atSignIndex === userText.length - 1) {
+                alert('You have entered incorrect email');
+            } else {
+                alert('Your email is valid')
+            }
+        };
+            
+})();
