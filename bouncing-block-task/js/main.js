@@ -2,6 +2,7 @@
 
     // Save needed elements to the variables
     var bouncingBlock = document.querySelector('.bouncing-block'),
+        controlMenu = document.querySelector('.control-menu'),
         creatingButton = document.querySelector('.creating-button'),
         sizeInputes = document.querySelectorAll('.size-input'),
         chooseStyleButtons = document.querySelectorAll('.choose-style-button'),
@@ -26,5 +27,29 @@
             bouncingBlock.style.background = getComputedStyle(this).background;
         }
     });
+
+    // Create tow arrays for X and Y coordinates
+    var xCoordinates = [];
+    var yCoordinates = [];
+
+    // Ask user coordinates pairs amount and each coordinate 
+    coordinatesButton.onclick = function() {
+        controlMenu.style.display = 'none';
+        getCoordinatesPairs( parseInt( prompt('Enter coordinates pairs amount') ) );
+    }
+
+    // Ask user to enter each X and Y coordinates and put them to certin arrays  
+    function getCoordinatesPairs(coordinatesPairsAmount) {
+        for (var i = 0; i < coordinatesPairsAmount; i++) {
+            if (xCoordinates[coordinatesPairsAmount - 1]) {
+                yCoordinates[i] = parseInt( prompt('Enter ' + (i + 1) + ' Y coordinate at %') );
+            } else {
+                xCoordinates[i] = parseInt( prompt('Enter ' + (i + 1) + ' X coordinate at %') );
+                if (i === coordinatesPairsAmount - 1) {
+                    i = -1;
+                }
+            }
+        }
+    }
 
 })();
