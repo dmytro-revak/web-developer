@@ -1,0 +1,55 @@
+.wrapper, .working-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.wrapper {
+    height: 600px;
+}
+
+.working-container {
+    width: 90%;
+    height: 90%;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.control-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 45%;
+    border: 2px solid grey;
+}
+
+.creating-button, .choose-style-button-wrapper {
+    margin: 15px 0;
+}
+
+.input-label {
+    margin-right: 10px;
+}
+
+.choose-style-button {
+    height: 50px;
+    width: 50px;
+    border-width: 5px;
+    border-style: double;
+}
+
+.red-style-btn {
+    background: red;
+    border-color: darkred;
+}
+
+.green-style-btn {
+    background: green;
+    border-color: darkgreen;
+}
+
+.blue-style-btn {
+    background: blue;
+    border-color: black;
+}

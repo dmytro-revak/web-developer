@@ -6,23 +6,29 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-    <div class="container">
-        <div class="control-menu">
-            <button type="button" class="creating-button">Create the elelment</button>
-            <label class="input-label">
-                Width
-                <input type="text" class="width-input">
-                px
-            </label>
-            <label class="input-label">
-                Height
-                <input type="text" class="height-input">
-                px
-            </label>
-            <button type="button" class="choose-style-button red-style-bth"></button>
-            <button type="button" class="choose-style-button green-style-bth"></button>
-            <button type="button" class="choose-style-button blue-style-bth"></button>
-            <button type="button" class="coordinates-button">Coordinates</button>
+    <div class="wrapper">
+        <div class="working-container">
+            <div class="control-menu">
+                <button type="button" class="creating-button">Create the elelment</button>
+                <div class="inputes-wrapper">
+                    <label class="input-label">
+                        Width
+                        <input type="text" class="width-input">
+                        px
+                    </label>
+                    <label class="input-label">
+                        Height
+                        <input type="text" class="height-input">
+                        px
+                    </label>
+                </div>
+                <div class="choose-style-button-wrapper">
+                    <button type="button" class="choose-style-button red-style-btn"></button>
+                    <button type="button" class="choose-style-button green-style-btn"></button>
+                    <button type="button" class="choose-style-button blue-style-btn"></button>
+                </div>
+                <button type="button" class="coordinates-button">Coordinates</button>
+            </div>
         </div>
     </div>
     <script src="js/main.js"></script>
