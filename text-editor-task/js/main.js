@@ -324,12 +324,28 @@
             };
         });
 
+        // Set the default table form state 
+        var isTableFormValid = false;
+
         // Create table with user writted parameters and put it to the textarea
         $createTableButton.onclick = function () {
-            setDateToTextarea( createTable() );
+            debugger
+            var tableValidationInputes = document.querySelectorAll('.table-adding-panel input[data-validate]');
+            tableValidationInputes.forEach(function (input) {
+                if( numericFieldValidation(input) ) {
+                    isTableFormValid = true;
+                } else {
+                    isTableFormValid = false;
+                }
+            });
 
-            // Trigger click event on 'save' button
-            $saveButton.click();
+            if (isTableFormValid) {
+                setDateToTextarea( createTable() );
+                
+                // Trigger click event on 'save' button
+                $saveButton.click();
+            }
+
         };
 
         // Reset all table selects with attribute [data-reset-item="table"] and set for them dafault parameters
