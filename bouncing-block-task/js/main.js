@@ -32,10 +32,21 @@
     var xCoordinates = [];
     var yCoordinates = [];
 
+    // Count the using pairs of coordinates
+    var counter;
+
     // Ask user coordinates pairs amount and each coordinate 
     coordinatesButton.onclick = function() {
         controlMenu.style.display = 'none';
         getCoordinatesPairs( parseInt( prompt('Enter coordinates pairs amount') ) );
+        counter = 0;
+    }
+
+    // Change the bouncing-block position accordint the coordinater when user hover it
+    bouncingBlock.onmouseenter = function() {
+        this.style.top = yCoordinates[counter] + '%';
+        this.style.left = xCoordinates[counter] + '%';
+        counter++;
     }
 
     // Ask user to enter each X and Y coordinates and put them to certin arrays  
