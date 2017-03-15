@@ -329,7 +329,8 @@
 
         // Create table with user writted parameters and put it to the textarea
         $createTableButton.onclick = function () {
-            debugger
+
+            // Validate all table form inputes for correct table crating
             var tableValidationInputes = document.querySelectorAll('.table-adding-panel input[data-validate]');
             tableValidationInputes.forEach(function (input) {
                 if( numericFieldValidation(input) ) {
@@ -339,6 +340,7 @@
                 }
             });
 
+            // When all inputes are valid create the table
             if (isTableFormValid) {
                 setDateToTextarea( createTable() );
                 
@@ -385,15 +387,33 @@
             reserSelectList(selectForReset);
         };
 
+        // Set the default list form state
+        var isListFormValid = false;
+
         // Create list with user writted parameters and put it to the textarea
         $createListButton.onclick = function () {
-            if ($chooseListStyleInputes[0].checked) {
-                setDateToTextarea( createList('ul') );
-            } else {
-                setDateToTextarea( createList('ol') );
+            
+            // Validate all table form inputes for correct table crating
+            var listValidationInputes = document.querySelectorAll('.list-adding-form input[data-validate]');
+            listValidationInputes.forEach(function (input) {
+                if( numericFieldValidation(input) ) {
+                    isListFormValid  = true;
+                } else {
+                    isListFormValid  = false;
+                }
+            });
+
+            // When all inputes are valid create the list
+            if (isListFormValid) {
+                if ($chooseListStyleInputes[0].checked) {
+                    setDateToTextarea( createList('ul') );
+                } else {
+                    setDateToTextarea( createList('ol') );
+                }
+
+                // Trigger click event on 'save' button
+                $saveButton.click();
             }
-            // Trigger click event on 'save' button
-            $saveButton.click();
         };
 
         // Add validation, highlight and createErrorLabel functions for each table and list input 
