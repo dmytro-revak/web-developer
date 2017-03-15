@@ -4,7 +4,8 @@
     var userText,
         workingTextArea = document.getElementById('working-text-area'),
         spacesAmountButton = document.getElementById('spaces-amount-button'),
-        emailValidatioinButton = document.getElementById('email-validatioin');
+        emailValidatioinButton = document.getElementById('email-validatioin'),
+        htmlWordsAmountButton = document.getElementById('html-words-amount');
 
         // Put user's text to the variable after it has been changed.
         workingTextArea.onchange = function() {
@@ -16,7 +17,7 @@
             var spacesConter = 0;
             for (var i = 0; i < userText.length; i++) {
                 if (userText[i] === ' ') {
-                    spacesConter++
+                    spacesConter++;
                 }
             }
             alert('You have entered ' + spacesConter + ' spaces');
@@ -28,8 +29,17 @@
             if (atSignIndex === -1 || atSignIndex === 0 || atSignIndex === userText.length - 1) {
                 alert('You have entered incorrect email');
             } else {
-                alert('Your email is valid')
+                alert('Your email is valid');
             }
         };
-            
+
+        // Count the "html" words
+        htmlWordsAmountButton. onclick = function() {
+            var htmlWordsCounter = 0;
+            while (userText.indexOf('html') !== -1) {
+                userText = userText.replace('html', '');
+                htmlWordsCounter++;
+            }
+            alert('You have entered "html" ' + htmlWordsCounter + ' times');
+        };            
 })();
