@@ -17,7 +17,11 @@
         }
 
         .censor-words-heading {
-            margin-top: 0px;
+            margin: 0px;
+        }
+
+        #unavailable-word-container {
+            color: red;
         }
 
         #user-text-area {
@@ -31,7 +35,9 @@
 <body>
     <div class="container">
         <h2 class="censor-words-heading">List of unavailable words</h2>
-        <div class="unavailable-word-container"></div>
+        <br>
+        <div id="unavailable-word-container"></div>
+        <br>
         <div class="adding-unavailable-words-panel">
             <input type="text" id="unavailable-words-input">
             <button type="button" id="unavailable-words-button">Add the word</button>
