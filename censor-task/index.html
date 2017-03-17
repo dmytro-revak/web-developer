@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Censor task</title>
+    <style>
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            padding: 25px;
+            margin: 0 auto;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+
+        #user-text-area {
+            display: block;
+            width: 80%;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="censor-words-heading">List of unavailable words</h2>
+        <div class="unavailable-word-container"></div>
+        <div class="adding-unavailable-words-panel">
+            <input type="text" class="unavailable-words-input">
+            <button type="button">Add the word</button>
+        </div>
+        <br>
+        <div class="user-working-area">
+            <textarea name="user-text" id="user-text-area"></textarea>
+            <br>
+            <button type="button">Censor</button>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
