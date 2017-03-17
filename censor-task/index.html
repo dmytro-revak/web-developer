@@ -9,13 +9,15 @@
     <style>
 
         .container {
-            display: flex;
-            flex-direction: column;
             width: 40%;
-            padding: 25px;
+            padding: 20px 50px 50px 50px;
             margin: 0 auto;
             border: 2px solid black;
             border-radius: 5px;
+        }
+
+        .censor-words-heading {
+            margin-top: 0px;
         }
 
         #user-text-area {
@@ -31,14 +33,14 @@
         <h2 class="censor-words-heading">List of unavailable words</h2>
         <div class="unavailable-word-container"></div>
         <div class="adding-unavailable-words-panel">
-            <input type="text" class="unavailable-words-input">
-            <button type="button">Add the word</button>
+            <input type="text" id="unavailable-words-input">
+            <button type="button" id="unavailable-words-button">Add the word</button>
         </div>
         <br>
         <div class="user-working-area">
             <textarea name="user-text" id="user-text-area"></textarea>
             <br>
-            <button type="button">Censor</button>
+            <button type="button" id="user-text-button">Censor</button>
         </div>
     </div>
     <script src="js/main.js"></script>
