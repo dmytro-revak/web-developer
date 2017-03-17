@@ -21,7 +21,13 @@
                 }
             }
             alert('You have entered ' + spacesConter + ' spaces');
+
+            // or
+             
+            alert(userText.split(' ').length-1);
         };
+
+
 
         // Validate the user's email
         emailValidatioinButton.onclick = function() {
