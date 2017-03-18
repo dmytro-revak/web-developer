@@ -54,7 +54,7 @@
     playButton[0].onclick = function () {
         if (!isPlaying) {
             sliderPlay = setInterval(function () {
-                changeActiveElementIndex('left', sliderItems);
+                changeActiveElementIndex('right', sliderItems);
                 setActiveClass(activeElementIndex, sliderItems, 'slider__item_active');
                 setActiveClass(activeElementIndex, sliderDots, 'slider__navigation-dot_active');
             }, 3000);
