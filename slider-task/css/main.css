@@ -1,7 +1,72 @@
 .slider {
     margin: 0 auto;
-    width: 50%;
+    width: 635px;
     height: 400px;
+    position: relative;
     border: 1px solid #3d3632;
+}
+
+.slider__items-wrapper {
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.slider__item {
+    height: 100%;
+}
+
+.slider__switch-button {
+    position: absolute;
+    border-radius: 50%;
+    top: 43%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.slider__switch-button_left {
+    left: 0;
+    transform: rotate(180deg);
+}
+
+.slider__switch-button_right {
+    right: 0;
+}
+
+.slider__item_style_first-item {
+    background-image: url(http://www.1366x768.ru/nature/279/nature-wallpaper-1366x768.jpg);
+}
+
+.slider__item_style_second-item {
+    background-image: url(http://www.1366x768.ru/nature/1/lake-wallpaper-1366x768.jpg);
+}
+
+.slider__item_style_third-item {
+    background-image: url(http://fanoboi.com/nature/144/nature-of-the-tropics-wallpaper-1366x768.jpg);
+}
+
+.slider__item_style_fourth-item {
+    background-image: url(http://www.fonstola.ru/pic/201112/2560x1600/fonstola.ru-64326.jpg);
+}
+
+.slider__item_style_fifth-item {
+    background-image: url(http://luxfon.com/images/201203/luxfon.com_10874.jpg);
+}
+
+.slider__item_style_sixth-item {
+    background-image: url(http://daler.ru/pictures/1/2560x1600/Ryabina-12264.jpg);
+}
+
+.slider__item_style_seventh-item {
+    background-image: url(http://wp.widewallpapers.ru/2k/nature/1366x768/nature-wallpaper-1366x768-004.jpg);
+}
+
+.slider__item_style_eighth-item {
+    background-image: url(http://widefon.com/_ld/82/70876715.jpg);
+}
+
+.slider__item_style_ninth-item {
+    background-image: url(http://wallpapers1.ru/priroda/data/Wallpaper1ru_Nature_047.jpg);
 }
 
