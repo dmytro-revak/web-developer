@@ -17,13 +17,13 @@
     }
 
     // Remove active class from all elements and set it for only choosing one
-    function setActiveClass(indexOfActiveElement, sliderElements) {
+    function setActiveClass(indexOfActiveElement, sliderElements, activeClassName) {
         sliderElements.forEach(function (currentElement) {
-            if ( currentElement.className.indexOf('slider__item_active') !== -1) {
-                currentElement.className = currentElement.className.replace(' slider__item_active', '');
+            if ( currentElement.className.indexOf(activeClassName) !== -1) {
+                currentElement.className = currentElement.className.replace(' ' + activeClassName, '');
             }
         });
-        sliderElements[indexOfActiveElement].className += ' slider__item_active';
+        sliderElements[indexOfActiveElement].className += ' ' + activeClassName;
     }
 
     // Application logic ////////////////////////////////////////////////////////////////////////////////////////
@@ -31,7 +31,8 @@
     // Save all page elements to appropriate variables
     var sliderItems = getEl('.slider__item'),
         switchPictureButtons = getEl('.slider__switch-button'),
-        playButton = getEl('.slider__play-button');
+        playButton = getEl('.slider__play-button'),
+        sliderDots = getEl('.slider__navigation-dot');
 
     // Save default active element index
     var activeElementIndex = 0;
@@ -40,7 +41,8 @@
     switchPictureButtons.forEach(function (button) {
         button.onclick = function () {
             changeActiveElementIndex(this.dataset.direction, sliderItems);
-            setActiveClass(activeElementIndex, sliderItems);
+            setActiveClass(activeElementIndex, sliderItems, 'slider__item_active');
+            setActiveClass(activeElementIndex, sliderDots, 'slider__navigation-dot_active');
         };
     });
 
@@ -53,7 +55,8 @@
         if (!isPlaying) {
             sliderPlay = setInterval(function () {
                 changeActiveElementIndex('left', sliderItems);
-                setActiveClass(activeElementIndex, sliderItems);
+                setActiveClass(activeElementIndex, sliderItems, 'slider__item_active');
+                setActiveClass(activeElementIndex, sliderDots, 'slider__navigation-dot_active');
             }, 3000);
             this.innerHTML = 'Pause';
             isPlaying = true;
