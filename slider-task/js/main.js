@@ -32,7 +32,8 @@
     var sliderItems = getEl('.slider__item'),
         switchPictureButtons = getEl('.slider__switch-button'),
         playButton = getEl('.slider__play-button'),
-        sliderDots = getEl('.slider__navigation-dot');
+        sliderDots = getEl('.slider__navigation-dot'),
+        sliderImagePreview = getEl('.slider__image-preview ');
 
     // Save default active element index
     var activeElementIndex = 0;
@@ -73,6 +74,14 @@
             activeElementIndex = parseInt(this.dataset.activeIndex);
             setActiveClass(activeElementIndex, sliderItems, 'slider__item_active');
             setActiveClass(activeElementIndex, sliderDots, 'slider__navigation-dot_active');
+        };
+    });
+
+    sliderDots.forEach(function (sliderDot) {
+        sliderDot.onmouseover = function () {
+            if (this.className.indexOf('slider__navigation-dot_active') === -1) {
+                sliderImagePreview[0].style.left = parseInt(this.offsetLeft) - 44 + 'px';
+            }
         };
     });
 
