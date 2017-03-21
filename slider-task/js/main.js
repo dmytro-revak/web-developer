@@ -67,4 +67,13 @@
         }
     };
 
+    // Change active image and active dot when user click to the certain dot
+    sliderDots.forEach(function (sliderDot) {
+        sliderDot.onclick = function () {
+            activeElementIndex = parseInt(this.dataset.activeIndex);
+            setActiveClass(activeElementIndex, sliderItems, 'slider__item_active');
+            setActiveClass(activeElementIndex, sliderDots, 'slider__navigation-dot_active');
+        };
+    });
+
 })();
