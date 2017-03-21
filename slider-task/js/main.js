@@ -19,7 +19,7 @@
     // Remove active class from all elements and set it for only choosing one
     function setActiveClass(indexOfActiveElement, sliderElements, activeClassName) {
         sliderElements.forEach(function (currentElement) {
-            if ( currentElement.className.indexOf(activeClassName) !== -1) {
+            if (currentElement.className.indexOf(activeClassName) !== -1) {
                 currentElement.className = currentElement.className.replace(' ' + activeClassName, '');
             }
         });
@@ -77,11 +77,27 @@
         };
     });
 
+    // Show the images preview block when user hover the slider dot
     sliderDots.forEach(function (sliderDot) {
         sliderDot.onmouseover = function () {
+
+            // Save needed background image path to a variable
+            var dotActiveIndex = parseInt(this.dataset.activeIndex);
+            var imagePath = sliderItems[dotActiveIndex].children[0].src;
+
+            // Change preview block's background and position
             if (this.className.indexOf('slider__navigation-dot_active') === -1) {
                 sliderImagePreview[0].style.left = parseInt(this.offsetLeft) - 44 + 'px';
+                sliderImagePreview[0].style.display = 'block';
+                sliderImagePreview[0].style.backgroundImage = 'url("' + imagePath + '")';
             }
+        };
+    });
+
+    // Hide the images preview block when user goes out the slider dot
+    sliderDots.forEach(function (sliderDot) {
+        sliderDot.onmouseout = function () {
+            sliderImagePreview[0].style.display = 'none';
         };
     });
 
