@@ -3,7 +3,6 @@
     animation-duration: 2s;*/
 }
 
-
 @keyframes first-hover {
     10% {
         top: 15px;
@@ -25,4 +24,140 @@
         width: 100px;
         background: brown;
     }
+}
+
+@keyframes first-click {
+    1% {
+        top: 200px;
+        left: 200px;
+        height: 15px;
+        width: 100px;
+        background: brown;   
+    }
+
+    25% {
+        top: 170px;
+        left: 180px;
+        height: 15px;
+        width: 80px;
+        background: #654321;
+    }
+
+    50% {
+        top: 250px;
+        left: 200px;
+        height: 25px;
+        width: 120px;
+        background: #654321;   
+    }
+
+    75% {
+        top: 350px;
+        left: 200px;
+        height: 50px;
+        width: 150px;
+        background: #654321;
+    }
+
+    100% {
+        top: 400px;
+        left: 200px;
+        height: 80px;
+        width: 200px;
+        background: #654321;   
+    }
+}
+
+@keyframes second-hover {
+    1% {
+        top: 400px;
+        left: 200px;
+        height: 80px;
+        width: 200px;
+        background: blue;
+    }
+
+    25% {
+        top: 350px;
+        left: 200px;
+        height: 50px;
+        width: 150px;
+        background: blue;
+    }
+
+    50% {
+        top: 250px;
+        left: 200px;
+        height: 25px;
+        width: 120px;
+        background: blue;
+    }
+
+    75% {
+        top: 170px;
+        left: 180px;
+        height: 15px;
+        width: 80px;
+        background: blue;
+    }
+
+    100% {
+        top: 200px;
+        left: 200px;
+        height: 15px;
+        width: 100px;
+        background: blue;  
+    }
+}
+
+@keyframes second-click {
+    1% {
+        top: 200px;
+        left: 200px;
+        height: 15px;
+        width: 100px;
+        background: blue;  
+    }
+
+    25% {
+        top: 250px;
+        left: 225px;
+        width: 80px;
+        height: 15px;
+        background: aqua;
+    }
+
+    50% {
+        top: 190px;
+        left: 200px;
+        width: 100px;
+        height: 15px;
+        background: aqua;
+    }
+
+    75% {
+        top: 130px;
+        left: 200px;
+        width: 50px;
+        height: 15px;
+        background: aqua;
+    }
+
+    87% {
+        top: 1px;
+        left: 200px;
+        width: 50px;
+        height: 15px;
+        background: aqua;
+    }
+
+    100% {
+        top: 25px;
+        left: 200px;
+        width: 15px;
+        height: 15px;
+        background: aqua;
+    }
+
+
 }
