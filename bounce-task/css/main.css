@@ -1,0 +1,28 @@
+.bounce-circle {
+    /*animation-name: first-hover;
+    animation-duration: 2s;*/
+}
+
+
+@keyframes first-hover {
+    10% {
+        top: 15px;
+        left: 1px;
+        background: brown;
+    }
+
+    50% {
+        top: 100px;
+        left: 100px;
+        width: 50px;
+        background: brown;
+    }
+
+    100% {
+        top: 200px;
+        left: 200px;
+        height: 15px;
+        width: 100px;
+        background: brown;
+    }
+}
