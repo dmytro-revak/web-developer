@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Note board task</title>
+    <style>
+
+        .user-text-area {
+            width: 300px;
+            height: 100px;
+        }
+
+        .create-note-button {
+            display: block;
+            margin-top: 20px;
+        }
+
+        .notes-wrapper {
+            display: flex;
+            margin-top: 20px;
+            width: 500px;
+        }
+
+        .note-item {
+            position: relative;
+            width: 25%;
+            padding: 30px 30px 15px 15px;
+            border: 1px solid #1E6823;
+            background-color: #9ccc65;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            border-radius: 50%;
+            height: 15px;
+            width: 15px;
+            border: 1px solid #0D47A1;
+            background-color: #00b0ff;
+            font-size: 8px;
+            font-weight: bold;
+            padding: 0;
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+    <textarea class="user-text-area"></textarea>
+    <button type="button" class="create-note-button">Create the note</button>
+    <div class="notes-wrapper">
+        <div class="note-item">
+            <button type="button" class="close-button">&#x2715;</button>
+            <span>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias dolorum nobis nulla voluptates! Blanditiis delectus ducimus excepturi, iste labore magnam quod tempore vel voluptates!
+            </span>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
