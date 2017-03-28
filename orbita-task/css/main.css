@@ -1,0 +1,11 @@
+.container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url("https://entropymag.org/wp-content/uploads/2014/10/outer-space-wallpaper-pictures.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
