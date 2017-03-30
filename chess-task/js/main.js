@@ -4,10 +4,8 @@
     var $allChessFigures = $('.chess-board__figure'),
         $boardCells = $('.chess-board__cell');
 
-
-    var allPossibleCoordinates = [];
-
     // save all possible coordinates to array
+    var allPossibleCoordinates = [];
     $boardCells.each(function () {
         allPossibleCoordinates.push(this.dataset.cell);
     });
@@ -21,19 +19,36 @@
         });
     });
 
+    // hide available cells when user doesn't press the mouse button
     $allChessFigures.mouseup(function () {
         $boardCells.each(function () {
             $(this).removeClass('chess-board__cell_style_available');
         })
     });
 
-    // showAvailableCells($(''), call);
+    getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
 
-    function showAvailableCells(figure, call) {
-        var currentCoordinates = figure.dataset.cell,
+    // get available course cells for the certain figure
+    function getAvailableCells(figure, callback) {
+        debugger
+        var currentCoordinates = $(figure).parent().get(0).dataset.cell,
             currentXCoordinate = currentCoordinates.charAt(0);
             currentYCoordinate = currentCoordinates.charAt(1);
-        call();
+
+        return callback(currentXCoordinate, currentYCoordinate);
+    }
+
+    // describe available cells for coursing for the rook figure
+    function rookCourse(Xcoordinate, Ycoordinate) {
+        var rookAvailableCoordinates = [];
+
+        for (var i = 0; i < 8; i++) {
+            var xStaticCoordinatesPair = Xcoordinate + i,
+                yStaticCoordinatesPair = i + Ycoordinate;
+
+            rookAvailableCoordinates.push(xStaticCoordinatesPair, yStaticCoordinatesPair);
+        }
+        return rookAvailableCoordinates;
     }
 
 
