@@ -10,27 +10,27 @@
         allPossibleCoordinates.push(this.dataset.cell);
     });
 
-    // show the user course available cells
-    $allChessFigures.mousedown(function () {
-        $boardCells.each(function () {
-            if(allPossibleCoordinates.indexOf(this.dataset.cell) !== -1) {
-                $(this).addClass('chess-board__cell_style_available');
-            }
-        });
+    // show or hide the user course available cells
+    function toggleAvailableCells(availableCellsCoordinates) {
+        $(availableCellsCoordinates).each(function () {
+            $('[data-cell="' + this + '"]').toggleClass('chess-board__cell_style_available');
+        }
+    )}
+
+    $allChessFigures.mousedown(function (){
+        var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
+        toggleAvailableCells(availableCellsCoordinates);
     });
 
     // hide available cells when user doesn't press the mouse button
     $allChessFigures.mouseup(function () {
-        $boardCells.each(function () {
-            $(this).removeClass('chess-board__cell_style_available');
-        })
+        var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
+        toggleAvailableCells(availableCellsCoordinates);
     });
 
-    getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
 
     // get available course cells for the certain figure
     function getAvailableCells(figure, callback) {
-        debugger
         var currentCoordinates = $(figure).parent().get(0).dataset.cell,
             currentXCoordinate = currentCoordinates.charAt(0);
             currentYCoordinate = currentCoordinates.charAt(1);
