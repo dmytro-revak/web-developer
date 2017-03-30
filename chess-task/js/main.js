@@ -1,0 +1,1 @@
+$('.chess-board__cell')
