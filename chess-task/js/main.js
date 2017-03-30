@@ -1,29 +1,33 @@
 (function initTheChess() {
 
-    // save all figures and border cells
-    var $allChessdFigures = $('.chess-board__figure'),
-        $borderCells = $('.chess-board__cell');
+    // save all figures and board cells
+    var $allChessFigures = $('.chess-board__figure'),
+        $boardCells = $('.chess-board__cell');
 
 
     var allPossibleCoordinates = [];
 
-    $borderCells.each(function () {
+    // save all possible coordinates to array
+    $boardCells.each(function () {
         allPossibleCoordinates.push(this.dataset.cell);
     });
-    //
-    // $allChessdFigures.hover(function () {
-    //     $borderCells.each(function () {
-    //         if(allPossibleCoordinates.indexOf(this.dataset.cell) !== -1) {
-    //             $(this).addClass('chess-board__cell_style_available');
-    //         }
-    //     });
-    // }, function () {
-    //     $borderCells.each(function () {
-    //         $(this).removeClass('chess-board__cell_style_available');
-    //     })
-    // });
 
-    showAvailableCells($(''), call);
+    // show the user course available cells
+    $allChessFigures.mousedown(function () {
+        $boardCells.each(function () {
+            if(allPossibleCoordinates.indexOf(this.dataset.cell) !== -1) {
+                $(this).addClass('chess-board__cell_style_available');
+            }
+        });
+    });
+
+    $allChessFigures.mouseup(function () {
+        $boardCells.each(function () {
+            $(this).removeClass('chess-board__cell_style_available');
+        })
+    });
+
+    // showAvailableCells($(''), call);
 
     function showAvailableCells(figure, call) {
         var currentCoordinates = figure.dataset.cell,
@@ -35,10 +39,10 @@
 
 
     // allow draggable for all figures
-    $allChessdFigures.draggable();
+    $allChessFigures.draggable();
 
     // allow droppable for all board cells
-    $borderCells.droppable({
+    $boardCells.droppable({
 
         // change the DOM when user moving a certain figure to certain cell
         drop: function(event, ui) {
