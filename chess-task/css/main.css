@@ -23,7 +23,6 @@
 .chess-board__cell {
     width: 100px;
     height: 75px;
-    overflow: hidden;
     vertical-align: middle;
     text-align: center;
 }
