@@ -10,18 +10,27 @@
     $borderCells.each(function () {
         allPossibleCoordinates.push(this.dataset.cell);
     });
+    //
+    // $allChessdFigures.hover(function () {
+    //     $borderCells.each(function () {
+    //         if(allPossibleCoordinates.indexOf(this.dataset.cell) !== -1) {
+    //             $(this).addClass('chess-board__cell_style_available');
+    //         }
+    //     });
+    // }, function () {
+    //     $borderCells.each(function () {
+    //         $(this).removeClass('chess-board__cell_style_available');
+    //     })
+    // });
 
-    $allChessdFigures.hover(function () {
-        $borderCells.each(function () {
-            if(allPossibleCoordinates.indexOf(this.dataset.cell) !== -1) {
-                $(this).addClass('chess-board__cell_style_available');
-            }
-        });
-    }, function () {
-        $borderCells.each(function () {
-            $(this).removeClass('chess-board__cell_style_available');
-        })
-    });
+    showAvailableCells($(''), call);
+
+    function showAvailableCells(figure, call) {
+        var currentCoordinates = figure.dataset.cell,
+            currentXCoordinate = currentCoordinates.charAt(0);
+            currentYCoordinate = currentCoordinates.charAt(1);
+        call();
+    }
 
 
 
