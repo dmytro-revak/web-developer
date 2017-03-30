@@ -45,7 +45,7 @@
         for (var i = 0; i < 8; i++) {
             var xStaticCoordinatesPair = Xcoordinate + i,
                 yStaticCoordinatesPair = i + Ycoordinate;
-
+                debugger
             rookAvailableCoordinates.push(xStaticCoordinatesPair, yStaticCoordinatesPair);
         }
         return rookAvailableCoordinates;
