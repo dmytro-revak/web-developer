@@ -38,7 +38,11 @@
     background-color: white;
 }
 
+.chess-board .chess-board__row .chess-board__cell.chess-board__cell_style_available {
+    background-color: rgba(149, 128, 233, 0.5);
+}
+
 .chess-board__figure {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
 }

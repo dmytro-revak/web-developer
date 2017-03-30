@@ -4,6 +4,27 @@
     var $allChessdFigures = $('.chess-board__figure'),
         $borderCells = $('.chess-board__cell');
 
+
+    var allPossibleCoordinates = [];
+
+    $borderCells.each(function () {
+        allPossibleCoordinates.push(this.dataset.cell);
+    });
+
+    $allChessdFigures.hover(function () {
+        $borderCells.each(function () {
+            if(allPossibleCoordinates.indexOf(this.dataset.cell) !== -1) {
+                $(this).addClass('chess-board__cell_style_available');
+            }
+        });
+    }, function () {
+        $borderCells.each(function () {
+            $(this).removeClass('chess-board__cell_style_available');
+        })
+    });
+
+
+
     // allow draggable for all figures
     $allChessdFigures.draggable();
 
