@@ -37,18 +37,20 @@ var chessModule = (function() {
 
                 // move figure from one element into other
                 switchFigurePosition(currentFigure, currentNewParent);
+
+                // make all previous available cells undproppable when user drop the current figure
                 $(allAvailableCells).droppable('disable');
             }
         });
 
-        // make only current course cells droppable independent the previous user's courses
+        // make only current course cells droppable independent the previous user's courses. If we don't do that previous available cells which after user's course have become unavailable would unavailable for current user course
         $(allAvailableCells).droppable('enable');
     }
 
     // get available course cells coordinates for the certain figure
     function getAvailableCells(figure, callback) {
         var currentCoordinates = $(figure).parent().get(0).dataset.cell,
-            currentXCoordinate = currentCoordinates.charAt(0);
+            currentXCoordinate = currentCoordinates.charAt(0),
             currentYCoordinate = currentCoordinates.charAt(1);
 
         return callback(currentXCoordinate, currentYCoordinate);
@@ -95,24 +97,21 @@ var chessModule = (function() {
 
 })();
 
+// save cells coordinates which were available in the previous user's course
 var previousAvailableCellsCoordinates;
 
 chessModule.$allChessFigures.mousedown(function (){
-    debugger
     var availableCellsCoordinates = chessModule.getAvailableCells($(this), chessModule[this.dataset.figureCourse]);
     chessModule.showAvailableCells(availableCellsCoordinates);
     chessModule.dragCertainFigureToCertainCell(availableCellsCoordinates);
     previousAvailableCellsCoordinates = availableCellsCoordinates;
 });
 
-// hide available cells when user doesn't press the mouse button
 chessModule.$allChessFigures.mouseup(function () {
-    // debugger
-    // var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
     chessModule.hideAvailableCells(previousAvailableCellsCoordinates);
-    // toggleAvailableCells(availableCellsCoordinates);
 });
 
+// make all figure are draggable
 chessModule.$allChessFigures.draggable({
     revert: true
 });
