@@ -5,15 +5,28 @@
         $boardCells = $('.chess-board__cell');
 
     // show or hide the user course available cells
-    function toggleAvailableCells(availableCellsCoordinates) {
+    function showAvailableCells(availableCellsCoordinates) {
         $(availableCellsCoordinates).each(function () {
-            $('[data-cell="' + this + '"]').toggleClass('chess-board__cell_style_available');
+            $('[data-cell="' + this + '"]').addClass('chess-board__cell_style_available');
         }
     )}
 
-    function asdf(fig) {
-        $('[data-cell="' + this + '"]').droppable({
-            accept: this,
+    function hide(previousAvailableCellsCoordinates) {
+        $(previousAvailableCellsCoordinates).each(function () {
+            $('[data-cell="' + this + '"]').removeClass('chess-board__cell_style_available');
+        });
+    }
+
+    function asdf(fig, coord) {
+        var cells = [];
+        $(coord).each(function () {
+            cells.push($('[data-cell="' + this + '"]').get(0));
+        });
+        // debugger
+        debugger
+
+        $(cells).droppable({
+
             //     // change the DOM when user moving a certain figure to certain cell
             drop: function (event, ui) {
                 var currentFigure = ui.draggable.get(0),
@@ -21,9 +34,10 @@
                 //
                 //         // move figure from one element into other
                 switchFigurePosition(currentFigure, currentNewParent);
+                $(cells).droppable( "disable" );
             }
-    })
-        ;
+    });
+        $(cells).droppable( "enable" );
     }
 
     // get available course cells coordinates for the certain figure
@@ -63,21 +77,30 @@
         });
     }
 
+    var previousAvailableCellsCoordinates;
+
     $allChessFigures.mousedown(function (){
         var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
-        toggleAvailableCells(availableCellsCoordinates);
-        debugger
-        asdf(this);
+        showAvailableCells(availableCellsCoordinates);
+        asdf('.chess-board__figure', availableCellsCoordinates);
+        previousAvailableCellsCoordinates = availableCellsCoordinates;
     });
 
     // hide available cells when user doesn't press the mouse button
     $allChessFigures.mouseup(function () {
-        var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
-        toggleAvailableCells(availableCellsCoordinates);
+        // debugger
+        // var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
+        hide(previousAvailableCellsCoordinates);
+        // toggleAvailableCells(availableCellsCoordinates);
     });
 
+    $allChessFigures.draggable({
+        revert: true
+    });
+
+
     // allow draggable for all figures
-    $allChessFigures.draggable();
+    // $allChessFigures.draggable();
 
     // allow droppable for all board cells
     // $boardCells.droppable({
