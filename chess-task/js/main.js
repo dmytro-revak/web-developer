@@ -4,12 +4,6 @@
     var $allChessFigures = $('.chess-board__figure'),
         $boardCells = $('.chess-board__cell');
 
-    // save all possible coordinates to array
-    var allPossibleCoordinates = [];
-    $boardCells.each(function () {
-        allPossibleCoordinates.push(this.dataset.cell);
-    });
-
     // show or hide the user course available cells
     function toggleAvailableCells(availableCellsCoordinates) {
         $(availableCellsCoordinates).each(function () {
@@ -17,19 +11,22 @@
         }
     )}
 
-    $allChessFigures.mousedown(function (){
-        var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
-        toggleAvailableCells(availableCellsCoordinates);
-    });
+    function asdf(fig) {
+        $('[data-cell="' + this + '"]').droppable({
+            accept: this,
+            //     // change the DOM when user moving a certain figure to certain cell
+            drop: function (event, ui) {
+                var currentFigure = ui.draggable.get(0),
+                    currentNewParent = this;
+                //
+                //         // move figure from one element into other
+                switchFigurePosition(currentFigure, currentNewParent);
+            }
+    })
+        ;
+    }
 
-    // hide available cells when user doesn't press the mouse button
-    $allChessFigures.mouseup(function () {
-        var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
-        toggleAvailableCells(availableCellsCoordinates);
-    });
-
-
-    // get available course cells for the certain figure
+    // get available course cells coordinates for the certain figure
     function getAvailableCells(figure, callback) {
         var currentCoordinates = $(figure).parent().get(0).dataset.cell,
             currentXCoordinate = currentCoordinates.charAt(0);
@@ -45,31 +42,15 @@
         for (var i = 0; i < 8; i++) {
             var xStaticCoordinatesPair = Xcoordinate + i,
                 yStaticCoordinatesPair = i + Ycoordinate;
-                debugger
-            rookAvailableCoordinates.push(xStaticCoordinatesPair, yStaticCoordinatesPair);
+
+            if (xStaticCoordinatesPair !== yStaticCoordinatesPair) {
+                rookAvailableCoordinates.push(xStaticCoordinatesPair, yStaticCoordinatesPair);
+            }
         }
         return rookAvailableCoordinates;
     }
 
-
-
-    // allow draggable for all figures
-    $allChessFigures.draggable();
-
-    // allow droppable for all board cells
-    $boardCells.droppable({
-
-        // change the DOM when user moving a certain figure to certain cell
-        drop: function(event, ui) {
-            var currentFigure = ui.draggable.get(0),
-                currentNewParent = this;
-
-            // move figure from one element into other
-            switchFigurePosition(currentFigure , currentNewParent);
-        }
-    });
-
-
+    // move the certain figure to that cell where user drop the one
     function switchFigurePosition(figure, newParent) {
 
         // change the parent DOM element for the figure
@@ -81,5 +62,35 @@
                left: 0
         });
     }
+
+    $allChessFigures.mousedown(function (){
+        var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
+        toggleAvailableCells(availableCellsCoordinates);
+        debugger
+        asdf(this);
+    });
+
+    // hide available cells when user doesn't press the mouse button
+    $allChessFigures.mouseup(function () {
+        var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
+        toggleAvailableCells(availableCellsCoordinates);
+    });
+
+    // allow draggable for all figures
+    $allChessFigures.draggable();
+
+    // allow droppable for all board cells
+    // $boardCells.droppable({
+    //     // change the DOM when user moving a certain figure to certain cell
+    //     drop: function(event, ui) {
+    //         var currentFigure = ui.draggable.get(0),
+    //             currentNewParent = this;
+    //
+    //         // move figure from one element into other
+    //         switchFigurePosition(currentFigure , currentNewParent);
+    //     }
+    // });
+
+
 
 })();
