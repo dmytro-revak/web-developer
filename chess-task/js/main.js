@@ -1,43 +1,48 @@
-(function initTheChess() {
+var chessModule = (function() {
 
     // save all figures and board cells
     var $allChessFigures = $('.chess-board__figure'),
         $boardCells = $('.chess-board__cell');
 
-    // show or hide the user course available cells
+    // show the user course available cells
     function showAvailableCells(availableCellsCoordinates) {
         $(availableCellsCoordinates).each(function () {
             $('[data-cell="' + this + '"]').addClass('chess-board__cell_style_available');
         }
     )}
 
-    function hide(previousAvailableCellsCoordinates) {
+    // hide the user course available cells
+    function hideAvailableCells(previousAvailableCellsCoordinates) {
         $(previousAvailableCellsCoordinates).each(function () {
             $('[data-cell="' + this + '"]').removeClass('chess-board__cell_style_available');
         });
     }
 
-    function asdf(fig, coord) {
-        var cells = [];
-        $(coord).each(function () {
-            cells.push($('[data-cell="' + this + '"]').get(0));
+    function dragCertainFigureToCertainCell(coordinates) {
+
+        // save all available for current figure cells
+        var allAvailableCells = [];
+
+        $(coordinates).each(function () {
+            allAvailableCells.push($('[data-cell="' + this + '"]').get(0));
         });
-        // debugger
-        debugger
 
-        $(cells).droppable({
+        // make that all that cell droppable for figure
+        $(allAvailableCells).droppable({
 
-            //     // change the DOM when user moving a certain figure to certain cell
+            // change the DOM when user moving a certain figure to certain cell
             drop: function (event, ui) {
                 var currentFigure = ui.draggable.get(0),
                     currentNewParent = this;
-                //
-                //         // move figure from one element into other
+
+                // move figure from one element into other
                 switchFigurePosition(currentFigure, currentNewParent);
-                $(cells).droppable( "disable" );
+                $(allAvailableCells).droppable('disable');
             }
-    });
-        $(cells).droppable( "enable" );
+        });
+
+        // make only current course cells droppable independent the previous user's courses
+        $(allAvailableCells).droppable('enable');
     }
 
     // get available course cells coordinates for the certain figure
@@ -49,7 +54,7 @@
         return callback(currentXCoordinate, currentYCoordinate);
     }
 
-    // describe available cells for coursing for the rook figure
+    // describe rook figure available cells coursing for
     function rookCourse(Xcoordinate, Ycoordinate) {
         var rookAvailableCoordinates = [];
 
@@ -77,43 +82,37 @@
         });
     }
 
-    var previousAvailableCellsCoordinates;
-
-    $allChessFigures.mousedown(function (){
-        var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
-        showAvailableCells(availableCellsCoordinates);
-        asdf('.chess-board__figure', availableCellsCoordinates);
-        previousAvailableCellsCoordinates = availableCellsCoordinates;
-    });
-
-    // hide available cells when user doesn't press the mouse button
-    $allChessFigures.mouseup(function () {
-        // debugger
-        // var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
-        hide(previousAvailableCellsCoordinates);
-        // toggleAvailableCells(availableCellsCoordinates);
-    });
-
-    $allChessFigures.draggable({
-        revert: true
-    });
-
-
-    // allow draggable for all figures
-    // $allChessFigures.draggable();
-
-    // allow droppable for all board cells
-    // $boardCells.droppable({
-    //     // change the DOM when user moving a certain figure to certain cell
-    //     drop: function(event, ui) {
-    //         var currentFigure = ui.draggable.get(0),
-    //             currentNewParent = this;
-    //
-    //         // move figure from one element into other
-    //         switchFigurePosition(currentFigure , currentNewParent);
-    //     }
-    // });
-
-
+     return {
+         $allChessFigures : $allChessFigures,
+         $boardCells: $boardCells,
+         getAvailableCells: getAvailableCells,
+         showAvailableCells: showAvailableCells,
+         hideAvailableCells: hideAvailableCells,
+         dragCertainFigureToCertainCell: dragCertainFigureToCertainCell,
+         switchFigurePosition: switchFigurePosition,
+         rookCourse :rookCourse
+     }
 
 })();
+
+var previousAvailableCellsCoordinates;
+
+chessModule.$allChessFigures.mousedown(function (){
+    debugger
+    var availableCellsCoordinates = chessModule.getAvailableCells($(this), chessModule[this.dataset.figureCourse]);
+    chessModule.showAvailableCells(availableCellsCoordinates);
+    chessModule.dragCertainFigureToCertainCell(availableCellsCoordinates);
+    previousAvailableCellsCoordinates = availableCellsCoordinates;
+});
+
+// hide available cells when user doesn't press the mouse button
+chessModule.$allChessFigures.mouseup(function () {
+    // debugger
+    // var availableCellsCoordinates = getAvailableCells( $('.chess-board__figure').get(0), rookCourse);
+    chessModule.hideAvailableCells(previousAvailableCellsCoordinates);
+    // toggleAvailableCells(availableCellsCoordinates);
+});
+
+chessModule.$allChessFigures.draggable({
+    revert: true
+});
