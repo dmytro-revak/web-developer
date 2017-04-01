@@ -9,7 +9,7 @@ var userModule = (function (userName, userAge) {
         },
         setName = function (newName) {
             name = newName;
-        }
+        };
 
         return {
             name: name,
