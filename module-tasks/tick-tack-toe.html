@@ -10,8 +10,30 @@
     <link rel="stylesheet" href="css/tick-tack-toe.css">
 </head>
 <body>
-    <div class="tick-tack-toe-module">
-
+    <div class="tick-tack-toe-module flex">
+        <main class="app-template start-game-template">
+        <!--<button type="button" class="start-game-button">Start the Game</button>-->
+        </main>
+        <main class="app-template initialize-player-template">
+            <h1 class="initialize-player-heading">Players, please enter your names</h1>
+            <div class="payers-sections flex">
+                <section class="first-player">
+                    <input type="text" class="page-input first-player__name-input" placeholder="enter the player 1 name">
+                    <figure class="image-wrapper first-player__image-wrapper">
+                        <img src="" class="first-player__image">
+                    </figure>
+                    <h2 class="first-player__name"></h2>
+                </section>
+                <section class="second-player">
+                    <input type="text" class="page-input second-player__name-input" placeholder="enter the player 2 name">
+                    <figure class="image-wrapper second-player__image-wrapper">
+                        <img src="" class="second-player__image">
+                    </figure>
+                    <h2 class="second-player__name"></h2>
+                </section>
+            </div>
+            <button type="button" class="lets-game-button">Let's go</button>
+        </main>
     </div>
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/tick-tack-toe.js"></script>
