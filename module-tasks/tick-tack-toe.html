@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="tick-tack-toe-module flex">
-        <main class="app-template app-template_active start-game-template">
+        <main class="app-template start-game-template">
             <button type="button" class="start-game-button">Start the Game</button>
         </main>
         <main class="app-template initialize-player-template">
@@ -33,6 +33,39 @@
                 </section>
             </div>
             <button type="button" class="lets-game-button">Let's go</button>
+        </main>
+        <main class="app-template play-game-template app-template_active flex">
+            <section class="first-player payers-initialize-sections flex">
+                <h2 class="first-player__name player-name">uoi</h2>
+                <figure class="image-wrapper first-player__image-wrapper">
+                    <img src="https://robohash.org/dgf?size=200x200" class="first-player__image">
+                </figure>
+            </section>
+            <section class="play-area">
+                <table class="play-area__table">
+                    <tr class="play-area__row">
+                        <td class="play-area__cell"></td>
+                        <td class="play-area__cell"></td>
+                        <td class="play-area__cell"></td>
+                    </tr>
+                    <tr class="play-area__row">
+                        <td class="play-area__cell"></td>
+                        <td class="play-area__cell"></td>
+                        <td class="play-area__cell"></td>
+                    </tr>
+                    <tr class="play-area__row">
+                        <td class="play-area__cell"></td>
+                        <td class="play-area__cell"></td>
+                        <td class="play-area__cell"></td>
+                    </tr>
+                </table>
+            </section>
+            <section class="second-player payers-initialize-sections flex">
+                <h2 class="second-player__name player-name">uoi</h2>
+                <figure class="image-wrapper second-player__image-wrapper">
+                    <img src="https://robohash.org/dgf?size=200x200" class="second-player__image">
+                </figure>
+            </section>
         </main>
     </div>
 <script src="js/jquery-3.1.1.min.js"></script>
