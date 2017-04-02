@@ -30,16 +30,16 @@ var people = (function () {
 
     var renderPage = function () {
         $('.people-module__name-item').remove();
-        $(names).each(function () {
-            var currentName = this.toString(),
+        names.forEach(function (element, index) {
+            var currentName = element,
                 $nameListItem = $('<li class="people-module__name-item">'),
                 $delItemBtn = $('<span> X</span>');
 
         debugger
-            $delItemBtn.data('name-index') === (names.length - 1);
+            $delItemBtn.attr('data-name-index', index);
             $delItemBtn.click(function () {
                 debugger
-                delPersonName($(this).eq(0).data('name-index'));
+                delPersonName(this.dataset.nameIndex);
             });
 
             $nameListItem.html('<span>' + currentName + '</span>');
