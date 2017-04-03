@@ -47,10 +47,11 @@ var tickTackToeModule = (function () {
 
         $letsStartButton.click(function () {
             $initializePlayerTemplate.removeClass('app-template_active');
-            $initializePlayerTemplate.addClass('app-template_active');
+            $playGameTemplate.addClass('app-template_active');
         });
     };
 
+    // control the core of playing process
     var playGame = function () {
         var $firstPlayerImageWrapper = $('.first-player__image-wrapper'),
             $secondPlayerImageWrapper = $('.second-player__image-wrapper'),
@@ -102,19 +103,29 @@ var tickTackToeModule = (function () {
 
                 // check is one of player winner
                 if (combinationValues[0] === combinationValues[1] && combinationValues[1] === combinationValues[2]) {
-                    winner = combinationValues[0] !== '' ? winnerSide : false;
+                    winnerSide = combinationValues[0] !== '' ? side : false;
                 }
 
                 // if one player are winner return that payer side
                 if (winnerSide) {
-                    return winnerSide;
+                    debugger
+                    finishTheGame(winnerSide);
                 }
             });
         };
 
+        // show the winner and finish the game
+        var finishTheGame = function(winnerSide) {
+            $playAreaCells.off('click');
+            if (winnerSide === 'x') {
+                $firstPlayerImageWrapper.addClass('winner_player');
+                $secondPlayerImageWrapper.addClass('lose_player');
+            } else {
+                $secondPlayerImageWrapper.addClass('winner_player');
+                $firstPlayerImageWrapper.addClass('lose_player');
+            }
+        };
     };
-
-
 
     // control all application
     var controller = function () {
