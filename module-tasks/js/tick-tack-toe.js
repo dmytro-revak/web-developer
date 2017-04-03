@@ -108,7 +108,6 @@ var tickTackToeModule = (function () {
 
                 // if one player are winner return that payer side
                 if (winnerSide) {
-                    debugger
                     finishTheGame(winnerSide);
                 }
             });
