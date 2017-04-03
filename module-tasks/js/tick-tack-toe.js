@@ -1,8 +1,7 @@
 var tickTackToeModule = (function () {
 
-    // save module and basic templates
-    var $applicationContainer = $('.tick-tack-toe-module'),
-        $startGameTemplate = $('.start-game-template'),
+    // save the basic templates
+    var $startGameTemplate = $('.start-game-template'),
         $initializePlayerTemplate = $('.initialize-player-template'),
         $playGameTemplate = $('.play-game-template');
 
@@ -30,7 +29,7 @@ var tickTackToeModule = (function () {
 
         $firstPlayerInput.change(function () {
             $firstPlayerName.text( $(this).val() );
-            $firstPlayerImage.attr('src', 'https://robohash.org/' + $(this).val());
+            $firstPlayerImage.attr('src', 'https://robohash.org/' + $(this).val() + '?size=200x200');
             isFirstPlayerInit = true;
             if (isFirstPlayerInit && isSecondPlayerInit) {
                 $letsStartButton.css('display', 'block');
@@ -39,7 +38,7 @@ var tickTackToeModule = (function () {
 
         $secondPlayerInput.change(function () {
             $secondPlayerName.text( $(this).val() );
-            $secondPlayerImage.attr('src', 'https://robohash.org/' + $(this).val());
+            $secondPlayerImage.attr('src', 'https://robohash.org/' + $(this).val() + '?size=200x200');
             isSecondPlayerInit = true;
             if (isFirstPlayerInit && isSecondPlayerInit) {
                 $letsStartButton.css('display', 'block');
@@ -53,8 +52,8 @@ var tickTackToeModule = (function () {
     };
 
     var playGame = function () {
-        var $firstPlayerImage = $('.first-player__image-wrapper'),
-            $secondPlayerImage = $('.second-player__image-wrapper'),
+        var $firstPlayerImageWrapper = $('.first-player__image-wrapper'),
+            $secondPlayerImageWrapper = $('.second-player__image-wrapper'),
             $playAreaCells = $('.play-area__cell'),
             activePlayer = 'first',
             possibleWinCombinations = ['048', '246'];
@@ -66,38 +65,56 @@ var tickTackToeModule = (function () {
             possibleWinCombinations.push(availableColumnCombination, availableRowCombination);
         }
 
-        var gameXCombination = '',
-            gameYCombination = '';
-
+        // switch players turn after click fill certain cell with X or 0 and verify is any player winner
         $playAreaCells.one('click', function () {
-        debugger
+
             if (activePlayer === 'first') {
                 $(this).html('&#215;');
                 activePlayer = 'second';
 
-                gameXCombination += this.dataset.cellCoordinate;
-                var a = possibleWinCombinations.indexOf(gameXCombination);
-                verifyTheWinCombination(gameXCombination)
+                verifyTheWinCombination('x');
             } else {
                 $(this).html('&#9898;');
                 activePlayer = 'first';
 
-                rowCoordinate = this.dataset.row;
-                columnCoordinate = this.dataset.cell;
-
-                gameYCombination += this.dataset.cellCoordinate;
-
-
-                verifyTheWinCombination(gameYCombination)
+                verifyTheWinCombination('y');
             }
+
+            $firstPlayerImageWrapper.toggleClass('active_player');
+            $secondPlayerImageWrapper.toggleClass('active_player');
         });
+
+        // check does win combination occur on the table
+        var verifyTheWinCombination = function (side) {
+
+            var winnerSide = false;
+
+            // make arrays of values for the each possible win combination and check are they same
+            possibleWinCombinations.forEach(function (combination) {
+
+                // array for values
+                var combinationValues = [];
+
+                // fill array with values
+                for (var i = 0; i < combination.length; i++) {
+                    combinationValues.push( $('[data-cell-coordinate="' + combination[i] + '"]').html() );
+                }
+
+                // check is one of player winner
+                if (combinationValues[0] === combinationValues[1] && combinationValues[1] === combinationValues[2]) {
+                    winner = combinationValues[0] !== '' ? winnerSide : false;
+                }
+
+                // if one player are winner return that payer side
+                if (winnerSide) {
+                    return winnerSide;
+                }
+            });
+        };
+
     };
 
-    var verifyTheWinCombination = function (combination) {
-        if (possibleWinCombinations.indexOf(combination) !== -1) {
-            alert('win');
-        }
-    };
+
 
     // control all application
     var controller = function () {
