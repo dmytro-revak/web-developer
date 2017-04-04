@@ -1,5 +1,4 @@
 function Human() {
-
     this.name = 'Andrian';
     this.height = 177;
     this.go = function(place) {
@@ -58,3 +57,47 @@ function Nurse() {
 Librarian.prototype = new Woman();
 Nurse.prototype = new Woman();
 
+function Animal() {
+    this.name = 'name';
+    this.age = 1;
+    this.walking = function () {
+        alert('Walk')
+    };
+}
+
+function Herbivorous() {
+    this.food = 'plants';
+}
+
+function Predator() {
+    this.food = 'meet';
+}
+
+Herbivorous.prototype = new Animal();
+Predator.prototype = new Animal();
+
+function Horse() {
+    this.kind = 'Horse';
+}
+
+function Cow() {
+    this.kind = 'Cow';
+}
+
+Horse.prototype = new Herbivorous();
+Cow.prototype = new Herbivorous();
+
+function Tiger() {
+    this.kind = 'Tiger';
+}
+
+function Lion() {
+    this.kind = 'Lion';
+}
+
+Tiger.prototype = new Predator();
+Lion.prototype = new Predator();
+
+// var simba = new Lion();
+
+// console.log(simba.walking());
