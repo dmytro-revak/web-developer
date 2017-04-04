@@ -7,6 +7,10 @@ function Human() {
     this.speak = function(word) {
         alert(word);
     };
+    this.pet = 'pet';
+    this.getPet = function (petKind) {
+        this.pet = new window[petKind]();
+    }
 }
 
 function Man() {
@@ -33,8 +37,12 @@ function Hunter() {
 
 function Worker() {
     this.tools = 'hummer';
+    this.position = '';
     this.work = function(job) {
         console.log('Do ' + job);
+    };
+    this.getPosition = function (position) {
+        this.position = position;
     };
 }
 
@@ -62,6 +70,10 @@ function Animal() {
     this.age = 1;
     this.walking = function () {
         alert('Walk')
+    };
+    this.status = 'free animal';
+    this.catchAnimal = function () {
+        this.status = 'zoo animal';
     };
 }
 
@@ -98,6 +110,18 @@ function Lion() {
 Tiger.prototype = new Predator();
 Lion.prototype = new Predator();
 
-// var simba = new Lion();
+function ZooWorker() {
+    this.position = 'zoo worker';
+}
 
-// console.log(simba.walking());
+ZooWorker.prototype = new Worker();
+
+var jon = new ZooWorker();
+console.log(jon.position);
+jon.getPet('Horse');
+console.log(jon.pet);
+
+var simba = new Lion();
+console.log(simba);
+simba.catchAnimal();
+console.log(simba.kind);
