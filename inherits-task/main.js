@@ -1,16 +1,27 @@
+var zooAnimals = [];
+
 function Human() {
     this.name = 'Andrian';
     this.height = 177;
+
     this.go = function(place) {
         console.log('go to ' + place);
     };
+
     this.speak = function(word) {
         alert(word);
     };
     this.pet = 'pet';
+
     this.getPet = function (petKind) {
         this.pet = new window[petKind]();
-    }
+    };
+
+    this.catchAnimal = function (animalKind) {
+        var catchingAnimal = new window[animalKind];
+        catchingAnimal.catch();
+        zooAnimals.push(catchingAnimal);
+    };
 }
 
 function Man() {
@@ -72,7 +83,7 @@ function Animal() {
         alert('Walk')
     };
     this.status = 'free animal';
-    this.catchAnimal = function () {
+    this.catch = function () {
         this.status = 'zoo animal';
     };
 }
@@ -120,8 +131,11 @@ var jon = new ZooWorker();
 console.log(jon.position);
 jon.getPet('Horse');
 console.log(jon.pet);
+jon.catchAnimal('Lion');
+console.log(zooAnimals);
 
 var simba = new Lion();
 console.log(simba);
-simba.catchAnimal();
+simba.catch();
 console.log(simba.kind);
+
