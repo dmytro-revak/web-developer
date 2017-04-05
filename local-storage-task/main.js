@@ -85,17 +85,29 @@ var testModule = (function () {
         $('body').append($listOfQuestions);
     };
 
-
+    // create verify button
+    var createResultButton = function () {
+        var $resultButton = $('<input type="button" value="Check the test">');
+        $resultButton.css({
+            fontSize: '24px',
+            display: 'block',
+            margin: '0 auto 200px',
+            padding: '10px'
+        });
+        $('body').append($resultButton);
+    };
 
 
 
 
     return {
         createHeading: createHeading,
-        crateQuestionsList: crateQuestionsList
+        crateQuestionsList: crateQuestionsList,
+        createResultButton: createResultButton
     };
 
 })();
 
 testModule.createHeading();
 testModule.crateQuestionsList();
+testModule.createResultButton ();
