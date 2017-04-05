@@ -34,8 +34,8 @@ var testModule = (function () {
 
     // create page heading
     var createHeading = function () {
-        var $heading = ('<h1> Тест по програмуванню </h1>');
-        $('body').append($heading);
+        var heading = ('<h1>Тест по загальних знаннях</h1>');
+        $('body').append(heading);
     };
 
     // create questions section
@@ -46,6 +46,9 @@ var testModule = (function () {
 
         // create list of questions
         var $listOfQuestions = $('<ol>');
+
+        // array for the right answers
+        var rightAnswers = [];
 
         // form each different question
         questions.forEach(function (questionObj, index) {
@@ -58,10 +61,12 @@ var testModule = (function () {
 
             // certain question variants of answer
             var $questionsAnswersList = $('<ul>');
+            $questionsAnswersList.css('list-style', 'none');
+
             for (var i = 0; i < questionObj.variants.length; i++) {
-                var $variantLabel = $('<label>');
-                var variantText = questionObj.variants[i];
-                var $variantInput = $('<input type="radio" name="question' + index + '">');
+                var $variantLabel = $('<label>'),
+                    variantText = questionObj.variants[i],
+                    $variantInput = $('<input type="radio" name="question' + index + '">');
                 $variantLabel.append($variantInput, variantText);
                 $questionsAnswersList.append('<li>' + $variantLabel.get(0).outerHTML + '</li>');
             }
@@ -71,10 +76,16 @@ var testModule = (function () {
 
             // put complete question item to the list of questions
             $listOfQuestions.append($questionItem);
+
+            // add certain right answer to the array
+            rightAnswers.push(questionObj.answer);
             
         });
+
         $('body').append($listOfQuestions);
     };
+
+
 
 
 
@@ -86,4 +97,5 @@ var testModule = (function () {
 
 })();
 
+testModule.createHeading();
 testModule.crateQuestionsList();
