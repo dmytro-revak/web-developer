@@ -110,6 +110,7 @@ var testModule = (function () {
         // get all users answers
         $(':checked').each(function () {
             userAnswers.push( $(this).val() );
+            this.checked = false;
         });
 
         rightAnswers.forEach(function (rightAnswer, index) {
