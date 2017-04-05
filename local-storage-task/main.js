@@ -38,6 +38,9 @@ var testModule = (function () {
         $('body').append(heading);
     };
 
+    // create an array for the right answers
+    var rightAnswers = [];
+
     // create questions section
     var crateQuestionsList = function () {
         // get all the questions from local storage
@@ -46,9 +49,6 @@ var testModule = (function () {
 
         // create list of questions
         var $listOfQuestions = $('<ol>');
-
-        // array for the right answers
-        var rightAnswers = [];
 
         // form each different question
         questions.forEach(function (questionObj, index) {
@@ -66,7 +66,7 @@ var testModule = (function () {
             for (var i = 0; i < questionObj.variants.length; i++) {
                 var $variantLabel = $('<label>'),
                     variantText = questionObj.variants[i],
-                    $variantInput = $('<input type="radio" name="question' + index + '">');
+                    $variantInput = $('<input type="radio" name="question' + index + '" value="' + variantText + '">');
                 $variantLabel.append($variantInput, variantText);
                 $questionsAnswersList.append('<li>' + $variantLabel.get(0).outerHTML + '</li>');
             }
@@ -94,7 +94,28 @@ var testModule = (function () {
             margin: '0 auto 200px',
             padding: '10px'
         });
+        $resultButton.click(function () {
+            verifyAnswer();
+        });
         $('body').append($resultButton);
+    };
+
+    // function which verify the user answers
+    var verifyAnswer = function () {
+        var userScore = 0,
+            userAnswers = [];
+
+        // get all users answers
+        $(':checked').each(function () {
+            userAnswers.push( $(this).val() );
+        });
+
+        rightAnswers.forEach(function (rightAnswer, index) {
+            if (rightAnswer === userAnswers[index]) {
+                userScore++;
+            }
+        });
+        return userScore;
     };
 
 
