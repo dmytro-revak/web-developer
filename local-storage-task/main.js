@@ -94,9 +94,11 @@ var testModule = (function () {
             margin: '0 auto 200px',
             padding: '10px'
         });
+
         $resultButton.click(function () {
-            verifyAnswer();
+            alert('You have got ' + verifyAnswer() + ' points');
         });
+
         $('body').append($resultButton);
     };
 
@@ -117,9 +119,6 @@ var testModule = (function () {
         });
         return userScore;
     };
-
-
-
 
     return {
         createHeading: createHeading,
