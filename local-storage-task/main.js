@@ -4,55 +4,86 @@
 var questions  = [
     {
         question: 'Яка столиця Туреччини ?',
-        variantA: 'Стамбул',
-        variantB: 'Стамбул',
-        variantC: 'Стамбул',
+        variants: ['Стамбул', 'Анкара', 'Анталія'],
         answer: 'Анкара'
     }, {
         question: 'Хто автор "Теорії Відносності ?',
-        variantA: 'Енштейн',
-        variantB: 'Бор',
-        variantC: 'Хокінг',
+        variants: ['Енштейн', 'Бор', 'Хокінг'],
         answer: 'Енштейн'
     }, {
         question: 'Скільки існує материків ?',
-        variantA: '5',
-        variantB: '6',
-        variantC: '7',
+        variants: ['5', '6', '7'],
         answer: '6'
     }, {
         question: 'Коли було відкрито Америку ?',
-        variantA: '1592р',
-        variantB: '1113р',
-        variantC: '1667р',
+        variants: ['1592р', '1113р', '1667р'],
         answer: '1592р'
     }, {
         question: 'Який з монархів Великої Британії правив найдовше ?',
-        variantA: 'Генріх VII',
-        variantB: 'Елизавета І',
-        variantC: 'Елизавета ІІ',
+        variants: ['Генріх VII', 'Елизавета І', 'Елизавета ІІ'],
         answer: 'Елизавета ІІ'
     }
 ];
 
-    var jsonQuestions = JSON.stringify(questions);
-    localStorage.setItem('questions', jsonQuestions);
+// put all that question to the local storage
+var jsonQuestions = JSON.stringify(questions);
+localStorage.setItem('questions', jsonQuestions);
 
+// write test module
 var testModule = (function () {
+
+    // create page heading
     var createHeading = function () {
         var $heading = ('<h1> Тест по програмуванню </h1>');
         $('body').append($heading);
     };
 
+    // create questions section
     var crateQuestionsList = function () {
-        var $questionsList = ('<ol>');
+        // get all the questions from local storage
+        var jsonQuestions = localStorage.getItem('questions');
+        var questions = JSON.parse(jsonQuestions);
+
+        // create list of questions
+        var $listOfQuestions = $('<ol>');
+
+        // form each different question
+        questions.forEach(function (questionObj, index) {
+
+            // parent for the each question
+            var $questionItem = $('<li>');
+
+            // certain question heading
+            var $questionHeading = $('<h4>' + questionObj.question + '</h4>');
+
+            // certain question variants of answer
+            var $questionsAnswersList = $('<ul>');
+            for (var i = 0; i < questionObj.variants.length; i++) {
+                var $variantLabel = $('<label>');
+                var variantText = questionObj.variants[i];
+                var $variantInput = $('<input type="radio" name="question' + index + '">');
+                $variantLabel.append($variantInput, variantText);
+                $questionsAnswersList.append('<li>' + $variantLabel.get(0).outerHTML + '</li>');
+            }
+
+            // put together question heading and question answers
+            $questionItem.append($questionHeading, $questionsAnswersList);
+
+            // put complete question item to the list of questions
+            $listOfQuestions.append($questionItem);
+            
+        });
+        $('body').append($listOfQuestions);
     };
 
 
 
 
     return {
-
+        createHeading: createHeading,
+        crateQuestionsList: crateQuestionsList
     };
 
 })();
+
+testModule.crateQuestionsList();
