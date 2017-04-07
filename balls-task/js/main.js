@@ -39,6 +39,10 @@ function createMovingDiv() {
             }
         });
 
+        newDiv.click(function () {
+            createMovingDiv();
+        });
+
         $('body').append(newDiv);
     }
 }
