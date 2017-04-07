@@ -1,5 +1,7 @@
+// save red div to the variable
 var mainBall = $('div').eq(0);
 
+// make red div animated
 setInterval(function() {
     mainBall.animate({
         top: Math.round(Math.random() * 600) + 'px',
@@ -7,10 +9,12 @@ setInterval(function() {
     }, 2000);
 }, 2000);
 
+// create three divs when user press on the red div
 mainBall.click(function () {
     createMovingDiv();
 });
 
+// create three div, add them to the body and make them animated
 function createMovingDiv() {
     var backgroundColors = ['blue', 'green', 'yellow'];
     for (var i = 0; i < 3; i++) {
@@ -46,14 +50,6 @@ function createMovingDiv() {
         $('body').append(newDiv);
     }
 }
-
-
-
-
-
-
-
-
 
 
 // function MovingDiv(father) {
