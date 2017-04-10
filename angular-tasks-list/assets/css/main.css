@@ -1,13 +1,12 @@
 .user-name {
     padding-bottom: 15px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #3c3c3c;
+    border-bottom: 2px solid #00897b;
 }
 
 .adding-task-panel {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin: 20px 0;
 }
 
 #add-task-field {
@@ -20,11 +19,10 @@
 }
 
 .tasks-list {
-    border: 2px solid #FFFFFF;
-    border-radius: 5px;
+    border: 2px solid #00897b;
     margin-bottom: 250px;
 }
 
-.task-item {
-    padding: 5px;
+.table-headings {
+    border-bottom: 2px solid #00897b;
 }
