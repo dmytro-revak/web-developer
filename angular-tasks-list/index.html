@@ -17,7 +17,7 @@
         <h5 class="user-name">User: Dmytro Revak. Count of Tasks - {{tasksList.length}}</h5>
         <div class="adding-task-panel input-field">
             <label for="add-task-field">Enter the task</label>
-            <input type="text" id="add-task-field" ng-model="newTask">
+            <input type="text" id="add-task-field" ng-model="newTask" required>
             <button type="button" class="adding-button btn-floating btn-large waves-effect waves-light"  data-ng-click="addNewTask(newTask)">Add</button>
         </div>
         <table class="tasks-list">
@@ -51,7 +51,7 @@
                 </td>
             </tr>
         </table>
-    </div>
+    </div >
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <script src="assets/lib/materialize/js/materialize.min.js"></script>
     <script src="app/app.js"></script>
