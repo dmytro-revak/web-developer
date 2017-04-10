@@ -8,10 +8,17 @@
     <title>Angular Tasks List</title>
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/lib/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/lib/angular/angular.min.js"></script>
 </head>
-<body>
+<body data-ng-app="tasksList">
+    <div class="container" ng-controller="tasksListCtrl">
+        <h3 class="heading">Plan your day</h3>
+        <h5 class="user-name">User: Dmytro Revak. Count of Tasks - {{tasksList.length}}</h5>
+    </div>
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <script src="assets/lib/materialize/js/materialize.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/tasksListCtrl.js"></script>
 </body>
 </html>
