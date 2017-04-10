@@ -1,5 +1,6 @@
 tasksListApp.controller('tasksListCtrl', function ($scope) {
-   $scope.tasksList = [
+
+    $scope.tasksList = [
        'Винести сміття',
        'Поприбирати',
        'Написати домашнє',
@@ -8,4 +9,9 @@ tasksListApp.controller('tasksListCtrl', function ($scope) {
        'Не забути про пари',
        'Знайти сенс життя'
    ];
+
+   $scope.addNewTask = function (newTask) {
+       $scope.tasksList.push(newTask);
+       alert(1);
+   };
 });

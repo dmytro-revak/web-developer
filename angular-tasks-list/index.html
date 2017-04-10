@@ -17,8 +17,8 @@
         <h5 class="user-name">User: Dmytro Revak. Count of Tasks - {{tasksList.length}}</h5>
         <div class="adding-task-panel input-field">
             <label for="add-task-field">Enter the task</label>
-            <input type="text" id="add-task-field">
-            <button type="button" class="adding-button btn-floating btn-large waves-effect waves-light">Add</button>
+            <input type="text" id="add-task-field" ng-model="newTask">
+            <button type="button" class="adding-button btn-floating btn-large waves-effect waves-light"  data-ng-click="addNewTask(newTask)">Add</button>
         </div>
         <table class="tasks-list">
             <tr class="table-headings">
