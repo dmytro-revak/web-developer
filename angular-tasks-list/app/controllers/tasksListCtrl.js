@@ -1,5 +1,6 @@
 tasksListApp.controller('tasksListCtrl', function ($scope) {
 
+    // initial tasks list
     $scope.tasksList = [
        'Винести сміття',
        'Поприбирати',
@@ -10,6 +11,7 @@ tasksListApp.controller('tasksListCtrl', function ($scope) {
        'Знайти сенс життя'
    ];
 
+    // add new task when user click the add button
    $scope.addNewTask = function (newTask) {
        $scope.tasksList.push(newTask);
        alert(1);
