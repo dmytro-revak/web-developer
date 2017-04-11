@@ -17,6 +17,7 @@ tasksListApp.controller('tasksListCtrl', function ($scope, $http) {
    // remove certain task when user click the delete button
    $scope.removeTask = function (index) {
        $scope.tasksList.splice(index, 1);
+       $scope.isEditPanelVisible = false;
    };
 
    // show task editing panel whe user click certain edit button
