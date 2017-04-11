@@ -47,8 +47,14 @@ tasksListApp.controller('tasksListCtrl', function ($scope) {
 
    // show task editing panel whe user click certain edit button
    $scope.showEditPanel = function (taskIndex) {
-       $scope.isEditPanelVisible = !$scope.isEditPanelVisible;
-       $scope.currentEditingTask = $scope.tasksList[taskIndex].taskName;
+       $scope.currentEditingTaskIndex = taskIndex;
+       $scope.isEditPanelVisible = $scope.isEditPanelVisible || !$scope.isEditPanelVisible;
+       $scope.currentEditingTaskText = $scope.tasksList[taskIndex].taskName;
    };
+
+    $scope.editTask = function () {
+        $scope.tasksList[$scope.currentEditingTaskIndex].taskName = $scope.currentEditingTaskText;
+        $scope.isEditPanelVisible = false;
+    };
 
 });

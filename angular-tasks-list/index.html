@@ -53,8 +53,8 @@
             </tr>
         </table>
         <div class="editing-task-panel input-field" ng-show="isEditPanelVisible">
-            <input type="text" id="edit-task-field" ng-model="currentEditingTask">
-            <button type="button" class="save-edit-button btn-floating btn-large waves-effect waves-light blue"  data-ng-click="">Save</button>
+            <input type="text" id="edit-task-field" ng-model="currentEditingTaskText">
+            <button type="button" class="save-edit-button btn-floating btn-large waves-effect waves-light blue"  data-ng-click="editTask()">Save</button>
         </div>
     </div >
     <script src="assets/js/jquery-3.1.1.min.js"></script>
