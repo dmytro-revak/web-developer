@@ -1,3 +1,7 @@
+body {
+    padding-bottom: 250px;
+}
+
 .user-name {
     padding-bottom: 15px;
     border-bottom: 2px solid #00897b;
@@ -22,14 +26,12 @@
 
 .tasks-list {
     border: 2px solid #00897b;
-    margin-bottom: 25px;
 }
 
 .table-headings {
     border-bottom: 2px solid #00897b;
 }
 
-.task-row:hover,
-.table-headings:hover {
+.task-row:hover {
     background-color: #FFFFFF;
 }

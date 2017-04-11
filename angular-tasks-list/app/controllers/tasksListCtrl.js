@@ -1,40 +1,14 @@
-tasksListApp.controller('tasksListCtrl', function ($scope) {
+tasksListApp.controller('tasksListCtrl', function ($scope, $http) {
 
-    // initial tasks list
-    $scope.tasksList = [
-        {
-            taskName: 'Винести сміття',
-            isDone: false
-        },
-        {
-            taskName: 'Поприбирати',
-            isDone: false
-        },
-        {
-            taskName: 'Написати домашнє',
-            isDone: false
-        },
-        {
-            taskName: 'Підлити квіти',
-            isDone: false
-        },
-        {
-            taskName: 'Вивчити Angular',
-            isDone: false
-        },
-        {
-            taskName: 'Не забути про пари',
-            isDone: false
-        },
-        {
-            taskName: 'Знайти сенс життя',
-            isDone: false
-        }
-   ];
+    // get initial tasks list fro tasks.json
+    $http.get("./tasks.json").then(function(response) {
+            $scope.tasksList = response.data;
+            $scope.statuscode = response.status;
+            $scope.statustext = response.statustext;
+        });
 
     // add new task when user click the add button
-   $scope.addNewTask = function (newTask) {
-       debugger
+    $scope.addNewTask = function (newTask) {
        if (newTask && $scope.tasksList.indexOf(newTask) === -1) {
            $scope.tasksList.push(newTask);
        }
@@ -52,6 +26,7 @@ tasksListApp.controller('tasksListCtrl', function ($scope) {
        $scope.currentEditingTaskText = $scope.tasksList[taskIndex].taskName;
    };
 
+   // save editing changes and hide editing panel when user click save button
     $scope.editTask = function () {
         $scope.tasksList[$scope.currentEditingTaskIndex].taskName = $scope.currentEditingTaskText;
         $scope.isEditPanelVisible = false;
