@@ -10,7 +10,10 @@ tasksListApp.controller('tasksListCtrl', function ($scope, $http) {
     // add new task when user click the add button
     $scope.addNewTask = function (newTask) {
        if (newTask && $scope.tasksList.indexOf(newTask) === -1) {
-           $scope.tasksList.push(newTask);
+           $scope.tasksList.push({
+               taskName: newTask,
+               isDone: false
+           });
        }
    };
 
