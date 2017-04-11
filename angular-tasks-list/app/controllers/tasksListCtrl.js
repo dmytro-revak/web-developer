@@ -2,13 +2,34 @@ tasksListApp.controller('tasksListCtrl', function ($scope) {
 
     // initial tasks list
     $scope.tasksList = [
-       'Винести сміття',
-       'Поприбирати',
-       'Написати домашнє',
-       'Підлити квіти',
-       'Вивчити Angular',
-       'Не забути про пари',
-       'Знайти сенс життя'
+        {
+            taskName: 'Винести сміття',
+            isDone: false
+        },
+        {
+            taskName: 'Поприбирати',
+            isDone: false
+        },
+        {
+            taskName: 'Написати домашнє',
+            isDone: false
+        },
+        {
+            taskName: 'Підлити квіти',
+            isDone: false
+        },
+        {
+            taskName: 'Вивчити Angular',
+            isDone: false
+        },
+        {
+            taskName: 'Не забути про пари',
+            isDone: false
+        },
+        {
+            taskName: 'Знайти сенс життя',
+            isDone: false
+        }
    ];
 
     // add new task when user click the add button
