@@ -20,6 +20,12 @@ blogApp.controller('blogCtrl', function ($http) {
         }
     };
 
+    // remove certain post when user click remove button
+    vm.removePost =  function (post) {
+        var postIndex = vm.postList.indexOf(post);
+        vm.postList.splice(postIndex, 1);
+    };
+
     // function which generated current date for the new post on blog
     vm.getCurrentDate = function () {
         var today = new Date();
