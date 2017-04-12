@@ -44,8 +44,11 @@ blogApp.controller('blogCtrl', function ($http) {
         return mm + '/' + dd + '/' +yyyy;
     };
 
+    vm.isEditingModalVisible = false;
 
-
+    vm.toggleChangingModal = function () {
+        vm.isEditingModalVisible = !vm.isEditingModalVisible;
+    };
     vm.userStatus = 'Admin';
 
 });
