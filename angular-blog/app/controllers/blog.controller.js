@@ -8,6 +8,7 @@ blogApp.controller('blogCtrl', function ($http) {
         vm.postList = response.data;
     });
 
+
     // debugger
 
     // setTimeout(function () {
