@@ -44,11 +44,30 @@ blogApp.controller('blogCtrl', function ($http) {
         return mm + '/' + dd + '/' +yyyy;
     };
 
+    // hide the changing modal window by default
     vm.isEditingModalVisible = false;
 
-    vm.toggleChangingModal = function () {
-        vm.isEditingModalVisible = !vm.isEditingModalVisible;
+    // change post when user click the change button
+    vm.changePost = function (post) {
+
+        // show changing modal
+        vm.isEditingModalVisible = true;
+
+        // save post object which user editing
+        vm.changingPost = post;
+        vm.changingTopic = post.postHeading;
+        vm.changingMessage = post.message;
     };
+
+    // save user's changes
+    vm.saveChanges = function () {
+        vm.changingPost.postHeading = vm.changingTopic;
+        vm.changingPost.message = vm.changingMessage;
+
+        // hide changing modal
+        vm.isEditingModalVisible = false;
+    };
+
     vm.userStatus = 'Admin';
 
 });
