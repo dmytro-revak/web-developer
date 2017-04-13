@@ -14,6 +14,25 @@
 </head>
 <body ng-app="blogApp" class="bg-info">
     <div class="container" ng-controller="blogCtrl as blog">
+        <div class="modal-window" ng-if="blog.isPasswordModalVisible">
+            <div class="modal-content">
+                <div class="form-group">
+                    <label for="login-field">Login</label>
+                    <input type="text" id="login-field" class="form-control" ng-model="blog.login" required>
+                </div>
+                <div class="form-group">
+                    <label for="password-field">Password</label>
+                    <input type="password" id="password-field" class="form-control" ng-model="blog.password" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" ng-click="blog.adminVerification()">Enter</button>
+                    <button type="button" class="btn btn-primary" ng-click="blog.continueLikeGuest()">Continue</button>
+                    <div class="text-wrapper text-left text-danger">
+                        <span>{{blog.passwordWarning}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <h1 class="text-center">Hello {{blog.userStatus}}</h1>
         <div class="form-group">
             <label for="post-topic-field">Topic</label>
@@ -43,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <div class="editing-modal" ng-show="blog.isEditingModalVisible">
+        <div class="modal-window" ng-if="blog.isEditingModalVisible">
             <div class="modal-content">
                 <div class="form-group">
                     <label for="post-changing-topic-field">Topic</label>

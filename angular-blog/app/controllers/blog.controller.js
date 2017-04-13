@@ -8,6 +8,26 @@ blogApp.controller('blogCtrl', function ($http) {
         vm.postList = response.data;
     });
 
+    // show the verification when user load the page
+    vm.isPasswordModalVisible = true;
+
+    // verify is user admin when he click enter button
+    vm.adminVerification = function () {
+        if (vm.login === 'log' && vm.password === 'pas') {
+            vm.userStatus  = 'Admin';
+            vm.passwordWarning = '';
+            vm.isPasswordModalVisible = !vm.isPasswordModalVisible;
+        } else {
+            vm.passwordWarning = 'Incorrect login or password';
+        }
+    };
+
+    // allow system access like guest if user click continue
+    vm.continueLikeGuest = function () {
+        vm.userStatus  = 'Guest';
+        vm.isPasswordModalVisible = !vm.isPasswordModalVisible;
+    };
+
     // add new blog post when user click add button
     vm.addNewPost = function () {
         if (vm.newPostTopic && vm.newPostMessage) {
@@ -67,7 +87,4 @@ blogApp.controller('blogCtrl', function ($http) {
         // hide changing modal
         vm.isEditingModalVisible = false;
     };
-
-    vm.userStatus = 'Admin';
-
 });
